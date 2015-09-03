@@ -1,0 +1,29 @@
+site_name: LCONF-Data-Serialization-Format-Standard
+site_url: https://lconf-data-serialization-format/LCONF-Data-Serialization-Format-Standard/
+site_description: The official LCONF-Data-Serialization-Format-Standard.
+site_author: peter1000
+site_favicon: images/lconf_favicon.ico
+
+repo_url: https://github.com/LCONF-Data-Serialization-Format/LCONF-Data-Serialization-Format-Standard/
+
+pages:
+- Home: 'index.md'
+
+- LCONF-Specification:
+    - 1. LCONF-Standard: lconf-specification/1-lconf-standard.md
+    - 2. LCONF-Terminology: lconf-specification/2-lconf-terminology.md
+    - 3. LCONF-Text: lconf-specification/3-lconf-text.md
+    - 4. LCONF-Section: lconf-specification/4-lconf-section.md
+    - 5. LCONF-Structures: lconf-specification/5-lconf-structures.md
+    - 6. LCONF-Value-Types: lconf-specification/6-lconf-value-types.md
+    - 7. LCONF-Schema-Definition: lconf-specification/7-lconf-schema-definition.md
+
+- About:
+    - Readme: about/readme.md
+    - License: about/license.md
+    - Changelog: about/changelog.md
+
+use_directory_urls: true
+copyright: Copyright (c) 2014 - 2015, <strong>peter1000</strong> <a href="https://github.com/peter1000">https://github.com/peter1000</a>.
+
+theme: 'bootstrap'
