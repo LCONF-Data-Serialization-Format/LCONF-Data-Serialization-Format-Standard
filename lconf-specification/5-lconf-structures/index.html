@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="peter1000">
+        <link rel="canonical" href="https://lconf-data-serialization-format/LCONF-Data-Serialization-Format-Standard/lconf-specification/5-lconf-structures/">
+        <link rel="shortcut icon" href="../../images/lconf_favicon.ico">
+        
+
+	<title>5. LCONF-Structures - LCONF-Data-Serialization-Format-Standard</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LCONF-Data-Serialization-Format-Standard</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LCONF-Specification <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../1-lconf-standard/">1. LCONF-Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../2-lconf-terminology/">2. LCONF-Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../3-lconf-text/">3. LCONF-Text</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../4-lconf-section/">4. LCONF-Section</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">5. LCONF-Structures</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../6-lconf-value-types/">6. LCONF-Value-Types</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../7-lconf-schema-definition/">7. LCONF-Schema-Definition</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../about/readme/">Readme</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/license/">License</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/changelog/">Changelog</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../4-lconf-section/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../6-lconf-value-types/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LCONF-Data-Serialization-Format/LCONF-Data-Serialization-Format-Standard/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#5-lconf-structures">5. LCONF Structures</a></li>
+        
+            <li><a href="#51-lconf-key-name">5.1. LCONF-Key-Name</a></li>
+        
+            <li><a href="#52-structure_pair">5.2. STRUCTURE_PAIR</a></li>
+        
+            <li><a href="#53-structure_list">5.3. STRUCTURE_LIST</a></li>
+        
+            <li><a href="#54-structure_table">5.4. STRUCTURE_TABLE</a></li>
+        
+            <li><a href="#55-structure_single_block">5.5. STRUCTURE_SINGLE_BLOCK</a></li>
+        
+            <li><a href="#56-structure_named_blocks">5.6. STRUCTURE_NAMED_BLOCKS</a></li>
+        
+            <li><a href="#57-structure_unnamed_blocks">5.7. STRUCTURE_UNNAMED_BLOCKS</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div align="center">
+    <a href="http://lconf-data-serialization-format.github.io/">
+        <img src="../../images/lconf-logo.png" alt="LCONF LOGO" title="The LCONF-Data-Serialization-Format Organization">
+    </a>
+</div>
+
+<blockquote>
+<p>This file is part of the <em>LCONF-Data-Serialization-Format-Standard Documentation</em>.</p>
+<p>Copyright (c) 2014 - 2015, <strong>peter1000</strong>  <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</p>
+</blockquote>
+<h1 id="5-lconf-structures">5. LCONF Structures</h1>
+<p>The set of six structures includes three simple structures and three collection structures.</p>
+<p>The three simple structures are:</p>
+<ul>
+<li>STRUCTURE_PAIR</li>
+<li>STRUCTURE_LIST (inclusive Compact_STRUCTURE_LIST notation)</li>
+<li>STRUCTURE_TABLE</li>
+</ul>
+<p>The three collection structures are:</p>
+<ul>
+<li>STRUCTURE_SINGLE_BLOCK</li>
+<li>STRUCTURE_NAMED_BLOCKS</li>
+<li>STRUCTURE_UNNAMED_BLOCKS</li>
+</ul>
+<p>The <strong>LCONF-Root</strong> (Structure) is a special STRUCTURE_SINGLE_BLOCK which exists in every valid LCONF-Section.
+It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed STRUCTURE_SINGLE_BLOCK.</p>
+<h2 id="51-lconf-key-name">5.1. LCONF-Key-Name</h2>
+<p>Nearly all LCONF-Key-Names will be implemented in a corresponding LCONF-Schema-Definition.
+Only few e.g. STRUCTURE_NAMED_BLOCKS-Item (STRUCTURE_SINGLE_BLOCKs) Key-Names will be defined within a LCONF-Section.</p>
+<h2 id="52-structure_pair">5.2. STRUCTURE_PAIR</h2>
+<p>Associates a LCONF-Key-Name with one data value. <br />
+The STRUCTURE_PAIR-Value MUST be a sequence of <strong>zero or more</strong> Unicode characters and includes all till the end of
+the line. The STRUCTURE_PAIR-Value MAY be a TYPE_NOTSET. <br />
+If the Value has more than zero characters than the first character MUST NOT be any whitespace.</p>
+<pre><code class="text">LCONF-Key-Name LCONF_KEY_VALUE_SEPARATOR Value
+
+FirstName :: Mary
+</code></pre>
+
+<h3 id="521-structure_pair-with-empty-value">5.2.1. STRUCTURE_PAIR With Empty-Value</h3>
+<p>This is an exception and MUST use an <strong>empty sequence</strong> of Unicode characters and to avoid a Trailing Whitespace there
+MUST be no additional LCONF_SPACE after the LCONF_KEY_VALUE_SEPARATOR.</p>
+<p>STRUCTURE_PAIR with an Empty-Value set MUST</p>
+<ul>
+<li>start with a LCONF-Key-Name</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+</ul>
+<p>This will overwrite the default value with whatever the implementation for an Empty-Value for this STRUCTURE_PAIR
+is.</p>
+<pre><code class="text">registered ::
+</code></pre>
+
+<h3 id="522-structure_pair-with-notset-value">5.2.2. STRUCTURE_PAIR With NOTSET Value</h3>
+<p>The Value MUST be a TYPE_NOTSET.</p>
+<p>STRUCTURE_PAIR with NOTSET value MUST</p>
+<ul>
+<li>start with a LCONF-Key-Name</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF_NOTSET</li>
+</ul>
+<p>This will keep the default STRUCTURE_PAIR value as implemented in a LCONF-Schema-Definition and is the same as
+if the STRUCTURE_PAIR was not included in a LCONF-Section.</p>
+<pre><code class="text">registered :: NOTSET
+</code></pre>
+
+<h3 id="523-structure_pair-with-assigned-value">5.2.3. STRUCTURE_PAIR With Assigned Value</h3>
+<p>The Value MUST be a sequence of <strong>one or more</strong> Unicode characters and includes all till the end of the line.</p>
+<p>STRUCTURE_PAIR with assigned value MUST</p>
+<ul>
+<li>start with a LCONF-Key-Name</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a TYPE_NOTSET</li>
+</ul>
+<p>This will overwrite the default value with <code>true</code>.</p>
+<pre><code class="text">registered :: true
+</code></pre>
+
+<h2 id="53-structure_list">5.3. STRUCTURE_LIST</h2>
+<p>Associates a LCONF-Key-Name with an ordered sequence (list) of data values. <br />
+The first List-Value character MUST NOT be any whitespace.</p>
+<p>The STRUCTURE_LIST Value MUST be a sequence of <strong>one or more</strong> Unicode characters and includes all till the end of
+the line. The List-Value MAY be a TYPE_NOTSET. <br />
+STRUCTURE_LIST-Values use one additional LCONF-Indentation-Per-Level and each List-Value MUST start on a separate line.</p>
+<p>A STRUCTURE_LIST_IDENTIFIER-Line MUST</p>
+<ul>
+<li>start with a STRUCTURE_LIST_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name</li>
+</ul>
+<pre><code class="text">- Color_List
+</code></pre>
+
+<p>Values are separate lines.</p>
+<pre><code class="text">- Color_List
+    Black
+    White
+    NOTSET
+    Blue
+</code></pre>
+
+<h3 id="531-default-structure_list">5.3.1. Default STRUCTURE_LIST</h3>
+<p>To keep the default STRUCTURE_LIST values as implemented in a LCONF-Schema-Definition the STRUCTURE_LIST
+MUST NOT be included in a LCONF-Section.</p>
+<h3 id="532-empty-structure_list">5.3.2. Empty STRUCTURE_LIST</h3>
+<p>Empty STRUCTURE_LIST MUST only define the STRUCTURE_LIST_IDENTIFIER-Line and MUST NOT set any
+STRUCTURE_LIST-Value-Lines.</p>
+<pre><code class="text">- color_list
+</code></pre>
+
+<p>This will overwrite the default value with an empty List (with values).</p>
+<h3 id="533-compact_structure_list-notation">5.3.3.  Compact_STRUCTURE_LIST notation</h3>
+<p>Any STRUCTURE_LIST can also be written in a oneline compact notation:  Compact_STRUCTURE_LIST Value MUST be a sequence
+of <strong>one or more</strong> Unicode characters and MAY be a TYPE_NOTSET. Multiple Values are separated by
+STRUCTURE_LIST_VALUE_SEPARATOR. The Compact_STRUCTURE_LIST MUST NOT end with a STRUCTURE_LIST_VALUE_SEPARATOR. <br />
+Leading or ending whitespace of Compact_STRUCTURE_LIST Values is stripped.</p>
+<pre><code class="text">STRUCTURE_LIST_IDENTIFIER Compact_STRUCTURE_LIST-Key-Name LCONF_KEY_VALUE_SEPARATOR Value1, Value2, Value3
+
+- colors :: red, blue, green
+</code></pre>
+
+<h4 id="5331-default-compact_structure_list">5.3.3.1. Default Compact_STRUCTURE_LIST</h4>
+<p>To keep the default Compact_STRUCTURE_LIST values as implemented in a LCONF-Schema-Definition the
+Compact_STRUCTURE_LIST MUST NOT be included in a LCONF-Section.</p>
+<h4 id="5332-empty-compact_structure_list">5.3.3.2. Empty Compact_STRUCTURE_LIST</h4>
+<p>There is NO Empty Compact_STRUCTURE_LISTt notation. Just use a Empty General-List.</p>
+<pre><code class="text">- color_list
+</code></pre>
+
+<h4 id="5333-compact-list-with-assigned-value">5.3.3.3. Compact-List With Assigned Value</h4>
+<p>LCONF-Compact-List with assigned value MUST</p>
+<ul>
+<li>start with a STRUCTURE_LIST_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one or more List-Value (multiple List-Values are separated by STRUCTURE_LIST_VALUE_SEPARATOR)</li>
+</ul>
+<p>This will overwrite the default value for the List with <code>Tim, Tom</code>.</p>
+<pre><code class="text">- registered :: Tim, Tom
+
+- registered :: Tim,Tom
+
+- registered :: Tim     ,     Tom
+</code></pre>
+
+<h2 id="54-structure_table">5.4. STRUCTURE_TABLE</h2>
+<p>Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).  <br />
+A Column-Value MUST be a sequence of <strong>zero or more</strong> Unicode characters and MAY be a TYPE_NOTSET. <br />
+The STRUCTURE_TABLE_IDENTIFIER-Line MUST NOT end with a STRUCTURE_TABLE_VALUE_SEPARATOR.</p>
+<p>LCONF-Column-Names MUST be unique within one STRUCTURE_TABLE.</p>
+<p>A STRUCTURE_TABLE_IDENTIFIER-Line MUST</p>
+<ul>
+<li>start with a STRUCTURE_TABLE_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name</li>
+</ul>
+<pre><code class="text">| ColorTable
+</code></pre>
+
+<p>STRUCTURE_TABLE-Rows use one additional LCONF-Indentation-Per-Level and each row MUST start on a separate line.
+Column-Values of Table-Rows are embraced and separated by STRUCTURE_TABLE_VALUE_SEPARATORs. A STRUCTURE_TABLE-Row MUST
+contain the same number of values as column-names specified in the LCONF-Schema-Definition. <br />
+Leading or ending whitespace of STRUCTURE_TABLE Column-Values is stripped.</p>
+<p>A STRUCTURE_TABLE-Row-Line MUST</p>
+<ul>
+<li>start with one additional LCONF-Indentation-Per-Level</li>
+<li>followed by one STRUCTURE_TABLE_VALUE_SEPARATOR</li>
+<li>followed by a Column-Value which MAY contain leading and ending spaces which will be stripped.</li>
+<li>followed by one STRUCTURE_TABLE_VALUE_SEPARATOR</li>
+<li><em>followed by any additional Column-Value and STRUCTURE_TABLE_VALUE_SEPARATOR</em></li>
+</ul>
+<pre><code class="text">STRUCTURE_TABLE_IDENTIFIER LCONF-Key-Name
+    STRUCTURE_TABLE_VALUE_SEPARATOR Column-Values STRUCTURE_TABLE_VALUE_SEPARATOR Column-Values STRUCTURE_TABLE_VALUE_SEPARATOR
+    STRUCTURE_TABLE_VALUE_SEPARATOR Column-Values STRUCTURE_TABLE_VALUE_SEPARATOR Column-Values STRUCTURE_TABLE_VALUE_SEPARATOR
+
+| TableKeyName_example
+    | Value Column1 Row1 | Value Column2 Row1 |
+    | Value Column1 Row2 | Value Column2 Row2 |
+</code></pre>
+
+<h3 id="541-default-structure_table">5.4.1. Default STRUCTURE_TABLE</h3>
+<p>To keep the default STRUCTURE_TABLE values as implemented in a LCONF-Schema-Definition the STRUCTURE_TABLE MUST NOT be
+included in a LCONF-Section.</p>
+<h3 id="542-empty-structure_table">5.4.2. Empty STRUCTURE_TABLE</h3>
+<p>Empty STRUCTURE_TABLEs MUST only define the STRUCTURE_TABLE_IDENTIFIER-Line and MUST NOT set any
+STRUCTURE_TABLE-Row-Lines.</p>
+<p>This will overwrite the default value with an empty table (with no rows).</p>
+<pre><code class="text">| Colors_RGB
+</code></pre>
+
+<h3 id="543-structure_table-with-rows">5.4.3. STRUCTURE_TABLE With Rows</h3>
+<pre><code class="text"># Comment: below is a STRUCTURE_TABLE with a Comment-Line of Column-Name
+| Colors_RGB
+    #   Color Name| Red| Green| Blue|
+    |  forestgreen|  34|   139|   34|
+    |        brick| 156|   102|   31|
+
+# Comment: Alignment is not important
+| Colors_RGB2
+    |forestgreen|34|139|34|
+    |brick|156|102|31|
+
+# COMMENT: all Column-Value are empty (missing) - both Table-Rows will be the same.
+| Colors_RGB3
+    |||||
+    |     |     |     |     |
+
+# Comment: below is STRUCTURE_TABLE with empty Column-Values and TYPE_NOTSET Column-Values
+#          It uses also 2 Comment-Lines given additional information about the Column-Names so that the whole
+#          STRUCTURE_TABLE looks very similar to an markdown table.
+| people_table
+    # ID | name  | height_cm | weight_kg | age    | registered |
+    #:---|:------|:----------|:----------|:-------|:-----------|
+    | 1  | Tim   | 178       | 86        | 37     | true       |
+    | 2  | Paula | 156       | NOTSET    | NOTSET |            |
+    | 3  |       | 186       | 84        | 23     |            |
+    | 4  | Dora  | 173       | NOTSET    | 45     | false      |
+</code></pre>
+
+<ul>
+<li>
+<p><strong>Columns With Empty Column-Values</strong>: e.g. Row:3, Column2: <code>name</code> - has an empty Column-Value</p>
+<p>This will overwrite the default value for the <em>Column2: name</em> with whatever the implementation for an empty
+Column-Value is (example it could be an empty String). Usually it will depend on the Column LCONF-Value-Type.</p>
+<p>e.g. Row:2, Column6: <code>registered</code> - has an empty Column-Value <br /></p>
+<p>This Column might have a TYPE_BOOLEAN Value-Type implemented with the Default-Value set to <em>false</em> and an
+Empty-Value implemented as <em>TYPE_NOTSET</em>.</p>
+</li>
+<li>
+<p><strong>Columns With TYPE_NOTSET Column-Values</strong>:</p>
+<p>This will use the default value for the <em>Column2: name</em> (example it could be: <em>Anonymous</em>).</p>
+</li>
+<li>
+<p><strong>Columns With Column-Values</strong>: e.g. Row:1, Column2: <code>name</code> - has a set Column-Value (more than one Unicode character)</p>
+<p>This will overwrite the default value for the <em>Column: name</em> with <code>Tim</code>.</p>
+</li>
+</ul>
+<h2 id="55-structure_single_block">5.5. STRUCTURE_SINGLE_BLOCK</h2>
+<p>A collection of any of the six LCONF-Structures. All STRUCTURE_SINGLE_BLOCK-Items (Key-Names) MUST be unique. A
+LCONF-Library MUST implement an option to loop over the collection in order.
+STRUCTURE_SINGLE_BLOCK-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
+separate line.</p>
+<ul>
+<li>
+<p><strong>LCONF-Root</strong></p>
+<p>The LCONF-Root (Structure) is a special STRUCTURE_SINGLE_BLOCK which exists in every valid LCONF-Section.
+It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed STRUCTURE_SINGLE_BLOCK.</p>
+</li>
+</ul>
+<p>A STRUCTURE_SINGLE_BLOCK-Identifier-Line MUST</p>
+<ul>
+<li>start with a STRUCTURE_SINGLE_BLOCK_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name</li>
+</ul>
+<pre><code class="text">. Color
+</code></pre>
+
+<p>Block-Items are separate lines in the example below these are: <code>Name :: Blue, - rgb_list, menu :: false</code>.</p>
+<pre><code class="text">. Color
+    Name :: Blue
+    - rgb_list
+        157
+        174
+        235
+    menu :: false
+</code></pre>
+
+<h3 id="551-default-structure_single_block">5.5.1. Default STRUCTURE_SINGLE_BLOCK</h3>
+<p>To keep the default STRUCTURE_SINGLE_BLOCK values as implemented in a LCONF-Schema-Definition the
+STRUCTURE_SINGLE_BLOCK SHOULD NOT be included in a LCONF-Section. (This also depends if any Block-Items are
+<em>REQUIRED</em>.)</p>
+<p>It is PERMITTED to include an Empty STRUCTURE_SINGLE_BLOCK which will also keep the default STRUCTURE_SINGLE_BLOCK
+values as implemented in a LCONF-Schema-Definition.
+In some cases this might be useful: e.g. if one wants previous comment lines.</p>
+<p>Empty STRUCTURE_SINGLE_BLOCK MUST only define the STRUCTURE_SINGLE_BLOCK-Identifier-Line and MUST NOT set any
+LCONF-Block-Item-Lines.</p>
+<pre><code class="text">. Color
+</code></pre>
+
+<pre><code class="text">___SECTION :: 4 :: LCONF :: SectionName
+. STRUCTURE_SINGLE_BLOCK_Identifier_name
+    single_block_item1_key :: single_block_item1_value
+    - single_block_item2_key list
+        my List-Item 1
+        my List-Item 2
+    # Comment: Blocks can also have other (nested) Blocks
+    . inner_single_block_item3_key
+        inner_single_block_item1_key :: inner_single_block_item1_value
+# Comment: below a permitted empty `STRUCTURE_SINGLE_BLOCK_IDENTIFIER` which will use all default values
+. STRUCTURE_SINGLE_BLOCK_2
+___END
+</code></pre>
+
+<h4 id="5511-structure_single_block-with-block-items">5.5.1.1. STRUCTURE_SINGLE_BLOCK With Block-Items</h4>
+<p>In a LCONF-Section STRUCTURE_SINGLE_BLOCK-Items MAY be defined in any order and are NOT REQUIRED to follow the
+implemented order of a corresponding LCONF-Schema-Definition.</p>
+<pre><code class="text">. Color_Block_1
+    color :: Blue
+    - rgb_list
+        157
+        174
+        235
+    menu :: false
+</code></pre>
+
+<pre><code class="text"># The Block could also be defined as
+. Color_Block_1
+    menu :: false
+    - rgb_list
+        157
+        174
+        235
+    color :: Blue
+</code></pre>
+
+<pre><code class="text"># The Block could also define only some of the Block-Items: depending on their requirement settings.
+#  all other implmented Block-Items would have there implemented default values.
+. Color STRUCTURE_SINGLE_BLOCK
+    - rgb_list
+        157
+        174
+        235
+</code></pre>
+
+<h2 id="56-structure_named_blocks">5.6. STRUCTURE_NAMED_BLOCKS</h2>
+<p>A collection of repeated named STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
+collection in order. BLOCKS-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
+separate line. All Block-Items MUST be STRUCTURE_SINGLE_BLOCKs with unique names.</p>
+<p>A STRUCTURE_NAMED_BLOCKS_IDENTIFIER-Line MUST</p>
+<ul>
+<li>start with a STRUCTURE_NAMED_BLOCKS_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name</li>
+</ul>
+<pre><code class="text">* Color
+</code></pre>
+
+<p>Block-Items are separate lines and use one additional LCONF-Indentation-Per-Level.
+In the example below these are: <code>. BlueBlock, . RedBlock</code>.</p>
+<pre><code class="text">* Color
+    . BlueBlock
+        Name :: Blue
+        - rgb_list
+            157
+            174
+            235
+        menu :: NOTSET
+    . RedBlock
+        Name :: Red
+        - rgb_list
+            227
+            155
+            155
+        menu :: on
+</code></pre>
+
+<p>A LCONF-Schema-Definition MUST implement one reference STRUCTURE_SINGLE_BLOCK with default values
+(TEMPLATE_BLOCK) which will be used as the base for each defined Repeated-Block-Item.</p>
+<p>Any number of Block-Items can be defined but this can also be limited in a LCONF-Schema-Definition. e.g.:</p>
+<ul>
+<li>LCONF_NUMBER_MIN_REQUIRED_BLOCKS</li>
+<li>LCONF_NUMBER_MAX_ALLOWED_BLOCKS</li>
+</ul>
+<h3 id="561-default-structure_named_blocks">5.6.1. Default STRUCTURE_NAMED_BLOCKS</h3>
+<p>The Default STRUCTURE_NAMED_BLOCKS is always an empty collection.</p>
+<p>It is PERMITTED to include an Empty STRUCTURE_NAMED_BLOCKS which will keep the default value as implemented in a
+LCONF-Schema-Definition (which is always an empty collection). This is the same as if one does not define the
+STRUCTURE_NAMED_BLOCKS in a LCONF-Section.</p>
+<p>In some cases it might be useful to include an empty STRUCTURE_NAMED_BLOCKS: e.g. if one wants previous comment lines.</p>
+<p>Empty STRUCTURE_NAMED_BLOCKS MUST only define the STRUCTURE_NAMED_BLOCKS_IDENTIFIER-Line and MUST NOT set any
+LCONF-Block-Item-Lines.</p>
+<pre><code class="text">* Color
+</code></pre>
+
+<pre><code class="text">___SECTION :: 4 :: LCONF :: SectionName
+* RepeatedBlock_Identifier_name
+    # Comment: Named STRUCTURE_SINGLE_BLOCK
+    . single_block_item3_key1
+        single_block_item1_key :: single_block_item1_value
+    . single_block_item3_key2
+        single_block_item1_key :: single_block_item1_value
+# Comment: below a permitted empty `Repeated-Block-Identifier` which will use the default value
+#          which is always an empty collection.
+* RepeatedBlock_2
+___END
+</code></pre>
+
+<h4 id="5611-lconf_single_block_reuse">5.6.1.1. LCONF_SINGLE_BLOCK_REUSE</h4>
+<p>Only in a STRUCTURE_NAMED_BLOCKS collection (sequence) one MAY use LCONF_SINGLE_BLOCK_REUSE to assign the settings
+of a previous named STRUCTURE_SINGLE_BLOCK to a new named STRUCTURE_SINGLE_BLOCK.</p>
+<pre><code class="text">. New_STRUCTURE_SINGLE_BLOCK-Key-Name LCONF_SINGLE_BLOCK_REUSE Other_STRUCTURE_SINGLE_BLOCK-Key-Name
+
+. New_STRUCTURE_SINGLE_BLOCK-Key-Name == Other_STRUCTURE_SINGLE_BLOCK-Key-Name
+</code></pre>
+
+<p>Example of a LCONF_SINGLE_BLOCK_REUSE.</p>
+<pre><code class="text">* RepeatedBlock
+    . STRUCTURE_SINGLE_BLOCK_Key_Name_1
+        FirstName :: Mary
+        LastName :: Jackson
+        Age :: 35
+        Street :: 768 5th Ave # 1332
+        City :: New York
+        State :: NY
+        ZIPCode :: 10019
+    # Comment: the second Block will have the same `Last Name, Street, City, State and ZIPCode as the first Block`
+    . STRUCTURE_SINGLE_BLOCK Key-Name 2 == STRUCTURE_SINGLE_BLOCK Key-Name 1
+        FirstName :: Tim
+        Age :: 38
+</code></pre>
+
+<h2 id="57-structure_unnamed_blocks">5.7. STRUCTURE_UNNAMED_BLOCKS</h2>
+<p>A collection of repeated unnamed STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
+collection in order. BLOCKS-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
+separate line.</p>
+<p>A STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER-Line MUST</p>
+<ul>
+<li>start with a STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name</li>
+</ul>
+<pre><code class="text">* Color
+</code></pre>
+
+<p>An STRUCTURE_UNNAMED_BLOCKS MUST use as STRUCTURE_SINGLE_BLOCK-Identifier-Line:</p>
+<ul>
+<li><strong>only a STRUCTURE_SINGLE_BLOCK-Identifier</strong></li>
+</ul>
+<pre><code class="text">* RepeatedBlock
+    .
+        FirstName :: Mary
+    .
+        FirstName :: Tom
+    .
+        FirstName :: Dora
+</code></pre>
+
+<p>Block-Items are separate lines and use one additional LCONF-Indentation-Per-Level.</p>
+<pre><code class="text">* Color
+    .
+        Name :: Blue
+        - rgb_list
+            157
+            174
+            235
+        menu :: NOTSET
+    .
+        Name :: Red
+        - rgb_list
+            227
+            155
+            155
+        menu :: on
+</code></pre>
+
+<p>A LCONF-Schema-Definition MUST implement one reference STRUCTURE_SINGLE_BLOCK with default values
+(TEMPLATE_BLOCK) which will be used as the base for each defined Repeated-Block-Item.</p>
+<p>Any number of Block-Items can be defined but this can also be limited in a LCONF-Schema-Definition. e.g.:</p>
+<ul>
+<li>LCONF_NUMBER_MIN_REQUIRED_BLOCKS</li>
+<li>LCONF_NUMBER_MAX_ALLOWED_BLOCKS</li>
+</ul>
+<h3 id="571-default-structure_unnamed_blocks">5.7.1. Default STRUCTURE_UNNAMED_BLOCKS</h3>
+<p>The Default STRUCTURE_UNNAMED_BLOCKS is always an empty collection.</p>
+<p>It is PERMITTED to include an Empty STRUCTURE_UNNAMED_BLOCKS which will keep the default value as implemented in a
+LCONF-Schema-Definition (which is always an empty collection). This is the same as if one does not define the
+STRUCTURE_UNNAMED_BLOCKS in a LCONF-Section.</p>
+<p>In some cases it might be useful to include an empty STRUCTURE_UNNAMED_BLOCKS: e.g. if one wants previous comment lines.</p>
+<p>Empty STRUCTURE_UNNAMED_BLOCKS MUST only define the STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER-Line and MUST NOT set any
+LCONF-Block-Item-Lines.</p>
+<pre><code class="text">* Color
+</code></pre>
+
+<pre><code class="text">___SECTION :: 4 :: LCONF :: SectionName
+* RepeatedBlock_Identifier_name
+    # Comment: UnNamed STRUCTURE_SINGLE_BLOCK
+    .
+        single_block_item1_key :: single_block_item1_value
+    .
+        single_block_item1_key :: single_block_item1_value
+# Comment: below a permitted empty `STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER-Line` which will use the default value
+#          which is always an empty collection.
+* RepeatedBlock_2
+___END
+</code></pre></div>
+        </div>
+
+    <footer class="col-md-12">
+        <hr>
+        
+        <center>Copyright (c) 2014 - 2015, <strong>peter1000</strong> <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</center>
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

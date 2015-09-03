@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="peter1000">
+        <link rel="canonical" href="https://lconf-data-serialization-format/LCONF-Data-Serialization-Format-Standard/lconf-specification/6-lconf-value-types/">
+        <link rel="shortcut icon" href="../../images/lconf_favicon.ico">
+        
+
+	<title>6. LCONF-Value-Types - LCONF-Data-Serialization-Format-Standard</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LCONF-Data-Serialization-Format-Standard</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LCONF-Specification <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../1-lconf-standard/">1. LCONF-Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../2-lconf-terminology/">2. LCONF-Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../3-lconf-text/">3. LCONF-Text</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../4-lconf-section/">4. LCONF-Section</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../5-lconf-structures/">5. LCONF-Structures</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">6. LCONF-Value-Types</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../7-lconf-schema-definition/">7. LCONF-Schema-Definition</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../about/readme/">Readme</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/license/">License</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/changelog/">Changelog</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../5-lconf-structures/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../7-lconf-schema-definition/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LCONF-Data-Serialization-Format/LCONF-Data-Serialization-Format-Standard/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#6-lconf-value-types">6. LCONF-Value-Types</a></li>
+        
+            <li><a href="#61-type_notset">6.1. TYPE_NOTSET</a></li>
+        
+            <li><a href="#62-string">6.2. String</a></li>
+        
+            <li><a href="#63-type_boolean">6.3. TYPE_BOOLEAN</a></li>
+        
+            <li><a href="#64-numbers">6.4. Numbers</a></li>
+        
+            <li><a href="#65-date-time">6.5. Date &amp; Time</a></li>
+        
+            <li><a href="#66-range">6.6. Range</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div align="center">
+    <a href="http://lconf-data-serialization-format.github.io/">
+        <img src="../../images/lconf-logo.png" alt="LCONF LOGO" title="The LCONF-Data-Serialization-Format Organization">
+    </a>
+</div>
+
+<blockquote>
+<p>This file is part of the <em>LCONF-Data-Serialization-Format-Standard Documentation</em>.</p>
+<p>Copyright (c) 2014 - 2015, <strong>peter1000</strong>  <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</p>
+</blockquote>
+<h1 id="6-lconf-value-types">6. LCONF-Value-Types</h1>
+<p>The set of six main value types includes NOTSET, String, Boolean, Number, Date &amp; Time and Range.</p>
+<ul>
+<li>
+<p><strong>NOTSET</strong></p>
+<ul>
+<li>TYPE_NOTSET</li>
+</ul>
+</li>
+<li>
+<p><strong>String</strong></p>
+<ul>
+<li>TYPE_STRING</li>
+<li>TYPE_DIGITS</li>
+<li>TYPE_PATTERN_DIGITS</li>
+</ul>
+</li>
+<li>
+<p><strong>Boolean</strong></p>
+<ul>
+<li>TYPE_BOOLEAN</li>
+</ul>
+</li>
+<li>
+<p><strong>Number</strong></p>
+<ul>
+<li>TYPE_INTEGER</li>
+<li>TYPE_FLOAT</li>
+<li>TYPE_NUMBER</li>
+</ul>
+</li>
+<li>
+<p><strong>Date &amp; Time</strong></p>
+<ul>
+<li>TYPE_MONTH</li>
+<li>TYPE_DAY</li>
+<li>TYPE_MINUTE</li>
+<li>TYPE_SECOND</li>
+<li>TYPE_SECOND_FRACTION</li>
+<li>TYPE_DAY_MINUTE1</li>
+<li>TYPE_DAY_MINUTE2</li>
+<li>TYPE_DAY_SECOND1</li>
+<li>TYPE_DAY_SECOND2</li>
+<li>TYPE_DAY_SECOND_FRACTION1</li>
+<li>TYPE_DAY_SECOND_FRACTION2</li>
+</ul>
+</li>
+<li>
+<p><strong>Range</strong></p>
+<ul>
+<li>TYPE_RANGE_OF_ELEMENTS:</li>
+<li>TYPE_RANGE_BY_END_VALUE:</li>
+</ul>
+</li>
+</ul>
+<p><strong>When Is A LCONF-Value Interpreted As One Of The LCONF-Value-Types ?</strong></p>
+<p>Only the corresponding LCONF-Schema-Definition determinates which LCONF-Value is interpreted as which LCONF-Value-Type.</p>
+<h2 id="61-type_notset">6.1. TYPE_NOTSET</h2>
+<p>A TYPE_NOTSET Value  is the Literal Name Token <code>NOTSET</code> and is used to indicate the lack of a value and is different
+from an Empty-Value. In a LCONF-Section it is the same as if that item was not specified at all and the implemented
+default value will stay assigned.</p>
+<ul>
+<li><code>NOTSET</code> is a reserved LCONF character sequence.</li>
+</ul>
+<p><strong>The main difference between an Empty-Value and TYPE_NOTSET is:</strong></p>
+<ul>
+<li>
+<p>A TYPE_NOTSET Value (LCONF_NOTSET) is used to indicate the lack of a value. (e.g. STRUCTURE_TABLE a missing
+    Column-Value)</p>
+</li>
+<li>
+<p>An Empty-Value is an actual value: e.g an empty string, an empty sequence etc.</p>
+</li>
+</ul>
+<p>Only simple LCONF-Structures MAY contain TYPE_NOTSET values:</p>
+<ul>
+<li>STRUCTURE_PAIR</li>
+<li>STRUCTURE_TABLE: only individual Column-Values MAY be set to TYPE_NOTSET</li>
+<li>STRUCTURE_LIST: only individual List-Values MAY be set to TYPE_NOTSET</li>
+</ul>
+<p>It is most useful in STRUCTURE_TABLEs if there are missing data.</p>
+<pre><code class="text">___SECTION :: 4 :: LCONF :: example Value Not Set
+
+first :: John
+last :: Doe
+age :: NOTSET
+
+| people_table
+    # name  | height_cm | weight_kg | age    |
+    | Tim   | 178       | 86        | 37     |
+    | Paula | 156       | NOTSET    | NOTSET |
+    | John  | 186       | 84        | 23     |
+    | Dora  | 173       | NOTSET    | 45     |
+
+- color_name_list
+    Red
+    Blue
+    NOTSET
+    Green
+
+- color_name_list :: Red, Blue, NOTSET, Green
+___END
+</code></pre>
+
+<p>LCONF-Template-Structure usually will implement a TYPE_NOTSET Values as None, nothing, void.</p>
+<p>TYPE_NOTSET is also special that it can be used in a LCONF-Section in place of any other expected Value Type.
+<strong>NOTE</strong>: A LCONF-Schema-Definition can define that an item is required: which means it can not be set to TYPE_NOTSET.</p>
+<h2 id="62-string">6.2. String</h2>
+<p>There a three subtypes of Strings.</p>
+<h3 id="621-type_string">6.2.1 TYPE_STRING</h3>
+<p>A sequence of zero or more Unicode characters. It never spans multiple lines.</p>
+<pre><code class="text">key1 :: This is a string value of a STRUCTURE_PAIR.
+
+- example_list
+    This is a string value of a STRUCTURE_LIST.
+    This is another string value of the same STRUCTURE_LIST.
+</code></pre>
+
+<p>NOTE: LCONF-Schema-Definition can further constrain TYPE_STRING e.g: require a minimum and/or maximum number of chars.</p>
+<h3 id="621-type_digits">6.2.1 TYPE_DIGITS</h3>
+<p>A TYPE_STRING constraint to only LCONF_DIGITS (zero or more LCONF_DIGITS).
+These can be used for very long Digit sequences for e.g Unique Identity Numbers which will be kept as string values.</p>
+<pre><code class="text">key1 :: 19453841344987531223565469
+</code></pre>
+
+<p>NOTE: LCONF-Schema-Definition can further constrain TYPE_DIGITS e.g: require a minimum and/or maximum number of chars.</p>
+<h3 id="622-type_pattern_digits">6.2.2 TYPE_PATTERN_DIGITS</h3>
+<p>A TYPE_STRING constraint to a pattern where only the individual LCONF_DIGITS MAY change. (zero or more chars).
+These can be used for common pattern for e.g Social Security number which will be kept as string values.</p>
+<p><em>TYPE_PATTERN_DIGITS</em> format uses the LCONF_AT_SIGN <code>@</code> as placeholder for expected digits.</p>
+<p><strong>1. Example: the LCONF-DateTime type could be also represented by a TYPE_PATTERN_DIGITS</strong></p>
+<p><code>@@@@-@@-@@T@@:@@:@@</code></p>
+<pre><code class="text">2013-07-01T12:30:59
+</code></pre>
+
+<p><code>@@@@-@@-@@ @@:@@:@@</code></p>
+<pre><code class="text">2013-07-01 12:30:59
+</code></pre>
+
+<p><strong>2. Example: Social Security number</strong></p>
+<p><code>AAA-GG-SSSS</code> could be a pattern <code>@@@-@@-@@@@</code></p>
+<pre><code class="text">123-55-6678
+</code></pre>
+
+<h2 id="63-type_boolean">6.3. TYPE_BOOLEAN</h2>
+<p>LCONF_TRUE or LCONF_FALSE.  Literal Name Token: <code>true</code> or <code>false</code>.</p>
+<pre><code class="text">item1 :: true
+
+item2 :: false
+</code></pre>
+
+<p>A LCONF-Template-Structure usually will implement an Empty TYPE_BOOLEAN Values as TYPE_NOTSET.</p>
+<h2 id="64-numbers">6.4. Numbers</h2>
+<h3 id="641-type_integer">6.4.1. TYPE_INTEGER</h3>
+<p>A TYPE_INTEGER MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS.</p>
+<ul>
+<li>64 bit (signed long) range expected (-9223372036854775808 to +9223372036854775807).</li>
+</ul>
+<pre><code class="text">key1 :: 89
+
+- example_list
+    +18950
+    0
+    -800000
+</code></pre>
+
+<p>LCONF-Template-Structure usually will implement an Empty LCONF-Integer Values as TYPE_NOTSET or a predefined
+Integer (e.g. zero)</p>
+<p>NOTE: LCONF-Schema-Definition can further constrain TYPE_INTEGER e.g: require a minimum and/or maximum value.</p>
+<h3 id="642-type_float">6.4.2. TYPE_FLOAT</h3>
+<p>TYPE_FLOAT supports four different notations:</p>
+<ul>
+<li>Fractional: <code>+3.1415</code>, <code>-3.1415</code></li>
+<li>Exponent: <code>5e+22</code>, <code>-2E-2</code></li>
+<li>Fractional And Exponent Mixed: <code>6.196E63</code>, <code>-1.54e-003</code></li>
+<li>Fraction P/Q Of Two Integers: <code>+3/4</code>, <code>-93/16</code>, <code>1/8</code>, <code>2789/-598</code></li>
+</ul>
+<p>LCONF-Template-Structure usually will implement an Empty TYPE_FLOAT as TYPE_NOTSET or a predefined Float (e.g. 0.0).</p>
+<p>NOTE: LCONF-Schema-Definition can further constrain TYPE_FLOAT e.g: require a minimum and/or maximum value.</p>
+<h4 id="6421-fractional-notation">6.4.2.1. Fractional Notation</h4>
+<p>A TYPE_INTEGER part followed by a LCONF-Number-Fractional-Part.</p>
+<pre><code class="text">key1 :: +1.0
+
+- example_list
+    -0.01
+    3.1415
+</code></pre>
+
+<h4 id="6422-exponent-notation">6.4.2.2. Exponent Notation</h4>
+<p>A TYPE_INTEGER part followed by a LCONF-Number-Exponent-Part.</p>
+<pre><code class="text">key1 :: 5e+22
+
+- example_list
+    -1e6
+    -2E-2
+</code></pre>
+
+<h4 id="6423-fractional-and-exponent-mixed-notation">6.4.2.3. Fractional And Exponent Mixed Notation</h4>
+<p>A TYPE_INTEGER part followed by a LCONF-Number-Fractional-Part followed by a LCONF-Number-Exponent-Part.</p>
+<pre><code class="text">key1 :: 6.196E63
+
+- example_list
+    -1.54e-003
+    -1.54e+003
+    2.5e-4
+</code></pre>
+
+<h4 id="6424-fraction-pq-of-two-integers-notation">6.4.2.4. Fraction P/Q Of Two Integers Notation</h4>
+<p>A TYPE_INTEGER part followed by a LCONF_SLASH followed by a TYPE_INTEGER part which MUST NOT be equal to 0 (zero).</p>
+<pre><code class="text">key1 :: +3/4
+
+- example_list
+    -93/16
+    1/8
+    2789/-598
+</code></pre>
+
+<h3 id="643-type_number">6.4.3. TYPE_NUMBER</h3>
+<p>A TYPE_NUMBER value can either be a TYPE_INTEGER or TYPE_FLOAT.</p>
+<pre><code class="text">- example_valid_number_list
+    -93/16
+    1/8
+    2789/-598
+    -1.54e-003
+    -1.54e+003
+    2.5e-4
+    5
+    -189556
+    +23
+    -0.01
+    3.1415
+</code></pre>
+
+<p>NOTE: LCONF-Schema-Definition can further constrain TYPE_FLOAT e.g: require a minimum and/or maximum value.</p>
+<h2 id="65-date-time">6.5. Date &amp; Time</h2>
+<p>A LCONF Date &amp; Time value is based on the ISO 8601 standard and supports following notations.</p>
+<p>A LCONF-DateTime value is a combination of a LCONF-Date and LCONF-Time and has the LCONF-Date-Time-Separator between
+the Date and Time part.</p>
+<p>LCONF-Template-Structure usually will implement an Empty LCONF Date &amp; Time Value as TYPE_NOTSET or a predefined
+Date &amp; Time Value (e.g. 1970-01, 1970-01-01, 00:00:00, 1970-01-01T00:00:00, 1970-01-01 00:00:00).</p>
+<h3 id="651-type_month">6.5.1. TYPE_MONTH</h3>
+<p><code>YYYY-MM</code>:</p>
+<ul>
+<li>A LCONF-Year</li>
+<li>followed by a LCONF-Date-Separator</li>
+<li>followed by a LCONF-Month</li>
+</ul>
+<pre><code class="text">1932-08
+
+2015-01
+</code></pre>
+
+<h3 id="652-type_day">6.5.2 TYPE_DAY</h3>
+<p><code>YYYY-MM-DD</code>:</p>
+<ul>
+<li>A LCONF-Year</li>
+<li>followed by a LCONF-Date-Separator</li>
+<li>followed by a LCONF-Month</li>
+<li>followed by a LCONF-Date-Separator</li>
+<li>followed by a LCONF-Day</li>
+</ul>
+<pre><code class="text">1932-08-31
+
+2014-11-15
+</code></pre>
+
+<h3 id="653-type_minute">6.5.3. TYPE_MINUTE</h3>
+<p><code>hh:mm</code>:</p>
+<ul>
+<li>A LCONF-Hour</li>
+<li>followed by a LCONF-Time-Separator</li>
+<li>followed by a LCONF-Minute</li>
+</ul>
+<pre><code class="text">12:30
+
+23:59
+</code></pre>
+
+<h3 id="654-type_second">6.5.4. TYPE_SECOND</h3>
+<p><code>hh:mm:ss</code>:</p>
+<ul>
+<li>A LCONF-Hour</li>
+<li>followed by a LCONF-Time-Separator</li>
+<li>followed by a LCONF-Minute</li>
+<li>followed by a LCONF-Time-Separator</li>
+<li>followed by a LCONF-Second</li>
+</ul>
+<pre><code class="text">02:30:42
+
+19:00:02
+</code></pre>
+
+<h3 id="655-type_second_fraction">6.5.5. TYPE_SECOND_FRACTION</h3>
+<p><code>hh:mm:ss.fff</code>:</p>
+<ul>
+<li>A LCONF-Hour</li>
+<li>followed by a LCONF-Time-Separator</li>
+<li>followed by a LCONF-Minute</li>
+<li>followed by a LCONF-Time-Separator</li>
+<li>followed by a LCONF-Second</li>
+<li>followed by a LCONF-Second-Fraction-Part</li>
+</ul>
+<pre><code class="text">StartFractionSecond :: 12:30:59.001
+
+StartFractionSecond :: 18:53:16.1
+
+StartFractionSecond :: 04:02:00.000156
+</code></pre>
+
+<h3 id="656-type_day_minute1">6.5.6. TYPE_DAY_MINUTE1</h3>
+<p><code>YYYY-MM-DD hh:mm</code></p>
+<pre><code class="text">2013-07-01 12:30
+</code></pre>
+
+<h3 id="657-type_day_minute2">6.5.7. TYPE_DAY_MINUTE2</h3>
+<p><code>YYYY-MM-DDThh:mm</code></p>
+<pre><code class="text">2013-07-01T12:30
+</code></pre>
+
+<h3 id="658-type_day_second1">6.5.8. TYPE_DAY_SECOND1</h3>
+<p><code>YYYY-MM-DD hh:mm:ss</code></p>
+<pre><code class="text">2013-07-01 12:30:59
+</code></pre>
+
+<h3 id="659-type_day_second2">6.5.9. TYPE_DAY_SECOND2</h3>
+<p><code>YYYY-MM-DDThh:mm:ss</code></p>
+<pre><code class="text">2013-07-01T12:30:59
+</code></pre>
+
+<h3 id="6510-type_day_second_fraction1">6.5.10. TYPE_DAY_SECOND_FRACTION1</h3>
+<p><code>YYYY-MM-DD hh:mm:ss.fff</code></p>
+<pre><code class="text">2013-07-01 12:30:59.001
+
+2013-07-01 18:53:16.1
+
+2013-07-01 04:02:00.000156
+</code></pre>
+
+<h3 id="6511-type_day_second_fraction2">6.5.11. TYPE_DAY_SECOND_FRACTION2</h3>
+<p><code>YYYY-MM-DDThh:mm:ss.fff</code></p>
+<pre><code class="text">2013-07-01T12:30:59.001
+
+2013-07-01T18:53:16.1
+
+2013-07-01T04:02:00.000156
+</code></pre>
+
+<h2 id="66-range">6.6. Range</h2>
+<p>A range defines an arithmetic sequence where the first element is the LCONF-Range-Start-Number.</p>
+<p>LCONF-Template-Structure usually will implement an Empty LCONF-Range Value as TYPE_NOTSET or a predefined
+LCONF-Range Value.</p>
+<p>LCONF supports two types of ranges.</p>
+<h3 id="661-type_range_of_elements">6.6.1. TYPE_RANGE_OF_ELEMENTS</h3>
+<p>A TYPE_RANGE_OF_ELEMENTS refers to an arithmetic sequence which contains as many elements as defined by the
+LCONF-Integer part of the LCONF-Range-Number-Of-Elements.</p>
+<p>A TYPE_RANGE_OF_ELEMENTS MUST:</p>
+<ul>
+<li>start with a LCONF-Range-Start-Number</li>
+<li>followed by a LCONF-Range-Part-Separator</li>
+<li>followed by a LCONF-Range-Step-Number</li>
+<li>followed by a LCONF-Range-Part-Separator</li>
+<li>followed by LCONF-Range-Number-Of-Elements</li>
+</ul>
+<p><code>text
+ LCONF-Range-Start-Number|LCONF-Range-Step-Number|LCONF-Range-Number-Of-Elements</code></p>
+<pre><code class="text">-10|1|*21
+
+512.4|0.125|*8
+</code></pre>
+
+<ul>
+<li>
+<p><code>-10|1|*21</code> represents a sequence of:</p>
+<p><code>-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10</code></p>
+</li>
+<li>
+<p><code>512.4|0.125|*8</code> represents a sequence of:</p>
+<p><code>512.4, 512.275, 512.15, 512.025, 511.9, 511.775, 511.65, 511.525</code></p>
+</li>
+</ul>
+<h3 id="662-type_range_by_end_value">6.6.2. TYPE_RANGE_BY_END_VALUE</h3>
+<p>A TYPE_RANGE_BY_END_VALUE defines an arithmetic sequence where the first element is the LCONF-Range-Start-Number.</p>
+<p>A TYPE_RANGE_BY_END_VALUE supports following notations:</p>
+<ul>
+<li><code>LCONF-Range-Start-Number|LCONF-Range-Step-Number|LCONF-Range-End-Number</code></li>
+<li>
+<p><code>LCONF-Range-Start-Number|LCONF-Range-Step-Number|LCONF-Range-End-Number|FORCE</code></p>
+<p>To force always the inclusion of the <em>LCONF-Range-End-Number</em>.</p>
+</li>
+</ul>
+<p>A TYPE_RANGE_BY_END_VALUE MUST:</p>
+<ul>
+<li>starts with a LCONF-Range-Start-Number</li>
+<li>followed by a LCONF-Range-Part-Separator</li>
+<li>followed by a LCONF-Range-Step-Number</li>
+<li>followed by a LCONF-Range-Part-Separator</li>
+<li>followed by LCONF-Range-End-Number</li>
+<li>followed optionally by a LCONF-Range-Part-Separator and LCONF_FORCE.</li>
+</ul>
+<h4 id="6621-positive-lconf-range-step-number">6.6.2.1. Positive LCONF-Range-Step-Number</h4>
+<p>If the LCONF-Range-Step-Number value is greater than zero then the LCONF-Range-Start-Number MUST be less or equal to
+the <em>LCONF-Range-End-Number</em>.</p>
+<p><strong>The last element is the largest</strong>: <code>Start-Number + i * Step-Number less or equal to LCONF-Range-End-Number</code>.</p>
+<pre><code class="text">-10|1|5
+
+-10|1|5|FORCE
+
+100.8|1.27|106
+
+100.8|1.27|106|FORCE
+</code></pre>
+
+<ul>
+<li>
+<p><code>-10|1|5</code> represents a sequence of:</p>
+<p><code>-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5</code></p>
+</li>
+<li>
+<p><code>-10|1|5|FORCE</code> represents a sequence of:</p>
+<p><code>-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5</code></p>
+</li>
+<li>
+<p><code>100.8|1.27|106</code> represents a sequence of:</p>
+<p><code>100.8, 102.07, 103.34, 104.61, 105.88</code></p>
+</li>
+<li>
+<p><code>100.8|1.27|106|FORCE</code> represents a sequence of:</p>
+<p><code>100.8, 102.07, 103.34, 104.61, 105.88, 106</code></p>
+</li>
+</ul>
+<h4 id="6622-negative-lconf-range-step-number">6.6.2.2. Negative LCONF-Range-Step-Number</h4>
+<p>If the LCONF-Range-Step-Number value is less than zero then the LCONF-Range-Start-Number MUST be greater or equal to
+the <em>LCONF-Range-End-Number</em>.</p>
+<p><strong>The last element is the smallest</strong>: <code>Start-Number + i * Step-Number greater or equal to LCONF-Range-End-Number</code>.</p>
+<pre><code class="text">10|1|-5
+
+10|1|-5|FORCE
+
+100.8|-1.27|92.1
+
+100.8|-1.27|92.1|FORCE
+</code></pre>
+
+<ul>
+<li>
+<p><code>10|1|-5</code> represents a sequence of:</p>
+<p><code>10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5</code></p>
+</li>
+<li>
+<p><code>10|1|-5|FORCE</code> represents a sequence of:</p>
+<p><code>10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5</code></p>
+</li>
+<li>
+<p><code>100.8|-1.27|92.1</code> represents a sequence of:</p>
+<p><code>100.8, 99.53, 98.26, 96.99, 95.72, 94.45, 93.18</code></p>
+</li>
+<li>
+<p><code>100.8|-1.27|92.1|FORCE</code> represents a sequence of:</p>
+<p><code>100.8, 99.53, 98.26, 96.99, 95.72, 94.45, 93.18, 92.1</code></p>
+</li>
+</ul></div>
+        </div>
+
+    <footer class="col-md-12">
+        <hr>
+        
+        <center>Copyright (c) 2014 - 2015, <strong>peter1000</strong> <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</center>
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="peter1000">
+        <link rel="canonical" href="https://lconf-data-serialization-format/LCONF-Data-Serialization-Format-Standard/lconf-specification/7-lconf-schema-definition/">
+        <link rel="shortcut icon" href="../../images/lconf_favicon.ico">
+        
+
+	<title>7. LCONF-Schema-Definition - LCONF-Data-Serialization-Format-Standard</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LCONF-Data-Serialization-Format-Standard</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LCONF-Specification <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../1-lconf-standard/">1. LCONF-Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../2-lconf-terminology/">2. LCONF-Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../3-lconf-text/">3. LCONF-Text</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../4-lconf-section/">4. LCONF-Section</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../5-lconf-structures/">5. LCONF-Structures</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../6-lconf-value-types/">6. LCONF-Value-Types</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">7. LCONF-Schema-Definition</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../about/readme/">Readme</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/license/">License</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/changelog/">Changelog</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../6-lconf-value-types/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../../about/readme/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LCONF-Data-Serialization-Format/LCONF-Data-Serialization-Format-Standard/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#7-lconf-schema-definitions">7. LCONF-Schema-Definitions</a></li>
+        
+            <li><a href="#71-lconf-schema-formats">7.1. LCONF-Schema-Formats</a></li>
+        
+            <li><a href="#72-schema-identifier-line">7.2. Schema: IDENTIFIER Line</a></li>
+        
+            <li><a href="#73-schema-item-pair">7.3. Schema: ITEM Pair</a></li>
+        
+            <li><a href="#74-schema-default-empty_replacement-pairs">7.4. Schema: DEFAULT &amp; EMPTY_REPLACEMENT Pairs</a></li>
+        
+            <li><a href="#75-lconf-schema-comment-lines">7.5 LCONF-Schema-Comment-Lines</a></li>
+        
+            <li><a href="#76-lconf-libraries-schema-requirements">7.6. LCONF-Libraries Schema Requirements</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div align="center">
+    <a href="http://lconf-data-serialization-format.github.io/">
+        <img src="../../images/lconf-logo.png" alt="LCONF LOGO" title="The LCONF-Data-Serialization-Format Organization">
+    </a>
+</div>
+
+<blockquote>
+<p>This file is part of the <em>LCONF-Data-Serialization-Format-Standard Documentation</em>.</p>
+<p>Copyright (c) 2014 - 2015, <strong>peter1000</strong>  <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</p>
+</blockquote>
+<h1 id="7-lconf-schema-definitions">7. LCONF-Schema-Definitions</h1>
+<p>LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
+structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
+LCONF-Schema-Definitions are valid LCONF syntax.</p>
+<h2 id="71-lconf-schema-formats">7.1. LCONF-Schema-Formats</h2>
+<p>There are two supported LCONF-Schema-Formats:</p>
+<ul>
+<li>LCONF_SCHEMA_STRICT_FORMAT: <code>STRICT</code> (uses additional constraints: e.g. naming conventions)</li>
+<li>LCONF_SCHEMA_FLEXIBLE_FORMAT: <code>FLEXIBLE</code> (less constraints)</li>
+</ul>
+<p>All LCONF-Libraries MUST support the <em>LCONF_SCHEMA_STRICT_FORMAT</em> and MAY implement individual <em>LCONF_SCHEMA_FLEXIBLE_FORMAT</em>.</p>
+<p>All LCONF-Schema-Definition Sections MUST set the used LCONF-Schema-Format in the: LCONF-Section Start Line:</p>
+<p>LCONF-Schema-Definition Section-Start-Line MUST</p>
+<ul>
+<li>start with the LCONF_SECTION_START token</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Indentation-Per-Level</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed be a LCONF_SCHEMA_STRICT_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Section-Name</li>
+</ul>
+<pre><code class="text">___SECTION :: 4 :: STRICT :: Menu Configuration Schema Definition`
+</code></pre>
+
+<pre><code class="text">___SECTION :: 4 :: FLEXIBLE :: Menu Configuration Schema Definition`
+</code></pre>
+
+<h3 id="71-1-lconf_schema_strict_format">7.1. 1. LCONF_SCHEMA_STRICT_FORMAT</h3>
+<p>This is the default LCONF-Schema-Format and MUST be supported by all LCONF-Libraries.</p>
+<p><strong>Naming Convention</strong></p>
+<p>A LCONF_SCHEMA_STRICT_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+LCONF-Key-Names):</p>
+<p>MUST be a sequence of one or more (but maximum thirty-one '31') characters of these groups:</p>
+<ul>
+<li>LCONF_UNDERSCORE</li>
+<li>LCONF_CAPITAL_LETTERS</li>
+<li>LCONF_SMALL_LETTERS</li>
+<li>LCONF_DIGITS</li>
+</ul>
+<p>Additionally constraints:</p>
+<ul>
+<li>The first character MUST NOT be a LCONF_DIGITS</li>
+<li>The name SHOULD NOT be one of LCONF's Literal Name Tokens</li>
+<li>The name SHOULD NOT be one of common reserved programming words</li>
+</ul>
+<h3 id="712-lconf_schema_flexible_format">7.1.2. LCONF_SCHEMA_FLEXIBLE_FORMAT</h3>
+<p>This LCONF-Schema-Format has fewer constraints but MAY NOT be supported by all LCONF-Libraries.</p>
+<p><strong>Naming Convention</strong></p>
+<p>A LCONF_SCHEMA_FLEXIBLE_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+LCONF-Key-Names) is a sequence of one or more Unicode characters and is case-sensitive. It MUST NOT contain any
+LCONF_VERTICAL_LINE <code>|</code>.</p>
+<h2 id="72-schema-identifier-line">7.2. Schema: <em>IDENTIFIER</em> Line</h2>
+<p>Each LCONF-Schema-Definition is a <em>STRUCTURE_SINGLE_BLOCK</em> where the Identifier-Line LCONF-Key-Name:</p>
+<p>A LCONF-Schema-Identifier-Line MUST</p>
+<ul>
+<li>start with a STRUCTURE_SINGLE_BLOCK_IDENTIFIER</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Key-Name which MUST be the same as the LCONF-Key-Name in the final LCONF-Section it describes</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_SCHEMA_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Structure for the LCONF-Key-Name in the final LCONF-Section it describes</li>
+<li>and optionally followed by one LCONF_SPACE and an additional LCONF-Constrain option</li>
+</ul>
+<p>Example LCONF-Schema Identifier-Lines</p>
+<pre><code class="text">. Registered | STRUCTURE_PAIR
+
+. Colors | STRUCTURE_LIST
+
+. mobile_numbers | STRUCTURE_LIST (0,3)
+
+. mobile_numbers | STRUCTURE_LIST (0,3)
+
+. credit_cards | STRUCTURE_UNNAMED_BLOCKS (1,2)
+</code></pre>
+
+<p>Example of a corresponding LCONF-Section</p>
+<pre><code class="text">Registered :: true
+
+- Colors
+    Blue
+    Red
+
+# minimum required list items 0, maximum allowed items 3
+- mobile_numbers
+
+# minimum required blocks 1, maximum allowed blocks 2
+* credit_cards
+    .
+        issuing_network :: Visa
+        card_number :: 4639588964759877
+</code></pre>
+
+<h3 id="721-additional-constraints">7.2.1. Additional Constraints</h3>
+<p>Some elements can have <strong>one</strong> additional constraint after the LCONF-Structure.</p>
+<ul>
+<li>STRUCTURE_LIST</li>
+<li>STRUCTURE_TABLE,</li>
+<li>STRUCTURE_NAMED_BLOCKS</li>
+<li>STRUCTURE_UNNAMED_BLOCKS</li>
+</ul>
+<p>can set a minimum/maximum number of elements they require. (LCONF-Constrain-Min-Max)</p>
+<p>A LCONF-Constrain-Min-Max MUST:</p>
+<ul>
+<li>start with a LCONF_LEFT_PARENTHESIS</li>
+<li>followed by a <em>LCONF-Constrain-Min</em>: TYPE_INTEGER greater than zero (0)</li>
+<li>followed by a LCONF_COMMA</li>
+<li>followed by a <em>LCONF-Constrain-Max</em>: TYPE_INTEGER greater than zero (0)</li>
+<li>followed by a LCONF_RIGHT_PARENTHESIS</li>
+</ul>
+<p>IMPORTANT: To not define one of the two constraints set it to TYPE_NOTSET (LCONF_NOTSET).</p>
+<pre><code class="text"># minimum required list items 2, maximum allowed items 5
+. MobileNumbers | STRUCTURE_LIST (2,5)
+
+# minimum required table rows not restricted, maximum allowed required table rows 5
+. interests | STRUCTURE_TABLE (NOTSET,5)
+
+# minimum required blocks 1, maximum allowed blocks not restricted
+. credit_cards | STRUCTURE_UNNAMED_BLOCKS (1,NOTSET)
+</code></pre>
+
+<h2 id="73-schema-item-pair">7.3. Schema: <em>ITEM</em> Pair</h2>
+<p>This is required except STRUCTURE_SINGLE_BLOCK, STRUCTURE_NAMED_BLOCKS, STRUCTURE_UNNAMED_BLOCKS only use the
+<em>LCONF-Schema Identifier-Line</em>.</p>
+<p>The Value for this pair is a LCONF-Item-Requirement-Option followed by a LCONF-Value-Type.</p>
+<p><strong>EXCEPTION:</strong> STRUCTURE_TABLE uses only the LCONF-Item-Requirement-Option because LCONF-Value-Types are set per
+Column.</p>
+<p>A LCONF-Schema <em>ITEM</em> Pair MUST</p>
+<ul>
+<li>start with a LCONF-Key-Name: <code>ITEM</code> (U+0049 U+0054 U+0045 U+004D)</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one of the LCONF-Item-Requirement-Option</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_SCHEMA_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Value-Type for the LCONF-Key-Name in the final LCONF-Section it describes</li>
+<li>
+<p>and optionally followed by one LCONF_SPACE and an additional LCONF-Constrain option</p>
+<ul>
+<li>Exception: for TYPE_PATTERN_DIGITS this is not optional but a pattern MUST be defined</li>
+</ul>
+</li>
+</ul>
+<p>Example LCONF-Schema <em>ITEM</em> Pair</p>
+<pre><code class="text">. Colors | STRUCTURE_LIST
+    ITEM :: OPTIONAL | TYPE_STRING
+
+. Sex | STRUCTURE_PAIR
+    ITEM :: REQUIRED | TYPE_STRING [Male, Female]
+
+. ports | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER [25,80,443]
+
+. credit_card_number | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_DIGITS (15,19)
+
+. telephone_number | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_PATTERN_DIGITS (+@ @@@ @@@ @@@@)
+
+. interest_rate | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_FLOAT (0.5,&lt;10.0)
+
+. interest_rate2 | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_FLOAT (&gt;1.0,10.0)
+</code></pre>
+
+<p>Example of a corresponding LCONF-Section</p>
+<pre><code class="text">Registered :: true
+
+- Colors
+    Blue
+    Red
+
+# predefined valid values one of `Male`,` Female`
+Sex :: Female
+
+# predefined valid values one of `25`, `80`, `443`
+ports :: 80
+
+# minimum required chars (digits) 15, maximum allowed  chars (digits) 19
+credit_card_number :: 4639588964759877
+
+# Pattern (+@ @@@ @@@ @@@@)
+telephone_number :: +1 212 748 4496
+
+# minimum required value 0.5, maximum allowed value less than 10.0
+interest_rate :: 9.9999
+
+# minimum required value greater than 1.0, maximum allowed value 10.0
+interest_rate2 :: 10.0
+</code></pre>
+
+<h3 id="731-lconf-item-requirement-option">7.3.1 LCONF-Item-Requirement-Option</h3>
+<ul>
+<li>
+<p>OPTIONAL</p>
+<ul>
+<li>Item is NOT REQUIRED to be defined in a LCONF-Section</li>
+<li>Item COULD be defined but set <code>NOTSET</code></li>
+<li>Item COULD be defined and set empty (which will overwrite any defaults)</li>
+<li>Item COULD be defined and have set a value in accordance to the expected LCONF-Value-Type</li>
+</ul>
+</li>
+<li>
+<p>REQUIRED (this CAN be an Empty-Value)</p>
+<ul>
+<li>Item MUST be defined in a LCONF-Section and MUST NOT be set <code>NOTSET</code></li>
+<li>Item MUST be defined and can be set empty (which will overwrite any defaults)</li>
+<li>Item MUST be defined and can set a value in accordance to the expected LCONF-Value-Type</li>
+</ul>
+</li>
+<li>
+<p>REQUIRED_NOT_EMPTY (this MUST NOT be an Empty-Value)</p>
+<ul>
+<li>Item MUST be defined in a LCONF-Section and MUST NOT be set <code>NOTSET</code> and MUST NOT be set empty</li>
+<li>Item MUST be defined and MUST set a value in accordance to the expected LCONF-Value-Type</li>
+</ul>
+</li>
+</ul>
+<p><strong>EXCEPTION:</strong> STRUCTURE_TABLE uses only the Item-Requirement-Option because LCONF-Value-Types are set per Column.</p>
+<h3 id="732-additional-constraints">7.3.2. Additional Constraints</h3>
+<p>Some elements can have <strong>one</strong> additional constraint after the LCONF-Value-Type.</p>
+<h4 id="7311-list-of-predefined-valid-values">7.3.1.1. List of Predefined Valid Values</h4>
+<p>For all LCONF-Value-Types one can define optional a list of predefined values (LCONF-Constrain-Predefined-Values).</p>
+<p>A LCONF-Constrain-Predefined-Values MUST:</p>
+<ul>
+<li>start with a LCONF_LEFT_SQUARE_BRACKET</li>
+<li>followed by one or more <em>valid Values</em> separated by LCONF_COMMA</li>
+<li>followed by a LCONF_RIGHT_SQUARE_BRACKET</li>
+</ul>
+<p>NOTE: LCONF_NOTSET and if an Empty-Value is valid is set in the LCONF-Item-Requirement-Option part.</p>
+<pre><code class="text">. Sex | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_STRING [Male, Female]
+
+. Sex2 | STRUCTURE_PAIR
+    ITEM :: REQUIRED | TYPE_STRING [Male, Female]
+
+. ports | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER [25,80,443]
+</code></pre>
+
+<p>Example of a corresponding LCONF-Section</p>
+<pre><code class="text"># predefined valid values one of `Male`,` Female`
+Sex :: Female
+
+# predefined valid values one of `Male`,` Female`
+#   can also be empty
+Sex ::
+
+# predefined valid values one of `25`, `80`, `443`
+ports :: 80
+</code></pre>
+
+<h4 id="7312-digits-pattern">7.3.1.2. Digits Pattern</h4>
+<p>For TYPE_PATTERN_DIGITS one MUST define either a list of predefined valid values (LCONF-Constrain-Predefined-Values) or
+a LCONF-Constrain-Digits-Pattern which MUST:</p>
+<ul>
+<li>start with a LCONF_LEFT_PARENTHESIS</li>
+<li>followed by the required pattern (<code>@</code> are placeholders for digits)</li>
+<li>followed by a LCONF_RIGHT_PARENTHESIS</li>
+</ul>
+<p>NOTE: LCONF_NOTSET and if an Empty-Value is valid is set in the LCONF-Item-Requirement-Option part.</p>
+<p>Example LCONF-Schema <em>ITEM</em> Pair</p>
+<pre><code class="text">. telephone_number | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_PATTERN_DIGITS (+@ @@@ @@@ @@@@)
+</code></pre>
+
+<p>Example of a corresponding LCONF-Section</p>
+<pre><code class="text"># Pattern (+@ @@@ @@@ @@@@)
+telephone_number :: +1 212 748 4496
+</code></pre>
+
+<h4 id="7313-lconf-constrain-min-max">7.3.1.3. LCONF-Constrain-Min-Max</h4>
+<p><strong>TYPE_STRING, TYPE_DIGITS</strong> one MAY set a minimum/maximum LCONF-Constrain-Min-Max which MUST:</p>
+<ul>
+<li>start with a LCONF_LEFT_PARENTHESIS</li>
+<li>followed by a <em>LCONF-Constrain-Min</em>: TYPE_INTEGER greater than zero (0)</li>
+<li>followed by a LCONF_COMMA</li>
+<li>followed by a <em>LCONF-Constrain-Max</em>: TYPE_INTEGER greater than zero (0)</li>
+<li>followed by a LCONF_RIGHT_PARENTHESIS</li>
+</ul>
+<p>IMPORTANT: To not define one of the two constraints set it to TYPE_NOTSET (LCONF_NOTSET).</p>
+<p><strong>TYPE_STRING:</strong> the minimum is the number of required characters and the maximum allowed characters.</p>
+<p><strong>TYPE_DIGITS:</strong> the minimum is the number of required characters (digits) and the maximum allowed characters (digits).</p>
+<p>Example LCONF-Schema <em>ITEM</em> Pair</p>
+<pre><code class="text">. State | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING (2,2)
+
+. credit_card_number | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_DIGITS (15,19)
+</code></pre>
+
+<p>Example of a corresponding LCONF-Section</p>
+<pre><code class="text"># minimum required chars 2, maximum allowed chars 2
+State :: NY
+
+# minimum required chars (digits) 15, maximum allowed chars (digits) 19
+credit_card_number :: 4639588964759877
+</code></pre>
+
+<p>For <strong>TYPE_INTEGER, TYPE_FLOAT and TYPE_NUMBER</strong>  one MAY set a minimum/maximum LCONF-Constrain-Min-Max which MUST:</p>
+<ul>
+<li>start with a LCONF_LEFT_PARENTHESIS</li>
+<li>followed by a <em>LCONF-Constrain-Min</em>: Optional LCONF_GREATER_THAN_SIGN followed by TYPE_INTEGER</li>
+<li>followed by a LCONF_COMMA</li>
+<li>followed by a <em>LCONF-Constrain-Max</em>: Optional LCONF_LESS_THAN_SIGN followed by TYPE_INTEGER</li>
+<li>followed by a LCONF_RIGHT_PARENTHESIS</li>
+</ul>
+<p>IMPORTANT: To not define one of the two constraints set it to TYPE_NOTSET (LCONF_NOTSET).</p>
+<ul>
+<li>
+<p><strong>LCONF-Constrain-Min:</strong> the minimum required value</p>
+<ul>
+<li>if an optional LCONF_GREATER_THAN_SIGN was defined the minimum reguired value greater than</li>
+</ul>
+</li>
+<li>
+<p><strong>LCONF-Constrain-Max:</strong> the maximum allowed value</p>
+<ul>
+<li>if an optional LCONF_LESS_THAN_SIGN was defined the maximum allowed value less than</li>
+</ul>
+</li>
+</ul>
+<p>Example LCONF-Schema <em>ITEM</em> Pair</p>
+<pre><code class="text">. ZIPCode | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_INTEGER (10000,99999)
+
+. interest_rate | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_FLOAT (0.5,10.0)
+
+. interest_rate2 | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_NUMBER (&gt;1,&lt;10.0)
+
+. moving_balance | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_FLOAT (&gt;-30000,NOTSET)
+</code></pre>
+
+<p>Example of a corresponding LCONF-Section</p>
+<pre><code class="text"># minimum required value 10000, maximum allowed value 99999
+ZIPCode :: 10022
+
+# minimum required value 0.5, maximum allowed value 10.0
+interest_rate :: 10.0
+
+# minimum required value greater than 1, maximum allowed value less than 10.0
+interest_rate2 :: 9.9999
+
+# minimum required value greater than -30000, maximum allowed value not defined
+moving_balance :: -29999.9999
+</code></pre>
+
+<h2 id="74-schema-default-empty_replacement-pairs">7.4. Schema: <em>DEFAULT</em> &amp; <em>EMPTY_REPLACEMENT</em> Pairs</h2>
+<p>DEFAULT and EMPTY_REPLACEMENT are optional items depending on the LCONF-STRUCTURE.</p>
+<h3 id="741-lconf-schema-structure_pair">7.4.1. LCONF-Schema: <em>STRUCTURE_PAIR</em></h3>
+<p>DEFAULT and EMPTY_REPLACEMENT are optional items.</p>
+<p>If not set it is for both assumed:</p>
+<ul>
+<li>for TYPE_STRING, TYPE_DIGITS, TYPE_PATTERN_DIGITS it is assumed a LCONF_EMPTY_STRING: <br />
+    <code>DEFAULT ::</code> and <code>EMPTY_REPLACEMENT ::</code></li>
+<li>for all other TYPES it is assumed to be LCONF_NOTSET: <br />
+    <code>DEFAULT :: NOTSET</code> and <code>EMPTY_REPLACEMENT :: NOTSET</code></li>
+</ul>
+<p>Examples:</p>
+<pre><code class="text">. registered1 | STRUCTURE_PAIR
+    ITEM :: REQUIRED | TYPE_STRING
+    DEFAULT ::
+    EMPTY_REPLACEMENT ::
+
+. registered2 | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_BOOLEAN
+    DEFAULT :: NOTSET
+    EMPTY_REPLACEMENT :: NOTSET
+
+# Set DEFAULT and EMPTY_REPLACEMENT
+. registered3 | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_BOOLEAN
+    DEFAULT :: true
+    EMPTY_REPLACEMENT :: false
+</code></pre>
+
+<h3 id="742-lconf-schema-structure_list">7.4.2. LCONF-Schema: <em>STRUCTURE_LIST</em></h3>
+<p>DEFAULT is an optional item and EMPTY_REPLACEMENT is not a STRUCTURE_LIST LCONF-Schema item.</p>
+<p>If not set it is assumed an empty list (without any values - an empty sequence) LCONF_EMPTY_LIST: <code>- DEFAULT</code></p>
+<p>Examples:</p>
+<pre><code class="text">. colors | STRUCTURE_LIST
+    ITEM :: REQUIRED | TYPE_STRING
+    - DEFAULT
+
+# Set DEFAULT
+. registered1 | STRUCTURE_LIST
+    ITEM :: OPTIONAL | TYPE_STRING
+    - DEFAULT
+        Red,
+        blue
+
+# Set DEFAULT: Compact notation
+. registered2 | STRUCTURE_LIST
+    ITEM :: OPTIONAL | TYPE_STRING
+    - DEFAULT :: Red, blue
+</code></pre>
+
+<h3 id="743-lconf-schema-structure_table">7.4.3. LCONF-Schema: <em>STRUCTURE_TABLE</em></h3>
+<p>DEFAULT is an optional item and EMPTY_REPLACEMENT is not a STRUCTURE_TABLE LCONF-Schema item.</p>
+<p>If not set it is assumed a LCONF_EMPTY_TABLE (without any rows - an empty sequence): <code>| DEFAULT</code></p>
+<p><strong>COLUMNS</strong>: This is required and only used for STRUCTURE_TABLE and is a STRUCTURE_LIST where each value line has the
+format of:</p>
+<p><code>Column NAME | Column DEFAULT | Column EMPTY_REPLACEMENT | Column Value-REQUIRED | Column TYPE &amp; any CONSTRAINTS</code></p>
+<p>Leading and ending whitespace of individual parts is stripped.</p>
+<p>Examples:</p>
+<pre><code class="text">. favorite1s | STRUCTURE_TABLE
+    ITEM :: OPTIONAL
+    - COLUMNS
+        # NAME   | DEFAULT | EMPTY_REPLACEMENT | Value-REQUIRED     | TYPE &amp; any CONSTRAINTS
+        # ------ | ------- | ----------------- | ------------------ | -----------------------
+        food     |         |                   | REQUIRED_NOT_EMPTY | TYPE_STRING (NOTSET,25)
+        sport    |         |                   | OPTIONAL           | TYPE_STRING
+        color    |         |                   | OPTIONAL           | TYPE_STRING
+        number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (&gt;0,&lt;100)
+
+    | DEFAULT
+
+. favorites2 | STRUCTURE_TABLE
+    ITEM :: OPTIONAL
+    - COLUMNS
+        # NAME   | DEFAULT | EMPTY_REPLACEMENT | Value-REQUIRED     | TYPE &amp; any CONSTRAINTS
+        # ------ | ------- | ----------------- | ------------------ | -----------------------
+        food     |         |                   | REQUIRED_NOT_EMPTY | TYPE_STRING (NOTSET,25)
+        sport    |         |                   | OPTIONAL           | TYPE_STRING
+        color    |         |                   | OPTIONAL           | TYPE_STRING
+        number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (&gt;0,&lt;100)
+
+    | DEFAULT
+        # food          | sport          | color  | number |
+        # ------------- | -------------- | ------ | ------ |
+        | Stroganoff    | figure skating | violet | 0.0    |
+        | Rice          | ballet         | orange | NOTSET |
+        | French fries  |                |        |        |
+        | Fried Chicken | NOTSET         |        | 89.9   |
+</code></pre>
+
+<h2 id="75-lconf-schema-comment-lines">7.5 LCONF-Schema-Comment-Lines</h2>
+<p>If a LCONF-Schema-Line first none whitespace character is a LCONF_SCHEMA_COMMENT_LINE_IDENTIFIER it is considered a
+LCONF-Schema-Comment-Line which are parsed.
+The purpose of such LCONF-Schema-Comment-Lines is to emit an example LCONF-Section with additional information.</p>
+<p><strong>NOTE</strong>: LCONF-Schema MAY also contain regular LCONF-Section-Comment-Line which are not parsed.</p>
+<h3 id="751-auto-generated-comment-lines">7.5.1 Auto-generated Comment-Lines</h3>
+<p>LCONF-Libraries MUST implement an option to auto-generate for each LCONF-Schema-Definition Comment-Lines which MUST
+contain info like:</p>
+<ul>
+<li>LCONF-Key-Name which it referes too and <em>optional the LCONF-Structure</em></li>
+<li>LCONF-Item-Requirement-Option</li>
+<li>LCONF-Value-Type with any constraints</li>
+<li>Default-Value</li>
+<li>Empty-Default-Value</li>
+</ul>
+<p><strong>NOTE</strong> STRUCTURE_TABLE needs to aut-generate also the COLUMNS info.</p>
+<p>Example LCONF-Schema-Definition</p>
+<pre><code class="text">. registered | STRUCTURE_PAIR
+    ITEM :: OPTIONAL | TYPE_BOOLEAN
+    DEFAULT :: true
+    EMPTY_REPLACEMENT :: false
+
+. interest_rate | STRUCTURE_PAIR
+    ITEM :: REQUIRED | TYPE_FLOAT (0.5,10.0)
+</code></pre>
+
+<p>Example default output: <strong>The output format is not defined and are here just as an example.</strong></p>
+<pre><code class="text"># &lt;registered&gt; OPTIONAL | TYPE_BOOLEAN
+#   Default: &lt;true&gt; | Empty-Default: &lt;false&gt;
+registered :: true
+
+# &lt;interest_rate&gt; REQUIRED | TYPE_FLOAT (0.5,10.0)
+#   Default: &lt;NOTSET&gt; | Empty-Default: &lt;NOTSET&gt;
+interest_rate :: NOTSET
+</code></pre>
+
+<h4 id="7511-structure_table">7.5.1.1 STRUCTURE_TABLE</h4>
+<p>For STRUCTURE_TABLE the auto-generated LCONF-Schema-Comment-Lines MUST also include the Columns definitions.</p>
+<p>Example LCONF-Schema-Definition</p>
+<pre><code class="text">. favorites | STRUCTURE_TABLE
+    ITEM :: OPTIONAL
+    - COLUMNS
+        # NAME   | DEFAULT | EMPTY_REPLACEMENT | Value-REQUIRED     | TYPE &amp; any CONSTRAINTS
+        # ------ | ------- | ----------------- | ------------------ | -----------------------
+        food     |         |                   | REQUIRED_NOT_EMPTY | TYPE_STRING (NOTSET,25)
+        sport    |         |                   | OPTIONAL           | TYPE_STRING
+        color    |         |                   | OPTIONAL           | TYPE_STRING
+        number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (&gt;0,&lt;100)
+
+    | DEFAULT
+        # food          | sport          | color  | number |
+        # ------------- | -------------- | ------ | ------ |
+        | Stroganoff    | figure skating | violet | 0.0    |
+        | Rice          | ballet         | orange | NOTSET |
+        | French fries  |                |        |        |
+        | Fried Chicken | NOTSET         |        | 89.9   |
+</code></pre>
+
+<p>Example default output: <strong>The output format is not defined and are here just as an example.</strong></p>
+<pre><code class="text"># &lt;favorites&gt; OPTIONAL
+# COLUMNS # NAME   | DEFAULT | EMPTY_REPLACEMENT | Value-REQUIRED     | TYPE &amp; any CONSTRAINTS
+#         # ------ | ------- | ----------------- | ------------------ | -----------------------
+#         food     |         |                   | REQUIRED_NOT_EMPTY | TYPE_STRING (NOTSET,25)
+#         sport    |         |                   | OPTIONAL           | TYPE_STRING
+#         color    |         |                   | OPTIONAL           | TYPE_STRING
+#         number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (&gt;0,&lt;100)
+| DEFAULT
+    # food          | sport          | color  | number |
+    # ------------- | -------------- | ------ | ------ |
+    | Stroganoff    | figure skating | violet | 0.0    |
+    | Rice          | ballet         | orange | NOTSET |
+    | French fries  |                |        |        |
+    | Fried Chicken | NOTSET         |        | 89.9   |
+</code></pre>
+
+<h3 id="752-lconf-section-comment-emit-options">7.5.2 LCONF-Section Comment Emit Options</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EMIT_NO_COMMENTS</td>
+<td align="left">Absolute no comments are emitted.</td>
+</tr>
+<tr>
+<td align="left">EMIT_ONLY_MANUAL_COMMENTS</td>
+<td align="left">Only manual LCONF-Schema-Comment-Lines are emitted.</td>
+</tr>
+<tr>
+<td align="left">EMIT_ALL_COMMENTS</td>
+<td align="left">Auto generated and manual LCONF-Schema-Comment-Lines are emitted.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="76-lconf-libraries-schema-requirements">7.6. LCONF-Libraries Schema Requirements</h2>
+<ul>
+<li>
+<p>All LCONF-Libraries MUST support the <em>LCONF_SCHEMA_STRICT_FORMAT</em> and MAY implement individual
+    <em>LCONF_SCHEMA_FLEXIBLE_FORMAT</em>.</p>
+</li>
+<li>
+<p>LCONF-Libraries SHOULD implement an option to generate optimized copy/past source code from a parsed LCONF_SCHEMA and
+    to emit it which removes the need of parsing each time the LCONF_SCHEMA.</p>
+</li>
+<li>
+<p>LCONF-Libraries MUST implement an option to emit a parsed LCONF_SCHEMA inclusive any LCONF-Schema-Comment-Lines.</p>
+</li>
+<li>
+<p>LCONF-Libraries MUST implement an option to emit a LCONF-Section inclusive any LCONF-Schema-Comment-Lines.</p>
+</li>
+<li>
+<p>It is RECOMMENDE that LCONF-Libraries implement an option to generate a generic basic LCONF-Schema from any parsed
+    LCONF-Section which could be used as starting point for a corresponding final LCONF-Schema.</p>
+</li>
+</ul></div>
+        </div>
+
+    <footer class="col-md-12">
+        <hr>
+        
+        <center>Copyright (c) 2014 - 2015, <strong>peter1000</strong> <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</center>
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

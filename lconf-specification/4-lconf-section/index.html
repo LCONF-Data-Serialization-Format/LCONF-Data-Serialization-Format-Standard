@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="peter1000">
+        <link rel="canonical" href="https://lconf-data-serialization-format/LCONF-Data-Serialization-Format-Standard/lconf-specification/4-lconf-section/">
+        <link rel="shortcut icon" href="../../images/lconf_favicon.ico">
+        
+
+	<title>4. LCONF-Section - LCONF-Data-Serialization-Format-Standard</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LCONF-Data-Serialization-Format-Standard</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LCONF-Specification <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../1-lconf-standard/">1. LCONF-Standard</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../2-lconf-terminology/">2. LCONF-Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../3-lconf-text/">3. LCONF-Text</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">4. LCONF-Section</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../5-lconf-structures/">5. LCONF-Structures</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../6-lconf-value-types/">6. LCONF-Value-Types</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../7-lconf-schema-definition/">7. LCONF-Schema-Definition</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../about/readme/">Readme</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/license/">License</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/changelog/">Changelog</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../3-lconf-text/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../5-lconf-structures/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LCONF-Data-Serialization-Format/LCONF-Data-Serialization-Format-Standard/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#4-lconf-section">4. LCONF Section</a></li>
+        
+            <li><a href="#41-section-start-line">4.1. Section Start Line</a></li>
+        
+            <li><a href="#42-blank-none-blank-line">4.2. Blank &amp; NONE Blank Line</a></li>
+        
+            <li><a href="#43-indentation-level">4.3. Indentation Level</a></li>
+        
+            <li><a href="#44-trailing-space">4.4. Trailing Space</a></li>
+        
+            <li><a href="#45-comment-line">4.5. Comment Line</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div align="center">
+    <a href="http://lconf-data-serialization-format.github.io/">
+        <img src="../../images/lconf-logo.png" alt="LCONF LOGO" title="The LCONF-Data-Serialization-Format Organization">
+    </a>
+</div>
+
+<blockquote>
+<p>This file is part of the <em>LCONF-Data-Serialization-Format-Standard Documentation</em>.</p>
+<p>Copyright (c) 2014 - 2015, <strong>peter1000</strong>  <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</p>
+</blockquote>
+<h1 id="4-lconf-section">4. LCONF Section</h1>
+<p>A sequence of Unicode characters starting with a LCONF_SECTION_START token and ending with the first found
+LCONF_SECTION_END token. A LCONF-Section MUST NOT contain any additional LCONF_SECTION_START
+tokens.</p>
+<ul>
+<li>Any text before or after a valid LCONF-Section is considered additional text.</li>
+<li>The LCONF_SECTION_START and  LCONF_SECTION_END token lines MUST NOT contain any indentation and MUST NOT be on the
+    same line.</li>
+</ul>
+<p>Below is an example of a LCONF-Text containing two LCONF-Sections and additional text.</p>
+<pre><code class="text">Any text before or after a valid LCONF-Section is considered additional text.
+
+___SECTION :: 4 :: LCONF :: Example1
+Color :: Blue
+FONT :: Liberation Mono
+___END
+
+Some more intermitten text followed by a second LCONF-Section.
+
+___SECTION :: 4 :: LCONF :: Example2
+Color :: Red
+FONT :: Open Sans
+___END
+</code></pre>
+
+<p>A valid but Empty LCONF-Section.</p>
+<pre><code class="text">___SECTION :: 2 :: LCONF :: Example
+___END
+</code></pre>
+
+<p>A valid but <em>not recommendet</em> LCONF-Section. It is valid because any Text befor the LCONF_SECTION_START token is
+disregarded - so the actual data starts without any indentation and is the same as the previous Example.</p>
+<pre><code class="text">Any text before or after a valid LCONF-Section is considered additional text.___SECTION :: 2 :: LCONF :: Example
+___END
+</code></pre>
+
+<p>Every LCONF-Section has a LCONF-Section-Name defined in the LCONF-Section-Start-Line.</p>
+<pre><code class="text">___SECTION :: 2 :: LCONF :: Example Section Name
+___END
+</code></pre>
+
+<h2 id="41-section-start-line">4.1. Section Start Line</h2>
+<pre><code class="text">___SECTION :: LCONF-Indentation-Per-Level :: LCONF_SECTION_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT or LCONF_SCHEMA_STRICT_FORMAT:: LCONF-Section-Name
+</code></pre>
+
+<p>Each LCONF-Section-Start-Line MUST</p>
+<ul>
+<li>start with the LCONF_SECTION_START token</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Indentation-Per-Level</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed be a LCONF_SECTION_FORMAT or LCONF_SCHEMA_STRICT_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
+<li>followed by one LCONF_SPACE</li>
+<li>followed by a LCONF-Section-Name</li>
+</ul>
+<p>Example of a LCONF-Section-Start-Line.</p>
+<pre><code class="text">___SECTION :: 4 :: LCONF :: Menu Configuration`
+</code></pre>
+
+<pre><code class="text">___SECTION :: 4 :: STRICT :: Menu Configuration Schema Definition`
+</code></pre>
+
+<pre><code class="text">___SECTION :: 4 :: FLEXIBLE :: Menu Configuration Schema Definition`
+</code></pre>
+
+<h2 id="42-blank-none-blank-line">4.2. Blank &amp; NONE Blank Line</h2>
+<ul>
+<li>LCONF_BLANK_LINE: A line that contains only whitespace characters (zero or more).</li>
+<li>LCONF_NONE_BLANK_LINE: A line that contains one or more none whitespace characters.</li>
+</ul>
+<h2 id="43-indentation-level">4.3. Indentation Level</h2>
+<p>Leading whitespace (LCONF_SPACEs) at the beginning of a LCONF-Section-Line is used to compute the indentation level of
+the line. Within a LCONF-Section only LCONF_SPACEs can be used as indentation. The number of LCONF_SPACEs used per
+LCONF-Indentation-Level is set as part of the LCONF-Section-Start-Line.</p>
+<p>The total number of spaces preceding the first non-blank character then determines the line’s indentation.</p>
+<p>The LCONF-Data-Serialization-Format uses LCONF-Indentation for readability and as part of its structure.</p>
+<h2 id="44-trailing-space">4.4. Trailing Space</h2>
+<p>LCONF-Sections MUST NOT contain any lines with <em>Trailing Space</em>.</p>
+<h2 id="45-comment-line">4.5. Comment Line</h2>
+<p>The LCONF-Data-Serialization-Format makes a distinction between two types of LCONF-Comment-Lines:</p>
+<p>LCONF-Comment-Lines SHOULD have the indentation level of the following LCONF_NONE_BLANK_LINE.</p>
+<ul>
+<li>
+<p>LCONF-Section-Comment-Line: If a LCONF-Section-Line first none whitespace character is a
+    LCONF_COMMENT_LINE_IDENTIFIER it is considered a LCONF-Section-Comment-Line which are not parsed.
+    The usual purpose of a comment line is to communicate between the human maintainers of a file. A typical example is
+    comments in a configuration file.</p>
+</li>
+<li>
+<p>LCONF-Schema-Comment-Line: If a LCONF-Schema-Line first none whitespace character is a
+    LCONF_SCHEMA_COMMENT_LINE_IDENTIFIER it is considered a LCONF-Schema-Comment-Line which are parsed.
+    The purpose of such LCONF-Schema-Comment-Lines is to emit an example LCONF-Section with additional information.</p>
+<p><strong>NOTE</strong>: LCONF-Schema MAY also contain regular LCONF-Section-Comment-Line which are not parsed.</p>
+</li>
+</ul>
+<p>Example of a LCONF-Section-Comment-Line.</p>
+<pre><code class="text">___SECTION :: 4 :: LCONF :: Example
+# Comment-Line more info: Registry is a STRUCTURE_SINGLE_BLOCK
+. Registry
+    Name :: Tom Serjo
+    - EmailAddresses
+        # Comment-Line should have the indentation level of the following LCONF_NONE_BLANK_LINE
+        tom1@nomail.net
+        tom2@nomail.net
+
+    # Comment-Line should have the indentation level of the following LCONF_NONE_BLANK_LINE
+
+    City :: Paris
+___END
+</code></pre>
+
+<p>It is RECOMMENDED that any LCONF-Comment-Line uses at least one LCONF_SPACE after the LCONF_COMMENT_LINE_IDENTIFIER.</p>
+<pre><code class="text">___SECTION :: 4 :: LCONF :: Example
+#Comment-Line without space between the Identifier and the comment is valid but SHOUD BE AVOIDED.
+Name :: Tom Serjo
+
+# EmailAddresses: Usually one should use one space between the Identifier and the comment text.
+#                 But sometimes one wants to aline a multi-line comment in a certain style.
+- EmailAddresses
+    tom1@nomail.net
+    tom2@nomail.net
+City :: Paris
+___END
+</code></pre>
+
+<p>Example of LCONF-Schema-Comment-Lines which are parsed.</p>
+<pre><code class="text">___SECTION :: 4 :: STRICT :: lconf_standard_example1
+/ &lt;FamilyName&gt;: Please use for the first letter uppercase followed by lowercase letters.
+/               e.g. `Williams`
+. FamilyName | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+    DEFAULT ::
+    EMPTY_REPLACEMENT ::
+___END
+</code></pre></div>
+        </div>
+
+    <footer class="col-md-12">
+        <hr>
+        
+        <center>Copyright (c) 2014 - 2015, <strong>peter1000</strong> <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</center>
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>

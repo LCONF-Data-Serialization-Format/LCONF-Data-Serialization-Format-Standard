@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="peter1000">
+        <link rel="canonical" href="https://lconf-data-serialization-format/LCONF-Data-Serialization-Format-Standard/lconf-specification/2-lconf-terminology/">
+        <link rel="shortcut icon" href="../../images/lconf_favicon.ico">
+        
+
+	<title>2. LCONF-Terminology - LCONF-Data-Serialization-Format-Standard</title>
+
+        <link href="../../css/bootstrap-3.0.3.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="../..">LCONF-Data-Serialization-Format-Standard</a>
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+                <li >
+                    <a href="../..">Home</a>
+                </li>
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">LCONF-Specification <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../1-lconf-standard/">1. LCONF-Standard</a>
+                        </li>
+                    
+                        <li class="active">
+                            <a href="./">2. LCONF-Terminology</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../3-lconf-text/">3. LCONF-Text</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../4-lconf-section/">4. LCONF-Section</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../5-lconf-structures/">5. LCONF-Structures</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../6-lconf-value-types/">6. LCONF-Value-Types</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../7-lconf-schema-definition/">7. LCONF-Schema-Definition</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        <li >
+                            <a href="../../about/readme/">Readme</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/license/">License</a>
+                        </li>
+                    
+                        <li >
+                            <a href="../../about/changelog/">Changelog</a>
+                        </li>
+                    
+                    </ul>
+                </li>
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                <li >
+                    <a rel="next" href="../1-lconf-standard/">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </li>
+                <li >
+                    <a rel="prev" href="../3-lconf-text/">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="https://github.com/LCONF-Data-Serialization-Format/LCONF-Data-Serialization-Format-Standard/">
+                        
+                            <i class="fa fa-github"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        <div class="container">
+            <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#2-lconf-terminology">2. LCONF Terminology</a></li>
+        
+            <li><a href="#21-characters">2.1. Characters</a></li>
+        
+            <li><a href="#22-literal-name-tokens">2.2. Literal Name Tokens</a></li>
+        
+            <li><a href="#23-lconf-structures">2.3. LCONF Structures</a></li>
+        
+            <li><a href="#24-structural-tokens">2.4. Structural Tokens</a></li>
+        
+            <li><a href="#25-lconf-key-names">2.5. LCONF Key-Names</a></li>
+        
+            <li><a href="#26-lconf-value-types">2.6. LCONF Value Types</a></li>
+        
+    
+    </ul>
+</div></div>
+            <div class="col-md-9" role="main">
+
+<div align="center">
+    <a href="http://lconf-data-serialization-format.github.io/">
+        <img src="../../images/lconf-logo.png" alt="LCONF LOGO" title="The LCONF-Data-Serialization-Format Organization">
+    </a>
+</div>
+
+<blockquote>
+<p>This file is part of the <em>LCONF-Data-Serialization-Format-Standard Documentation</em>.</p>
+<p>Copyright (c) 2014 - 2015, <strong>peter1000</strong>  <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</p>
+</blockquote>
+<h1 id="2-lconf-terminology">2. LCONF Terminology</h1>
+<p>A collection of most LCONF terms and base definitions used in the
+<em>LCONF-Data-Serialization-Format-Standard Documentation</em>.</p>
+<h2 id="21-characters">2.1. Characters</h2>
+<h3 id="211-single-characters">2.1.1. Single Characters</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Unicode</strong></th>
+<th align="left"><strong>Unicode Name</strong></th>
+<th align="left"><strong>ASCII Dec</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF_SPACE</td>
+<td align="left">U+0020</td>
+<td align="left">SPACE</td>
+<td align="left">32</td>
+</tr>
+<tr>
+<td align="left">LCONF_NUMBER_SIGN</td>
+<td align="left">U+0023</td>
+<td align="left">NUMBER SIGN</td>
+<td align="left">35</td>
+</tr>
+<tr>
+<td align="left">LCONF_LEFT_PARENTHESIS</td>
+<td align="left">U+0028</td>
+<td align="left">LEFT PARENTHESIS</td>
+<td align="left">40</td>
+</tr>
+<tr>
+<td align="left">LCONF_RIGHT_PARENTHESIS</td>
+<td align="left">U+0029</td>
+<td align="left">RIGHT PARENTHESIS</td>
+<td align="left">41</td>
+</tr>
+<tr>
+<td align="left">LCONF_ASTERISK</td>
+<td align="left">U+002A</td>
+<td align="left">ASTERISK</td>
+<td align="left">42</td>
+</tr>
+<tr>
+<td align="left">LCONF_PLUS</td>
+<td align="left">U+002B</td>
+<td align="left">PLUS SIGN</td>
+<td align="left">43</td>
+</tr>
+<tr>
+<td align="left">LCONF_COMMA</td>
+<td align="left">U+002C</td>
+<td align="left">COMMA</td>
+<td align="left">44</td>
+</tr>
+<tr>
+<td align="left">LCONF_MINUS</td>
+<td align="left">U+002D</td>
+<td align="left">HYPHEN-MINUS</td>
+<td align="left">45</td>
+</tr>
+<tr>
+<td align="left">LCONF_PERIOD</td>
+<td align="left">U+002E</td>
+<td align="left">FULL STOP</td>
+<td align="left">46</td>
+</tr>
+<tr>
+<td align="left">LCONF_SLASH</td>
+<td align="left">U+002F</td>
+<td align="left">SOLIDUS</td>
+<td align="left">47</td>
+</tr>
+<tr>
+<td align="left">LCONF_COLON</td>
+<td align="left">U+003A</td>
+<td align="left">COLON</td>
+<td align="left">58</td>
+</tr>
+<tr>
+<td align="left">LCONF_LESS_THAN_SIGN</td>
+<td align="left">U+003C</td>
+<td align="left">LESS-THAN SIGN</td>
+<td align="left">60</td>
+</tr>
+<tr>
+<td align="left">LCONF_EQUALS_SIGN</td>
+<td align="left">U+003D</td>
+<td align="left">EQUALS SIGN</td>
+<td align="left">61</td>
+</tr>
+<tr>
+<td align="left">LCONF_GREATER_THAN_SIGN</td>
+<td align="left">GREATER-THAN SIGN</td>
+<td align="left">VERTICAL LINE</td>
+<td align="left">62</td>
+</tr>
+<tr>
+<td align="left">LCONF_AT_SIGN</td>
+<td align="left">U+0040</td>
+<td align="left">COMMERCIAL AT</td>
+<td align="left">64</td>
+</tr>
+<tr>
+<td align="left">LCONF_LEFT_SQUARE_BRACKET</td>
+<td align="left">U+005B</td>
+<td align="left">LEFT SQUARE BRACKET</td>
+<td align="left">91</td>
+</tr>
+<tr>
+<td align="left">LCONF_RIGHT_SQUARE_BRACKET</td>
+<td align="left">U+005D</td>
+<td align="left">RIGHT SQUARE BRACKET</td>
+<td align="left">93</td>
+</tr>
+<tr>
+<td align="left">LCONF_UNDERSCORE</td>
+<td align="left">U+005F</td>
+<td align="left">LOW LINE</td>
+<td align="left">95</td>
+</tr>
+<tr>
+<td align="left">LCONF_VERTICAL_LINE</td>
+<td align="left">U+007C</td>
+<td align="left">VERTICAL LINE</td>
+<td align="left">124</td>
+</tr>
+</tbody>
+</table>
+<h3 id="212-character-group">2.1.2. Character Group</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Unicode</strong></th>
+<th align="left"><strong>Unicode Name</strong></th>
+<th align="left"><strong>ASCII Dec</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF_DIGITS</td>
+<td align="left">The code points U+0030 through U+0039</td>
+<td align="left">DIGIT ZERO through DIGIT NINE</td>
+<td align="left">48 through 57</td>
+</tr>
+<tr>
+<td align="left">LCONF_CAPITAL_LETTERS</td>
+<td align="left">The code points U+0041 through U+005A</td>
+<td align="left">LATIN CAPITAL LETTER A through LATIN CAPITAL LETTER Z</td>
+<td align="left">65 through 90</td>
+</tr>
+<tr>
+<td align="left">LCONF_SMALL_LETTERS</td>
+<td align="left">The code points U+0061 through U+007A</td>
+<td align="left">LATIN SMALL LETTER A through LATIN SMALL LETTER Z</td>
+<td align="left">97 through 122</td>
+</tr>
+</tbody>
+</table>
+<h2 id="22-literal-name-tokens">2.2. Literal Name Tokens</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+<th align="left"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF_SECTION_START</td>
+<td align="left">U+005F U+005F U+005F U+0053 U+0045 U+0043 U+0054 U+0049 U+004F U+004E</td>
+<td align="left"><code>___SECTION</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_SECTION_END</td>
+<td align="left">U+005F U+005F U+005F U+0045 U+004E U+0044</td>
+<td align="left"><code>___END</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_SECTION_FORMAT</td>
+<td align="left">U+004C U+0043 U+004F U+004E U+0046</td>
+<td align="left"><code>LCONF</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_SCHEMA_STRICT_FORMAT</td>
+<td align="left">U+0053 U+0054 U+0052 U+0049 U+0043 U+0054</td>
+<td align="left"><code>STRICT</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_SCHEMA_FLEXIBLE_FORMAT</td>
+<td align="left">U+0046 U+004C U+0045 U+0058 U+0049 U+0042 U+004C U+0045</td>
+<td align="left"><code>FLEXIBLE</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_TRUE</td>
+<td align="left">U+0074 U+0072 U+0075 U+0065</td>
+<td align="left"><code>true</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_FALSE</td>
+<td align="left">U+0066 U+0061 U+006C U+0073 U+0065</td>
+<td align="left"><code>false</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_NOTSET</td>
+<td align="left">U+004E U+004F U+0054 U+0053 U+0045 U+0054</td>
+<td align="left"><code>NOTSET</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_FORCE</td>
+<td align="left">U+0046 U+004F U+0052 U+0043 U+0045</td>
+<td align="left"><code>FORCE</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><code>___SECTION</code> is a reserved LCONF character sequence.</li>
+<li><code>___END</code> is a reserved LCONF character sequence.</li>
+<li><code>NOTSET</code> is a reserved LCONF character sequence.</li>
+</ul>
+<h2 id="23-lconf-structures">2.3. LCONF Structures</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">STRUCTURE_PAIR</td>
+<td align="left">Associates a LCONF-Key-Name with one data value.</td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_TABLE</td>
+<td align="left">Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).</td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_LIST</td>
+<td align="left">Associates a LCONF-Key-Name with an ordered sequence (list) of data values.</td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_SINGLE_BLOCK</td>
+<td align="left">A collection of any of the six LCONF-Structures.</td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_NAMED_BLOCKS</td>
+<td align="left">A collection of repeated named STRUCTURE_SINGLE_BLOCKs.</td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_UNNAMED_BLOCKS</td>
+<td align="left">A collection of repeated unnamed STRUCTURE_SINGLE_BLOCKs.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="24-structural-tokens">2.4. Structural Tokens</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+<th align="left"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">STRUCTURE_LIST_IDENTIFIER</td>
+<td align="left">LCONF_MINUS</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_LIST_VALUE_SEPARATOR</td>
+<td align="left">LCONF_COMMA</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_TABLE_IDENTIFIER</td>
+<td align="left">LCONF_VERTICAL_LINE</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_TABLE_VALUE_SEPARATOR</td>
+<td align="left">LCONF_VERTICAL_LINE</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_SINGLE_BLOCK_IDENTIFIER</td>
+<td align="left">LCONF_PERIOD</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_NAMED_BLOCKS_IDENTIFIER</td>
+<td align="left">LCONF_ASTERISK</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</td>
+<td align="left">LCONF_ASTERISK</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">LCONF_SINGLE_BLOCK_REUSE</td>
+<td align="left">Double LCONF_EQUALS_SIGN</td>
+<td align="left"><code>==</code></td>
+</tr>
+<tr>
+<td align="left">LCONF_SCHEMA_SEPARATOR</td>
+<td align="left">LCONF_VERTICAL_LINE</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">LCONF_SCHEMA_COMMENT_LINE_IDENTIFIER</td>
+<td align="left">LCONF_SLASH</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">LCONF_COMMENT_LINE_IDENTIFIER</td>
+<td align="left">LCONF_NUMBER_SIGN</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">LCONF_KEY_VALUE_SEPARATOR</td>
+<td align="left">Double LCONF_COLON</td>
+<td align="left"><code>::</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="241-optional-structural-tokens">2.4.1. Optional Structural Tokens</h3>
+<p>LCONF-Schema-Definitions uses optional constrain structural tokens:</p>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+<th align="left"><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Constrain-Digits-Pattern</td>
+<td align="left">LCONF_LEFT_PARENTHESIS  and LCONF_RIGHT_PARENTHESIS</td>
+<td align="left">(+@ @@@ @@@ @@@@)</td>
+</tr>
+<tr>
+<td align="left">LCONF-Constrain-Predefined-Values</td>
+<td align="left">LCONF_LEFT_SQUARE_BRACKET and LCONF_RIGHT_SQUARE_BRACKET</td>
+<td align="left">[value1, Value2]</td>
+</tr>
+<tr>
+<td align="left">LCONF-Constrain-Min-Max</td>
+<td align="left">LCONF_LEFT_PARENTHESIS  and LCONF_RIGHT_PARENTHESIS</td>
+<td align="left">(1,12)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="25-lconf-key-names">2.5. LCONF Key-Names</h2>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Key-Name</td>
+<td align="left">A sequence of one or more Unicode characters and is case-sensitive. A LCONF-Key-Name MUST NOT contain any LCONF_VERTICAL_LINE.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Column-Name</td>
+<td align="left">STRUCTURE_TABLE's Column-Names are also considered to be LCONF-Key-Names.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>NOTE:</strong> LCONF-Schema-Definitions MAY add additional constraints to LCONF-Key-Names.</p>
+<h2 id="26-lconf-value-types">2.6. LCONF Value Types</h2>
+<h3 id="261-notset">2.6.1. NOTSET</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_NOTSET</td>
+<td align="left">: The literal name token LCONF_NOTSET (<code>NOTSET</code>).</td>
+</tr>
+</tbody>
+</table>
+<p>TYPE_NOTSET: is used to indicate the lack of a value and is different from an Empty-Value.</p>
+<h3 id="262-string">2.6.2. String</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_STRING</td>
+<td align="left">A sequence of zero or more Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">TYPE_DIGITS</td>
+<td align="left">A TYPE_STRING constraint to only LCONF_DIGITS.</td>
+</tr>
+<tr>
+<td align="left">TYPE_PATTERN_DIGITS</td>
+<td align="left">A TYPE_STRING constraint to a pattern where only the individual LCONF_DIGITS MAY change.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p><strong>TYPE_PATTERN_DIGITS</strong> format uses the LCONF_AT_SIGN <code>@</code> as placeholder for expected digits.</p>
+<p><code>@@@-@@-@@@@</code>  could be used as pattern for <code>123-55-6678</code></p>
+</li>
+</ul>
+<h3 id="263-booleans">2.6.3. Booleans</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_BOOLEAN</td>
+<td align="left">LCONF_TRUE or LCONF_FALSE.  Literal Name Token: <code>true</code> or <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="264-numbers">2.6.4. Numbers</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Number-Fractional-Part</td>
+<td align="left">A LCONF_PERIOD followed by one or more LCONF_DIGITS.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Number-E_Exponent</td>
+<td align="left">The code point U+0065 (LATIN SMALL LETTER E) or U+0045 (LATIN CAPITAL LETTER E)</td>
+</tr>
+<tr>
+<td align="left">LCONF-Number-Exponent-Part</td>
+<td align="left">A LCONF-Number-E_Exponent followed by one or more LCONF_DIGITS optionally prefixed by a LCONF_PLUS or LCONF_MINUS.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_INTEGER</td>
+<td align="left">MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS.</td>
+</tr>
+<tr>
+<td align="left">TYPE_FLOAT</td>
+<td align="left">supports four different notations.</td>
+</tr>
+<tr>
+<td align="left">TYPE_NUMBER</td>
+<td align="left">can be any of TYPE_INTEGER or TYPE_FLOAT.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>TYPE_INTEGER: 64 bit (signed long) range expected (<code>-9223372036854775808</code> to <code>+9223372036854775807</code>).</p>
+</li>
+<li>
+<p>TYPE_FLOAT: supports four different notations.</p>
+<ul>
+<li>Fractional: <code>+3.1415</code>, <code>-3.1415</code></li>
+<li>Exponent: <code>5e+22</code>, <code>-2E-2</code></li>
+<li>Fractional And Exponent Mixed: <code>6.196E63</code>, <code>-1.54e-003</code></li>
+<li>Fraction P/Q Of Two Integers: <code>+3/4</code>, <code>-93/16</code>, <code>1/8</code>, <code>2789/-598</code>s</li>
+</ul>
+</li>
+</ul>
+<h3 id="265-date-time-separators">2.6.5.  Date / Time Separators</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Date-Separator</td>
+<td align="left">A LCONF_MINUS is used as separator for date parts.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Time-Separator</td>
+<td align="left">A LCONF_COLON is used as separator for time parts.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Date-Time-Separator</td>
+<td align="left">A code point U+0054 (LATIN CAPITAL LETTER T) <code>" T "</code> or LCONF_SPACE.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="266-dates">2.6.6.  Dates</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Year</td>
+<td align="left">[YYYY] indicates a four-digit year, 0000 through 9999.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Month</td>
+<td align="left">[MM] indicates a two-digit month of that year, 01 through 12.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Day</td>
+<td align="left">[DD] indicates a two-digit day of that month, 01 through 31.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_MONTH</td>
+<td align="left"><code>YYYY-MM</code> e.g.: <code>1945-03</code></td>
+</tr>
+<tr>
+<td align="left">TYPE_DAY</td>
+<td align="left"><code>YYYY-MM-DD</code> e.g. <code>2014-11-15</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="267-times">2.6.7. Times</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Hour</td>
+<td align="left">[hh] refers to a zero-padded hour between 00 and 24 (24 only to denote midnight at the end of a day)</td>
+</tr>
+<tr>
+<td align="left">LCONF-Minute</td>
+<td align="left">[mm] refers to a zero-padded minute between 00 and 59.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Second</td>
+<td align="left">[ss] refers to a zero-padded second between 00 and 60 (60 only to denote an added leap second).</td>
+</tr>
+<tr>
+<td align="left">LCONF-Second-Fraction-Part</td>
+<td align="left">[fff] refers to LCONF_PERIOD followed by one or more LCONF_DIGITS representing a decimal fraction of a second.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_MINUTE</td>
+<td align="left"><code>hh:mm</code> e.g: <code>12:30</code></td>
+</tr>
+<tr>
+<td align="left">TYPE_SECOND</td>
+<td align="left"><code>hh:mm:ss</code> e.g: <code>02:30:42</code></td>
+</tr>
+<tr>
+<td align="left">TYPE_SECOND_FRACTION</td>
+<td align="left"><code>hh:mm:ss.fff</code> e.g: <code>12:30:59.001</code>, <code>04:02:00.000156</code>, <code>18:53:16.1</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="268-datetimes">2.6.8. Date/Times</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">TYPE_DAY_MINUTE1</td>
+<td align="left"><code>YYYY-MM-DD hh:mm</code> e.g: <code>2013-07-01 12:30</code></td>
+</tr>
+<tr>
+<td align="left">TYPE_DAY_MINUTE2</td>
+<td align="left"><code>YYYY-MM-DDThh:mm</code> e.g: <code>2013-07-01T12:30</code></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">TYPE_DAY_SECOND1</td>
+<td align="left"><code>YYYY-MM-DD hh:mm:ss</code> e.g: <code>2013-07-01 12:30:59</code></td>
+</tr>
+<tr>
+<td align="left">TYPE_DAY_SECOND2</td>
+<td align="left"><code>YYYY-MM-DDThh:mm:ss</code> e.g: <code>2013-07-01T12:30:59</code></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">TYPE_DAY_SECOND_FRACTION1</td>
+<td align="left"><code>YYYY-MM-DD hh:mm:ss.fff</code> e.g: <code>2013-07-01 04:02:00.000156</code></td>
+</tr>
+<tr>
+<td align="left">TYPE_DAY_SECOND_FRACTION2</td>
+<td align="left"><code>YYYY-MM-DDThh:mm:ss.fff</code> e.g: <code>2013-07-01T12:30:59.001</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="268-ranges">2.6.8. Ranges</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Range-Part-Separator</td>
+<td align="left">A LCONF_VERTICAL_LINE is used as separator for range parts.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Range-Start-Number</td>
+<td align="left">A LCONF-Number</td>
+</tr>
+<tr>
+<td align="left">LCONF-Range-Step-Number</td>
+<td align="left">Any LCONF-Number MUST NOT be equal to 0 (zero)</td>
+</tr>
+<tr>
+<td align="left">LCONF-Range-End-Number</td>
+<td align="left">A LCONF-Number</td>
+</tr>
+<tr>
+<td align="left">LCONF-Range-Number-Of-Elements</td>
+<td align="left">LCONF_ASTERISK followed by a LCONF-Integer greater than zero without LCONF_PLUS.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>TYPE_RANGE_OF_ELEMENTS:</p>
+<ul>
+<li>LCONF-Range-Start-Number|LCONF-Range-Step-Number|LCONF-Range-Number-Of-Elements <br />
+    Example: <code>-10|1|*21</code>, <code>512.4|0.125|*8</code></li>
+</ul>
+</li>
+<li>
+<p>TYPE_RANGE_BY_END_VALUE:</p>
+<ul>
+<li>LCONF-Range-Start-Number|LCONF-Range-Step-Number|LCONF-Range-End-Number <br />
+    <code>100.8|1.27|106</code></li>
+<li>LCONF-Range-Start-Number|LCONF-Range-Step-Number|LCONF-Range-End-Number|FORCE <br />
+    <code>100.8|1.27|106|FORCE</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="27-lconf-item-requirement-option">2.7. LCONF-Item-Requirement-Option</h3>
+<ul>
+<li>
+<p>OPTIONAL</p>
+<ul>
+<li>Item is NOT REQUIRED to be defined in a LCONF-Section</li>
+<li>Item COULD be defined but set <code>NOTSET</code></li>
+<li>Item COULD be defined and set empty (which will overwrite any defaults)</li>
+<li>Item COULD be defined and have set a value in accordance to the expected LCONF-Value-Type</li>
+</ul>
+</li>
+<li>
+<p>REQUIRED (this CAN be an Empty-Value)</p>
+<ul>
+<li>Item MUST be defined in a LCONF-Section and MUST NOT be set <code>NOTSET</code></li>
+<li>Item MUST be defined and can be set empty (which will overwrite any defaults)</li>
+<li>Item MUST be defined and can set a value in accordance to the expected LCONF-Value-Type</li>
+</ul>
+</li>
+<li>
+<p>REQUIRED_NOT_EMPTY (this MUST NOT be an Empty-Value)</p>
+<ul>
+<li>Item MUST be defined in a LCONF-Section and MUST NOT be set <code>NOTSET</code> and MUST NOT be set empty</li>
+<li>Item MUST be defined and MUST set a value in accordance to the expected LCONF-Value-Type</li>
+</ul>
+</li>
+</ul>
+<h3 id="28-diverse-other-terms">2.8. Diverse Other Terms</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LCONF-Text</td>
+<td align="left">A sequence of Unicode characters that MUST contain one or more LCONF-Sections.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Section</td>
+<td align="left">A sequence of Unicode characters starting with a LCONF_SECTION_START token and ending with the first found LCONF_SECTION_END token.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Schema</td>
+<td align="left">A sequence of Unicode characters starting with a LCONF_SECTION_START token and ending with the first found LCONF_SECTION_END token.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Section-Name</td>
+<td align="left">A sequence of one or more Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">LCONF-Indentation-Per-Level</td>
+<td align="left">One LCONF-Digit (DIGIT TWO THROUGH DIGIT EIGHT) minimum 2 and maximum 8.</td>
+</tr>
+<tr>
+<td align="left">LCONF_BLANK_LINE</td>
+<td align="left">A line that contains only whitespace characters (zero or more).</td>
+</tr>
+<tr>
+<td align="left">LCONF_NONE_BLANK_LINE</td>
+<td align="left">A line that contains one or more none whitespace characters.</td>
+</tr>
+<tr>
+<td align="left">LCONF_EMPTY_STRING</td>
+<td align="left">A sequence of zero Unicode characters.</td>
+</tr>
+<tr>
+<td align="left">LCONF_EMPTY_LIST</td>
+<td align="left">An empty sequence.</td>
+</tr>
+<tr>
+<td align="left">LCONF_EMPTY_TABLE</td>
+<td align="left">An empty sequence of tabular-data (columns and rows): no table rows.</td>
+</tr>
+<tr>
+<td align="left">LCONF_EMPTY_REPEATED_BLOCK</td>
+<td align="left">STRUCTURE_NAMED_BLOCKS or STRUCTURE_UNNAMED_BLOCKS: An empty collection.</td>
+</tr>
+<tr>
+<td align="left">LCONF_EMPTY_SINGLE_BLOCK</td>
+<td align="left">STRUCTURE_SINGLE_BLOCK: An empty collection.</td>
+</tr>
+<tr>
+<td align="left">LCONF-File-Extension</td>
+<td align="left">The official extension for LCONF-Data-Serialization-Format files is <code>.lconf</code> (U+002E U+006C U+0063 U+006F U+006E U+0066)</td>
+</tr>
+<tr>
+<td align="left">LCONFDS-File-Extension</td>
+<td align="left">The official extension for LCONF-Data-Serialization-Format Schema-Definition files is <code>.STRICT</code> (U+002E U+006C U+0063 U+006F U+006E U+0066 U+0073 U+0064)</td>
+</tr>
+<tr>
+<td align="left">LCONF-Template-Structure</td>
+<td align="left">A specific implementation of a LCONF-Section related code portion with all default values and value types based on corresponding LCONF-Data-Serialization-Format Schema-Definitions.</td>
+</tr>
+</tbody>
+</table></div>
+        </div>
+
+    <footer class="col-md-12">
+        <hr>
+        
+        <center>Copyright (c) 2014 - 2015, <strong>peter1000</strong> <a href="https://github.com/peter1000">https://github.com/peter1000</a>.</center>
+        
+        <center>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</center>
+    </footer>
+
+
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
+    </body>
+</html>
