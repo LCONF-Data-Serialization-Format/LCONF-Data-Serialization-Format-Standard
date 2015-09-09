@@ -368,7 +368,7 @@ ___END
 #### 5.5.1.1. STRUCTURE_SINGLE_BLOCK With Block-Items
 
 In a LCONF-Section STRUCTURE_SINGLE_BLOCK-Items MAY be defined in any order and are NOT REQUIRED to follow the
-implemented order of a corresponding LCONF-Schema-Definition.
+implemented order of a corresponding LCONF-Schema.
 
 ```text
 . Color_Block_1
