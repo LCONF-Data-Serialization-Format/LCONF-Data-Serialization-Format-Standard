@@ -36,8 +36,8 @@ Only few e.g. STRUCTURE_NAMED_BLOCKS-Item (STRUCTURE_SINGLE_BLOCKs) Key-Names wi
 
 Associates a LCONF-Key-Name with one data value. <br />
 The STRUCTURE_PAIR-Value MUST be a sequence of **zero or more** Unicode characters and includes all till the end of
-the line. The STRUCTURE_PAIR-Value MAY be a TYPE_NOTSET. <br />
-If the Value has more than zero characters than the first character MUST NOT be any whitespace.
+the line. The STRUCTURE_PAIR-Value MAY be a TYPE_NOTSET. (This can be contraint in the LCONF-Schema) <br />
+The first value character MUST NOT be any whitespace.
 
 ```text
 LCONF-Key-Name LCONF_KEY_VALUE_SEPARATOR Value
@@ -106,7 +106,7 @@ Associates a LCONF-Key-Name with an ordered sequence (list) of data values. <br 
 The first List-Value character MUST NOT be any whitespace.
 
 The STRUCTURE_LIST Value MUST be a sequence of **one or more** Unicode characters and includes all till the end of
-the line. The List-Value MAY be a TYPE_NOTSET. <br />
+the line. The List-Value MAY be a TYPE_NOTSET. (This can be contraint in the LCONF-Schema) <br />
 STRUCTURE_LIST-Values use one additional LCONF-Indentation-Per-Level and each List-Value MUST start on a separate line.
 
 A STRUCTURE_LIST_IDENTIFIER-Line MUST
@@ -195,7 +195,8 @@ This will overwrite the default value for the List with `Tim, Tom`.
 ## 5.4. STRUCTURE_TABLE
 
 Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).  <br />
-A Column-Value MUST be a sequence of **zero or more** Unicode characters and MAY be a TYPE_NOTSET. <br />
+A Column-Value MUST be a sequence of **zero or more** Unicode characters and MAY be a TYPE_NOTSET. (This can be
+contraint in the LCONF-Schema) <br />
 The STRUCTURE_TABLE_IDENTIFIER-Line MUST NOT end with a STRUCTURE_TABLE_VALUE_SEPARATOR.
 
 LCONF-Column-Names MUST be unique within one STRUCTURE_TABLE.

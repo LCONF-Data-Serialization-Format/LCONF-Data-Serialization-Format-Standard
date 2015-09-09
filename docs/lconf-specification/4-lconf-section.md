@@ -115,16 +115,16 @@ LCONF-Sections MUST NOT contain any lines with *Trailing Space*.
 
 ## 4.5. Comment Line
 
-The LCONF-Data-Serialization-Format makes a distinction between two types of LCONF-Comment-Lines:
-
 LCONF-Comment-Lines SHOULD have the indentation level of the following LCONF_NONE_BLANK_LINE.
 
-* LCONF-Section-Comment-Line: If a LCONF-Section-Line first none whitespace character is a
+The LCONF-Data-Serialization-Format makes a distinction between two types of LCONF-Comment-Lines:
+
+* **LCONF-Section-Comment-Line**: If a LCONF-Section-Line first none whitespace character is a
     LCONF_COMMENT_LINE_IDENTIFIER it is considered a LCONF-Section-Comment-Line which are not parsed.
     The usual purpose of a comment line is to communicate between the human maintainers of a file. A typical example is
     comments in a configuration file.
 
-* LCONF-Schema-Comment-Line: If a LCONF-Schema-Line first none whitespace character is a
+* **LCONF-Schema-Comment-Line**: If a LCONF-Schema-Line first none whitespace character is a
     LCONF_SCHEMA_COMMENT_LINE_IDENTIFIER it is considered a LCONF-Schema-Comment-Line which are parsed.
     The purpose of such LCONF-Schema-Comment-Lines is to emit an example LCONF-Section with additional information.
 
