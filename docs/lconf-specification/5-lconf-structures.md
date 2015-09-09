@@ -25,7 +25,8 @@ The three collection structures are:
 * STRUCTURE_UNNAMED_BLOCKS
 
 The **LCONF-Root** (Structure) is a special STRUCTURE_SINGLE_BLOCK which exists in every valid LCONF-Section.
-It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed STRUCTURE_SINGLE_BLOCK.
+It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed
+STRUCTURE_SINGLE_BLOCK.
 
 ## 5.1. LCONF-Key-Name
 
@@ -295,21 +296,23 @@ This will overwrite the default value with an empty table (with no rows).
 
     This will use the default value for the *Column2: name* (example it could be: *Anonymous*).
 
-* **Columns With Column-Values**: e.g. Row:1, Column2: `name` - has a set Column-Value (more than one Unicode character)
+* **Columns With Column-Values**: e.g. Row:1, Column2: `name` - has a set Column-Value (more than one Unicode
+    character)
 
     This will overwrite the default value for the *Column: name* with `Tim`.
 
 ## 5.5. STRUCTURE_SINGLE_BLOCK
 
 A collection of any of the six LCONF-Structures. All STRUCTURE_SINGLE_BLOCK-Items (Key-Names) MUST be unique. A
-LCONF-Library MUST implement an option to loop over the collection in order.
-STRUCTURE_SINGLE_BLOCK-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
-separate line.
+LCONF-Library MUST implement an option to loop over the collection in order as defined in the corresponding
+LCONF-Schema. STRUCTURE_SINGLE_BLOCK-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST
+start on a separate line.
 
 * **LCONF-Root**
 
     The LCONF-Root (Structure) is a special STRUCTURE_SINGLE_BLOCK which exists in every valid LCONF-Section.
-    It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed STRUCTURE_SINGLE_BLOCK.
+    It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed
+    STRUCTURE_SINGLE_BLOCK.
 
 A STRUCTURE_SINGLE_BLOCK-Identifier-Line MUST
 
@@ -403,9 +406,10 @@ implemented order of a corresponding LCONF-Schema.
 
 ## 5.6. STRUCTURE_NAMED_BLOCKS
 
- A collection of repeated named STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
-collection in order. BLOCKS-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
-separate line. All Block-Items MUST be STRUCTURE_SINGLE_BLOCKs with unique names.
+A collection of repeated named STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
+collection in order as defined in the corresponding LCONF-Schema. BLOCKS-Items use one additional
+LCONF-Indentation-Per-Level and each Block-Item MUST start on a separate line. All Block-Items MUST be
+STRUCTURE_SINGLE_BLOCKs with unique names.
 
 A STRUCTURE_NAMED_BLOCKS_IDENTIFIER-Line MUST
 
@@ -509,8 +513,8 @@ Example of a LCONF_SINGLE_BLOCK_REUSE.
 ## 5.7. STRUCTURE_UNNAMED_BLOCKS
 
  A collection of repeated unnamed STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
-collection in order. BLOCKS-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
-separate line.
+collection in order as defined in the corresponding LCONF-Schema. BLOCKS-Items use one additional
+LCONF-Indentation-Per-Level and each Block-Item MUST start on a separate line.
 
 A STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER-Line MUST
 
