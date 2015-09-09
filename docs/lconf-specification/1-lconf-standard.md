@@ -6,7 +6,8 @@
 
 # LCONF-Data-Serialization-Format-Standard
 
-* 20150909: First draft of the renamed and reversioned *LCONF-Data-Serialization-Format-Standard Documentation v0.1.0*.
+* 2015-09-09: First draft of the renamed and reversioned
+    *LCONF-Data-Serialization-Format-Standard Documentation v0.1.0*.
 
 * 2014-10-08: the last *LCONF* Version 7.0.0  was released by **peter1000**.
 
@@ -363,14 +364,14 @@ ___SECTION :: 4 :: LCONF :: Example The three simple structures
 name :: Max
 
 # STRUCTURE_LIST: STRUCTURE_LIST notation.
-- color_name_list
+- color_name_list1
     Red
     Blue
     NOTSET
     Green
 
 # STRUCTURE_LIST: Compact_STRUCTURE_LIST notation.
-- color_name_list :: Red, Blue, NOTSET, Green
+- color_name_list2 :: Red, Blue, NOTSET, Green
 
 # STRUCTURE_TABLE: with a comment column names line
 | people_table
@@ -393,7 +394,7 @@ ___SECTION :: 4 :: LCONF :: Example The three collection structures
         Blue
 
 # STRUCTURE_NAMED_BLOCKS
-* tests
+* tests_named
     . test1
         score :: 90
         name :: One
@@ -402,7 +403,7 @@ ___SECTION :: 4 :: LCONF :: Example The three collection structures
         name :: Two
 
 # STRUCTURE_UNNAMED_BLOCKS
-* tests
+* tests_unnamed
     .
         score :: 90
         name :: One
@@ -581,7 +582,6 @@ ___END
 
 * LCONF-Sections MUST NOT contain any lines with *Trailing Space*.
 * LCONF_BLANK_LINE: A line that contains only whitespace characters (zero or more) is not parsed.
-
 * LCONF_SECTION_START Token `___SECTION` is a reserved LCONF character sequence.
 * LCONF_SECTION_END Token `___END` is a reserved LCONF character sequence.
 * TYPE_NOTSET `NOTSET` is a reserved LCONF character sequence.
@@ -609,11 +609,11 @@ First None White Character Of A Line are reserved:
 * A `LCONF-Root` is a special STRUCTURE_SINGLE_BLOCK and all direct child LCONF-Key-Names (keys with no indentation
     level) MUST be unique.
 
-* Within `STRUCTURE_NAMED_BLOCKS` all direct child LCONF-Key-Names (keys with one additional indentation level) MUST be
-    unique.
+* Within a `STRUCTURE_NAMED_BLOCKS` all direct child LCONF-Key-Names (keys with one additional indentation level) MUST
+    be unique.
 
 * LCONF-Column-Names (STRUCTURE_TABLE's Column-Names are also considered to be LCONF-Key-Names) MUST be unique within
-    one STRUCTURE_TABLE.
+    a STRUCTURE_TABLE.
 
 #### 1.2.6.3. LCONF-Key-Names
 
