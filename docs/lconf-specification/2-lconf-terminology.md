@@ -116,9 +116,9 @@ LCONF-Schema-Definitions uses optional constrain structural tokens:
 
 ### 2.6.1. NOTSET
 
-| **Name**    | **Definition**                                    |
-|:------------|:--------------------------------------------------|
-| TYPE_NOTSET | : The literal name token LCONF_NOTSET (`NOTSET`). |
+| **Name**    | **Definition**                                  |
+|:------------|:------------------------------------------------|
+| TYPE_NOTSET | The literal name token LCONF_NOTSET (`NOTSET`). |
 
 TYPE_NOTSET: is used to indicate the lack of a value and is different from an Empty-Value.
 
@@ -260,7 +260,7 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | LCONF-Text                  | A sequence of Unicode characters that MUST contain one or more LCONF-Sections.                                                                                                       |
 | LCONF-Section               | A sequence of Unicode characters starting with a LCONF_SECTION_START token and ending with the first found LCONF_SECTION_END token.                                                  |
-| LCONF-Schema               | A sequence of Unicode characters starting with a LCONF_SECTION_START token and ending with the first found LCONF_SECTION_END token.                                                  |
+| LCONF-Schema                | A sequence of Unicode characters starting with a LCONF_SECTION_START token and ending with the first found LCONF_SECTION_END token.                                                  |
 | LCONF-Section-Name          | A sequence of one or more Unicode characters.                                                                                                                                        |
 | LCONF-Indentation-Per-Level | One LCONF-Digit (DIGIT TWO THROUGH DIGIT EIGHT) minimum 2 and maximum 8.                                                                                                             |
 | LCONF_BLANK_LINE            | A line that contains only whitespace characters (zero or more).                                                                                                                      |
