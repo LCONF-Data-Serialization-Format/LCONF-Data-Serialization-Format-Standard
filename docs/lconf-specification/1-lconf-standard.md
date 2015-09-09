@@ -640,3 +640,70 @@ Additionally constraints:
 LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
 structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
 LCONF-Schema-Definitions are valid LCONF syntax.
+
+### 1.2.7.1. Full Length Example (Invoice)
+
+A example LCONF-Schema for the: Full Length Example (Invoice)
+
+```text
+___SECTION :: 4 :: STRICT :: Schema: Full Length Example (Invoice)
+
+. invoice | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER
+
+. date | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_DAY
+
+. Adresses | STRUCTURE_NAMED_BLOCKS (1,2)
+
+    . TEMPLATE_BLOCK | STRUCTURE_SINGLE_BLOCK
+
+        . given | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+        . family | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+        . address | STRUCTURE_SINGLE_BLOCK
+
+            . lines | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+            . city | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+            . state | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING (2,2)
+
+            . postal | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER (10000,99999)
+
+. product | STRUCTURE_UNNAMED_BLOCKS (1,NOTSET)
+
+    . TEMPLATE_BLOCK | STRUCTURE_SINGLE_BLOCK
+
+        . sku | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING (6,6)
+
+        . quantity | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER (1,NOTSET)
+
+        . description | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+        . price | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_FLOAT
+
+. tax | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_FLOAT
+
+. total | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_FLOAT
+
+# This Comment line will not be parsed but
+# the next one starting with a slah is a LCONF-Schema-Comment-Line and is parsed
+/ a list of comments which are part of the data
+. comments | STRUCTURE_LIST
+    ITEM :: OPTIONAL | TYPE_STRING
+___END
+```
