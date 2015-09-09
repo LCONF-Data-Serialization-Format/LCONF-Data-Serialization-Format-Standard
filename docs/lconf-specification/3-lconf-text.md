@@ -15,11 +15,11 @@ A sequence of Unicode characters that MUST contain one or more named LCONF-Secti
 **WARNING:** LCONF-Text MUST NOT contain any LCONF_SECTION_START or LCONF_SECTION_END token in any form except for the
 defined purpose. Each LCONF_SECTION_START token MUST be closed by a LCONF_SECTION_END token.
 
-The set of tokens includes twelve structural tokens, nine literal name tokens as well as diverse LCONF-Value-Types.
+The set of tokens includes structural tokens, literal name tokens as well as diverse LCONF-Value-Types.
 
 ## 3.1. Structural Tokens
 
-The twelve structural tokens:
+The structural tokens:
 
 | **Name**                             | **Definition**           | **Example** |
 |:-------------------------------------|:-------------------------|:------------|
@@ -48,7 +48,7 @@ LCONF-Schema-Definitions uses optional constrain structural tokens:
 
 ## 3.2. Literal Name Tokens
 
-The nine literal name tokens:
+The literal name tokens:
 
 | **Name**                     | **Definition**                                                                                    | **Example**  |
 |:-----------------------------|:--------------------------------------------------------------------------------------------------|:-------------|
