@@ -558,6 +558,10 @@ ___END
 <li>
 <p>TYPE_INTEGER: MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS.
     64 bit (signed long) range expected (<code>-9223372036854775808</code> to <code>+9223372036854775807</code>).</p>
+<ul>
+<li>LCONF_INTEGER_LOWEST  = -9223372036854775808</li>
+<li>LCONF_INTEGER_HIGHEST = +9223372036854775807</li>
+</ul>
 </li>
 <li>
 <p>TYPE_FLOAT: supports four different notations.</p>
@@ -617,14 +621,14 @@ ___END
 <p>To force always the inclusion of the <em>LCONF-Range-End-Number</em> the Literal Name Token <code>FORCE</code> is set.</p>
 <ul>
 <li>
-<p>TYPE_RANGE_OF_ELEMENTS:</p>
+<p>TYPE_RANGE_OF_ELEMENTS</p>
 <ul>
 <li>Start-Number|Step-Number|Number-Of-Elements <br />
     Example: <code>-10|1|*21</code>, <code>512.4|0.125|*8</code></li>
 </ul>
 </li>
 <li>
-<p>TYPE_RANGE_BY_END_VALUE:</p>
+<p>TYPE_RANGE_BY_END_VALUE</p>
 <ul>
 <li>Start-Number|Step-Number|End-Number <br />
     <code>100.8|1.27|106</code></li>

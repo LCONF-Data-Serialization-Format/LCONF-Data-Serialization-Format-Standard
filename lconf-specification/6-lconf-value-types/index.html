@@ -226,8 +226,8 @@
 <li>
 <p><strong>Range</strong></p>
 <ul>
-<li>TYPE_RANGE_OF_ELEMENTS:</li>
-<li>TYPE_RANGE_BY_END_VALUE:</li>
+<li>TYPE_RANGE_OF_ELEMENTS</li>
+<li>TYPE_RANGE_BY_END_VALUE</li>
 </ul>
 </li>
 </ul>
@@ -330,9 +330,11 @@ item2 :: false
 <p>A LCONF-Template-Structure usually will implement an Empty TYPE_BOOLEAN Values as TYPE_NOTSET.</p>
 <h2 id="64-numbers">6.4. Numbers</h2>
 <h3 id="641-type_integer">6.4.1. TYPE_INTEGER</h3>
-<p>A TYPE_INTEGER MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS.</p>
+<p>A TYPE_INTEGER MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS. <br />
+64 bit (signed long) range expected (-9223372036854775808 to +9223372036854775807).</p>
 <ul>
-<li>64 bit (signed long) range expected (-9223372036854775808 to +9223372036854775807).</li>
+<li>LCONF_INTEGER_LOWEST  = -9223372036854775808</li>
+<li>LCONF_INTEGER_HIGHEST = +9223372036854775807</li>
 </ul>
 <pre><code class="text">key1 :: 89
 

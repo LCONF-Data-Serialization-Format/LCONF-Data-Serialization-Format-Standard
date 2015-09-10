@@ -151,13 +151,15 @@
         
             <li><a href="#41-section-start-line">4.1. Section Start Line</a></li>
         
-            <li><a href="#42-blank-none-blank-line">4.2. Blank &amp; NONE Blank Line</a></li>
+            <li><a href="#42-whitespace-characters">4.2. Whitespace characters</a></li>
         
-            <li><a href="#43-indentation-level">4.3. Indentation Level</a></li>
+            <li><a href="#43-blank-none-blank-line">4.3. Blank &amp; NONE Blank Line</a></li>
         
-            <li><a href="#44-trailing-space">4.4. Trailing Space</a></li>
+            <li><a href="#44-indentation-level">4.4. Indentation Level</a></li>
         
-            <li><a href="#45-comment-line">4.5. Comment Line</a></li>
+            <li><a href="#45-trailing-space">4.5. Trailing Space</a></li>
+        
+            <li><a href="#46-comment-line">4.6. Comment Line</a></li>
         
     
     </ul>
@@ -245,20 +247,23 @@ ___END
 <pre><code class="text">___SECTION :: 4 :: FLEXIBLE :: Menu Configuration Schema Definition`
 </code></pre>
 
-<h2 id="42-blank-none-blank-line">4.2. Blank &amp; NONE Blank Line</h2>
+<h2 id="42-whitespace-characters">4.2. Whitespace characters</h2>
+<p>LCONF-Sections MUST NOT contain any whitespace character except LCONF_SPACEs.</p>
+<p><strong>LCONF-Libraries are NOT EXPECTED to validate this.</strong></p>
+<h2 id="43-blank-none-blank-line">4.3. Blank &amp; NONE Blank Line</h2>
 <ul>
 <li>LCONF_BLANK_LINE: A line that contains only whitespace characters (zero or more).</li>
 <li>LCONF_NONE_BLANK_LINE: A line that contains one or more none whitespace characters.</li>
 </ul>
-<h2 id="43-indentation-level">4.3. Indentation Level</h2>
+<h2 id="44-indentation-level">4.4. Indentation Level</h2>
 <p>Leading whitespace (LCONF_SPACEs) at the beginning of a LCONF-Section-Line is used to compute the indentation level of
 the line. Within a LCONF-Section only LCONF_SPACEs can be used as indentation. The number of LCONF_SPACEs used per
 LCONF-Indentation-Level is set as part of the LCONF-Section-Start-Line.</p>
 <p>The total number of spaces preceding the first non-blank character then determines the line’s indentation.</p>
 <p>The LCONF-Data-Serialization-Format uses LCONF-Indentation for readability and as part of its structure.</p>
-<h2 id="44-trailing-space">4.4. Trailing Space</h2>
+<h2 id="45-trailing-space">4.5. Trailing Space</h2>
 <p>LCONF-Sections MUST NOT contain any lines with <em>Trailing Space</em>.</p>
-<h2 id="45-comment-line">4.5. Comment Line</h2>
+<h2 id="46-comment-line">4.6. Comment Line</h2>
 <p>LCONF-Comment-Lines SHOULD have the indentation level of the following LCONF_NONE_BLANK_LINE.</p>
 <p>The LCONF-Data-Serialization-Format makes a distinction between two types of LCONF-Comment-Lines:</p>
 <ul>

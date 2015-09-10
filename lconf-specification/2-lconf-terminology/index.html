@@ -271,8 +271,8 @@
 </tr>
 <tr>
 <td align="left">LCONF_GREATER_THAN_SIGN</td>
+<td align="left">U+003E</td>
 <td align="left">GREATER-THAN SIGN</td>
-<td align="left">VERTICAL LINE</td>
 <td align="left">62</td>
 </tr>
 <tr>
@@ -664,6 +664,10 @@
 <ul>
 <li>
 <p>TYPE_INTEGER: 64 bit (signed long) range expected (<code>-9223372036854775808</code> to <code>+9223372036854775807</code>).</p>
+<ul>
+<li>LCONF_INTEGER_LOWEST  = -9223372036854775808</li>
+<li>LCONF_INTEGER_HIGHEST = +9223372036854775807</li>
+</ul>
 </li>
 <li>
 <p>TYPE_FLOAT: supports four different notations.</p>
@@ -907,7 +911,30 @@
 </ul>
 </li>
 </ul>
-<h3 id="28-diverse-other-terms">2.8. Diverse Other Terms</h3>
+<h3 id="28-lconf-section-comment-emit-options">2.8 LCONF-Section Comment Emit Options</h3>
+<table>
+<thead>
+<tr>
+<th align="left"><strong>Name</strong></th>
+<th align="left"><strong>Definition</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EMIT_NO_COMMENTS</td>
+<td align="left">No comments MUST be emitted.</td>
+</tr>
+<tr>
+<td align="left">EMIT_ONLY_MANUAL_COMMENTS</td>
+<td align="left">Only manual LCONF-Schema-Comment-Lines MUST be emitted.</td>
+</tr>
+<tr>
+<td align="left">EMIT_ALL_COMMENTS</td>
+<td align="left">Auto-generated and manual LCONF-Schema-Comment-Lines MUST be emitted.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="29-diverse-other-terms">2.9. Diverse Other Terms</h3>
 <table>
 <thead>
 <tr>
