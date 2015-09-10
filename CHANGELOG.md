@@ -26,7 +26,7 @@ A short summary of the most important changes (see *History* below for the early
     * Renamed *Repeated-Block* to two subforms **STRUCTURE_NAMED_BLOCKS** and **STRUCTURE_UNNAMED_BLOCKS** which
         increases LCONF-Data-Serialization-Format compatibility with other data serialization formats like yaml or
         json.
-    * Renamed *Default-Comment/Empty Lines* to **LCONF-Schema-Comment-Lines** which got also a own indentifier.
+    * Renamed *Default-Comment/Empty Lines* to **LCONF-Schema-Comment-Lines** which got also an own indentifier.
 
 * LCONF-Indentation is now configurable within the LCONF-Section-Start-Line minimum 2 and maximum 8 spaces per level.
 * Official support for a varity of LCONF-Value-Types is added.
