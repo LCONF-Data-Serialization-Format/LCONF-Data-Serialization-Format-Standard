@@ -271,5 +271,5 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
 | LCONF_EMPTY_REPEATED_BLOCK  | STRUCTURE_NAMED_BLOCKS or STRUCTURE_UNNAMED_BLOCKS: An empty collection.                                                                                                             |
 | LCONF_EMPTY_SINGLE_BLOCK    | STRUCTURE_SINGLE_BLOCK: An empty collection.                                                                                                                                         |
 | LCONF-File-Extension        | The official extension for LCONF-Data-Serialization-Format files is `.lconf` (U+002E U+006C U+0063 U+006F U+006E U+0066)                                                             |
-| LCONFDS-File-Extension      | The official extension for LCONF-Data-Serialization-Format Schema-Definition files is `.STRICT` (U+002E U+006C U+0063 U+006F U+006E U+0066 U+0073 U+0064)                            |
+| LCONFSD-File-Extension      | The official extension for LCONF-Data-Serialization-Format Schema-Definition files is `.lconfsd` (U+002E U+006C U+0063 U+006F U+006E U+0066 U+0073 U+0064)                            |
 | LCONF-Template-Structure    | A specific implementation of a LCONF-Section related code portion with all default values and value types based on corresponding LCONF-Data-Serialization-Format Schema-Definitions. |

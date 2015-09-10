@@ -1,3 +1,11 @@
+# v0.1.1 (xxxx-xx-xx)
+
+## Summary
+
+* Fixes wrong LCONF-Schema file extension.
+* Corrects some examples.
+
+
 # v0.1.0 (2015-09-09)
 
 This is the first draft of the renamed and reversioned *LCONF-Data-Serialization-Format-Standard Documentation*.
