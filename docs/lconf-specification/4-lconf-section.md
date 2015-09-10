@@ -94,12 +94,18 @@ ___SECTION :: 4 :: STRICT :: Menu Configuration Schema Definition`
 ___SECTION :: 4 :: FLEXIBLE :: Menu Configuration Schema Definition`
 ```
 
-## 4.2. Blank & NONE Blank Line
+## 4.2. Whitespace characters
+
+LCONF-Sections MUST NOT contain any whitespace character except LCONF_SPACEs.
+
+**LCONF-Libraries are NOT EXPECTED to validate this.**
+
+## 4.3. Blank & NONE Blank Line
 
 * LCONF_BLANK_LINE: A line that contains only whitespace characters (zero or more).
 * LCONF_NONE_BLANK_LINE: A line that contains one or more none whitespace characters.
 
-## 4.3. Indentation Level
+## 4.4. Indentation Level
 
 Leading whitespace (LCONF_SPACEs) at the beginning of a LCONF-Section-Line is used to compute the indentation level of
 the line. Within a LCONF-Section only LCONF_SPACEs can be used as indentation. The number of LCONF_SPACEs used per
@@ -109,11 +115,11 @@ The total number of spaces preceding the first non-blank character then determin
 
 The LCONF-Data-Serialization-Format uses LCONF-Indentation for readability and as part of its structure.
 
-## 4.4. Trailing Space
+## 4.5. Trailing Space
 
 LCONF-Sections MUST NOT contain any lines with *Trailing Space*.
 
-## 4.5. Comment Line
+## 4.6. Comment Line
 
 LCONF-Comment-Lines SHOULD have the indentation level of the following LCONF_NONE_BLANK_LINE.
 

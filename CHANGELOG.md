@@ -2,6 +2,7 @@
 
 ## Summary
 
+* Clarification that LCONF-Sections MUST NOT contain any whitespace character except LCONF_SPACEs.
 * Fixes missing unicode point for: LCONF_GREATER_THAN_SIGN
 * Fixes wrong LCONF-Schema file extension.
 * Corrects some examples.
