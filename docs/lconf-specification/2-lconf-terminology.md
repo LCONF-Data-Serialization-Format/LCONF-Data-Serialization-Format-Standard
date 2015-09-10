@@ -156,6 +156,9 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
 
 * TYPE_INTEGER: 64 bit (signed long) range expected (`-9223372036854775808` to `+9223372036854775807`).
 
+    * LCONF_INTEGER_LOWEST  = -9223372036854775808
+    * LCONF_INTEGER_HIGHEST = +9223372036854775807
+
 * TYPE_FLOAT: supports four different notations.
 
     * Fractional: `+3.1415`, `-3.1415`

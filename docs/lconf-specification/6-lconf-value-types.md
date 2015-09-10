@@ -181,9 +181,11 @@ A LCONF-Template-Structure usually will implement an Empty TYPE_BOOLEAN Values a
 
 ### 6.4.1. TYPE_INTEGER
 
-A TYPE_INTEGER MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS.
+A TYPE_INTEGER MUST contain only LCONF_DIGITS. It MAY have a preceding LCONF_PLUS or LCONF_MINUS. <br />
+64 bit (signed long) range expected (-9223372036854775808 to +9223372036854775807).
 
-* 64 bit (signed long) range expected (-9223372036854775808 to +9223372036854775807).
+* LCONF_INTEGER_LOWEST  = -9223372036854775808
+* LCONF_INTEGER_HIGHEST = +9223372036854775807
 
 ```text
 key1 :: 89
