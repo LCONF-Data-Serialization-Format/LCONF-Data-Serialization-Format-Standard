@@ -259,9 +259,9 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
 
 ### 2.8 LCONF-Section Comment Emit Options
 
-| **Name**                  | **Definition**                                                    |
-|:--------------------------|:------------------------------------------------------------------|
-| EMIT_NO_COMMENTS          | No comments MUST be emitted.                                 |
+| **Name**                  | **Definition**                                                        |
+|:--------------------------|:----------------------------------------------------------------------|
+| EMIT_NO_COMMENTS          | No comments MUST be emitted.                                          |
 | EMIT_ONLY_MANUAL_COMMENTS | Only manual LCONF-Schema-Comment-Lines MUST be emitted.               |
 | EMIT_ALL_COMMENTS         | Auto-generated and manual LCONF-Schema-Comment-Lines MUST be emitted. |
 
