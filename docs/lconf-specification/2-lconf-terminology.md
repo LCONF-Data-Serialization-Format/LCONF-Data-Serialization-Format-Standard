@@ -17,27 +17,27 @@ A collection of most LCONF terms and base definitions used in the
 
 ### 2.1.1. Single Characters
 
-| **Name**                   | **Unicode**       | **Unicode Name**     | **ASCII Dec** |
-|:---------------------------|:------------------|:---------------------|:--------------|
-| LCONF_SPACE                | U+0020            | SPACE                | 32            |
-| LCONF_NUMBER_SIGN          | U+0023            | NUMBER SIGN          | 35            |
-| LCONF_LEFT_PARENTHESIS     | U+0028            | LEFT PARENTHESIS     | 40            |
-| LCONF_RIGHT_PARENTHESIS    | U+0029            | RIGHT PARENTHESIS    | 41            |
-| LCONF_ASTERISK             | U+002A            | ASTERISK             | 42            |
-| LCONF_PLUS                 | U+002B            | PLUS SIGN            | 43            |
-| LCONF_COMMA                | U+002C            | COMMA                | 44            |
-| LCONF_MINUS                | U+002D            | HYPHEN-MINUS         | 45            |
-| LCONF_PERIOD               | U+002E            | FULL STOP            | 46            |
-| LCONF_SLASH                | U+002F            | SOLIDUS              | 47            |
-| LCONF_COLON                | U+003A            | COLON                | 58            |
-| LCONF_LESS_THAN_SIGN       | U+003C            | LESS-THAN SIGN       | 60            |
-| LCONF_EQUALS_SIGN          | U+003D            | EQUALS SIGN          | 61            |
-| LCONF_GREATER_THAN_SIGN    | GREATER-THAN SIGN | VERTICAL LINE        | 62            |
-| LCONF_AT_SIGN              | U+0040            | COMMERCIAL AT        | 64            |
-| LCONF_LEFT_SQUARE_BRACKET  | U+005B            | LEFT SQUARE BRACKET  | 91            |
-| LCONF_RIGHT_SQUARE_BRACKET | U+005D            | RIGHT SQUARE BRACKET | 93            |
-| LCONF_UNDERSCORE           | U+005F            | LOW LINE             | 95            |
-| LCONF_VERTICAL_LINE        | U+007C            | VERTICAL LINE        | 124           |
+| **Name**                   | **Unicode** | **Unicode Name**     | **ASCII Dec** |
+|:---------------------------|:------------|:---------------------|:--------------|
+| LCONF_SPACE                | U+0020      | SPACE                | 32            |
+| LCONF_NUMBER_SIGN          | U+0023      | NUMBER SIGN          | 35            |
+| LCONF_LEFT_PARENTHESIS     | U+0028      | LEFT PARENTHESIS     | 40            |
+| LCONF_RIGHT_PARENTHESIS    | U+0029      | RIGHT PARENTHESIS    | 41            |
+| LCONF_ASTERISK             | U+002A      | ASTERISK             | 42            |
+| LCONF_PLUS                 | U+002B      | PLUS SIGN            | 43            |
+| LCONF_COMMA                | U+002C      | COMMA                | 44            |
+| LCONF_MINUS                | U+002D      | HYPHEN-MINUS         | 45            |
+| LCONF_PERIOD               | U+002E      | FULL STOP            | 46            |
+| LCONF_SLASH                | U+002F      | SOLIDUS              | 47            |
+| LCONF_COLON                | U+003A      | COLON                | 58            |
+| LCONF_LESS_THAN_SIGN       | U+003C      | LESS-THAN SIGN       | 60            |
+| LCONF_EQUALS_SIGN          | U+003D      | EQUALS SIGN          | 61            |
+| LCONF_GREATER_THAN_SIGN    | U+003E      | GREATER-THAN SIGN    | 62            |
+| LCONF_AT_SIGN              | U+0040      | COMMERCIAL AT        | 64            |
+| LCONF_LEFT_SQUARE_BRACKET  | U+005B      | LEFT SQUARE BRACKET  | 91            |
+| LCONF_RIGHT_SQUARE_BRACKET | U+005D      | RIGHT SQUARE BRACKET | 93            |
+| LCONF_UNDERSCORE           | U+005F      | LOW LINE             | 95            |
+| LCONF_VERTICAL_LINE        | U+007C      | VERTICAL LINE        | 124           |
 
 ### 2.1.2. Character Group
 
@@ -271,5 +271,5 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
 | LCONF_EMPTY_REPEATED_BLOCK  | STRUCTURE_NAMED_BLOCKS or STRUCTURE_UNNAMED_BLOCKS: An empty collection.                                                                                                             |
 | LCONF_EMPTY_SINGLE_BLOCK    | STRUCTURE_SINGLE_BLOCK: An empty collection.                                                                                                                                         |
 | LCONF-File-Extension        | The official extension for LCONF-Data-Serialization-Format files is `.lconf` (U+002E U+006C U+0063 U+006F U+006E U+0066)                                                             |
-| LCONFSD-File-Extension      | The official extension for LCONF-Data-Serialization-Format Schema-Definition files is `.lconfsd` (U+002E U+006C U+0063 U+006F U+006E U+0066 U+0073 U+0064)                            |
+| LCONFSD-File-Extension      | The official extension for LCONF-Data-Serialization-Format Schema-Definition files is `.lconfsd` (U+002E U+006C U+0063 U+006F U+006E U+0066 U+0073 U+0064)                           |
 | LCONF-Template-Structure    | A specific implementation of a LCONF-Section related code portion with all default values and value types based on corresponding LCONF-Data-Serialization-Format Schema-Definitions. |

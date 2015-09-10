@@ -2,9 +2,9 @@
 
 ## Summary
 
+* Fixes missing unicode point for: LCONF_GREATER_THAN_SIGN
 * Fixes wrong LCONF-Schema file extension.
 * Corrects some examples.
-
 
 # v0.1.0 (2015-09-09)
 
