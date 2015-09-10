@@ -613,11 +613,11 @@ Example default output: **The output format is not defined and are here just as 
 
 ### 7.5.2 LCONF-Section Comment Emit Options
 
-| **Name**                  | **Definition**                                                    |
-|:--------------------------|:------------------------------------------------------------------|
-| EMIT_NO_COMMENTS          | Absolute no comments are emitted.                                 |
-| EMIT_ONLY_MANUAL_COMMENTS | Only manual LCONF-Schema-Comment-Lines are emitted.               |
-| EMIT_ALL_COMMENTS         | Auto generated and manual LCONF-Schema-Comment-Lines are emitted. |
+| **Name**                  | **Definition**                                                        |
+|:--------------------------|:----------------------------------------------------------------------|
+| EMIT_NO_COMMENTS          | No comments MUST be emitted.                                          |
+| EMIT_ONLY_MANUAL_COMMENTS | Only manual LCONF-Schema-Comment-Lines MUST be emitted.               |
+| EMIT_ALL_COMMENTS         | Auto-generated and manual LCONF-Schema-Comment-Lines MUST be emitted. |
 
 ## 7.6. LCONF-Libraries Schema Requirements
 

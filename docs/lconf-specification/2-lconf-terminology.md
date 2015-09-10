@@ -257,7 +257,15 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
     * Item MUST be defined in a LCONF-Section and MUST NOT be set `NOTSET` and MUST NOT be set empty
     * Item MUST be defined and MUST set a value in accordance to the expected LCONF-Value-Type
 
-### 2.8. Diverse Other Terms
+### 2.8 LCONF-Section Comment Emit Options
+
+| **Name**                  | **Definition**                                                    |
+|:--------------------------|:------------------------------------------------------------------|
+| EMIT_NO_COMMENTS          | No comments MUST be emitted.                                 |
+| EMIT_ONLY_MANUAL_COMMENTS | Only manual LCONF-Schema-Comment-Lines MUST be emitted.               |
+| EMIT_ALL_COMMENTS         | Auto-generated and manual LCONF-Schema-Comment-Lines MUST be emitted. |
+
+### 2.9. Diverse Other Terms
 
 | **Name**                    | **Definition**                                                                                                                                                                       |
 |:----------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
