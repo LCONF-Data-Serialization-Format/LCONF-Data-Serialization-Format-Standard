@@ -48,8 +48,8 @@ The set of six main value types includes NOTSET, String, Boolean, Number, Date &
 
 * **Range**
 
-    * TYPE_RANGE_OF_ELEMENTS:
-    * TYPE_RANGE_BY_END_VALUE:
+    * TYPE_RANGE_OF_ELEMENTS
+    * TYPE_RANGE_BY_END_VALUE
 
 **When Is A LCONF-Value Interpreted As One Of The LCONF-Value-Types ?**
 

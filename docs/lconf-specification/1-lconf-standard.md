@@ -477,12 +477,12 @@ The set of six main value types includes NOTSET, String, Boolean, Number, Date &
 
     To force always the inclusion of the *LCONF-Range-End-Number* the Literal Name Token `FORCE` is set.
 
-    * TYPE_RANGE_OF_ELEMENTS:
+    * TYPE_RANGE_OF_ELEMENTS
 
         * Start-Number|Step-Number|Number-Of-Elements <br />
             Example: `-10|1|*21`, `512.4|0.125|*8`
 
-    * TYPE_RANGE_BY_END_VALUE:
+    * TYPE_RANGE_BY_END_VALUE
 
         * Start-Number|Step-Number|End-Number <br />
             `100.8|1.27|106`
