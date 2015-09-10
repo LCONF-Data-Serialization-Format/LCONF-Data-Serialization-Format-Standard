@@ -172,7 +172,8 @@
 <h1 id="lconf-data-serialization-format-standard">LCONF-Data-Serialization-Format-Standard</h1>
 <ul>
 <li>
-<p>20150909: First draft of the renamed and reversioned <em>LCONF-Data-Serialization-Format-Standard Documentation v0.1.0</em>.</p>
+<p>2015-09-09: First draft of the renamed and reversioned
+    <em>LCONF-Data-Serialization-Format-Standard Documentation v0.1.0</em>.</p>
 </li>
 <li>
 <p>2014-10-08: the last <em>LCONF</em> Version 7.0.0  was released by <strong>peter1000</strong>.</p>
@@ -478,14 +479,14 @@ ___END
 name :: Max
 
 # STRUCTURE_LIST: STRUCTURE_LIST notation.
-- color_name_list
+- color_name_list1
     Red
     Blue
     NOTSET
     Green
 
 # STRUCTURE_LIST: Compact_STRUCTURE_LIST notation.
-- color_name_list :: Red, Blue, NOTSET, Green
+- color_name_list2 :: Red, Blue, NOTSET, Green
 
 # STRUCTURE_TABLE: with a comment column names line
 | people_table
@@ -507,7 +508,7 @@ ___END
         Blue
 
 # STRUCTURE_NAMED_BLOCKS
-* tests
+* tests_named
     . test1
         score :: 90
         name :: One
@@ -516,7 +517,7 @@ ___END
         name :: Two
 
 # STRUCTURE_UNNAMED_BLOCKS
-* tests
+* tests_unnamed
     .
         score :: 90
         name :: One
@@ -725,12 +726,8 @@ ___END
 <h3 id="126-summary-of-restrictions">1.2.6. Summary of Restrictions</h3>
 <ul>
 <li>LCONF-Sections MUST NOT contain any lines with <em>Trailing Space</em>.</li>
-<li>
-<p>LCONF_BLANK_LINE: A line that contains only whitespace characters (zero or more) is not parsed.</p>
-</li>
-<li>
-<p>LCONF_SECTION_START Token <code>___SECTION</code> is a reserved LCONF character sequence.</p>
-</li>
+<li>LCONF_BLANK_LINE: A line that contains only whitespace characters (zero or more) is not parsed.</li>
+<li>LCONF_SECTION_START Token <code>___SECTION</code> is a reserved LCONF character sequence.</li>
 <li>LCONF_SECTION_END Token <code>___END</code> is a reserved LCONF character sequence.</li>
 <li>TYPE_NOTSET <code>NOTSET</code> is a reserved LCONF character sequence.</li>
 </ul>
@@ -758,12 +755,12 @@ in values.</p>
     level) MUST be unique.</p>
 </li>
 <li>
-<p>Within <code>STRUCTURE_NAMED_BLOCKS</code> all direct child LCONF-Key-Names (keys with one additional indentation level) MUST be
-    unique.</p>
+<p>Within a <code>STRUCTURE_NAMED_BLOCKS</code> all direct child LCONF-Key-Names (keys with one additional indentation level) MUST
+    be unique.</p>
 </li>
 <li>
 <p>LCONF-Column-Names (STRUCTURE_TABLE's Column-Names are also considered to be LCONF-Key-Names) MUST be unique within
-    one STRUCTURE_TABLE.</p>
+    a STRUCTURE_TABLE.</p>
 </li>
 </ul>
 <h4 id="1263-lconf-key-names">1.2.6.3. LCONF-Key-Names</h4>
@@ -786,7 +783,70 @@ LCONF-Key-Names):</p>
 <h3 id="127-lconf-schema-definitions">1.2.7. LCONF-Schema-Definitions</h3>
 <p>LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
 structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
-LCONF-Schema-Definitions are valid LCONF syntax.</p></div>
+LCONF-Schema-Definitions are valid LCONF syntax.</p>
+<h3 id="1271-full-length-example-invoice">1.2.7.1. Full Length Example (Invoice)</h3>
+<p>A example LCONF-Schema for the: Full Length Example (Invoice)</p>
+<pre><code class="text">___SECTION :: 4 :: STRICT :: Schema: Full Length Example (Invoice)
+
+. invoice | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER
+
+. date | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_DAY
+
+. Adresses | STRUCTURE_NAMED_BLOCKS (1,2)
+
+    . TEMPLATE_BLOCK | STRUCTURE_SINGLE_BLOCK
+
+        . given | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+        . family | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+        . address | STRUCTURE_SINGLE_BLOCK
+
+            . lines | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+            . city | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+            . state | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING (2,2)
+
+            . postal | STRUCTURE_PAIR
+                ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER (10000,99999)
+
+. product | STRUCTURE_UNNAMED_BLOCKS (1,NOTSET)
+
+    . TEMPLATE_BLOCK | STRUCTURE_SINGLE_BLOCK
+
+        . sku | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING (6,6)
+
+        . quantity | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_INTEGER (1,NOTSET)
+
+        . description | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_STRING
+
+        . price | STRUCTURE_PAIR
+            ITEM :: REQUIRED_NOT_EMPTY | TYPE_FLOAT
+
+. tax | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_FLOAT
+
+. total | STRUCTURE_PAIR
+    ITEM :: REQUIRED_NOT_EMPTY | TYPE_FLOAT
+
+# This Comment line will not be parsed but
+# the next one starting with a slah is a LCONF-Schema-Comment-Line and is parsed
+/ a list of comments which are part of the data
+. comments | STRUCTURE_LIST
+    ITEM :: OPTIONAL | TYPE_STRING
+___END
+</code></pre></div>
         </div>
 
     <footer class="col-md-12">

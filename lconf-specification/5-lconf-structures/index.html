@@ -193,15 +193,16 @@
 <li>STRUCTURE_UNNAMED_BLOCKS</li>
 </ul>
 <p>The <strong>LCONF-Root</strong> (Structure) is a special STRUCTURE_SINGLE_BLOCK which exists in every valid LCONF-Section.
-It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed STRUCTURE_SINGLE_BLOCK.</p>
+It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed
+STRUCTURE_SINGLE_BLOCK.</p>
 <h2 id="51-lconf-key-name">5.1. LCONF-Key-Name</h2>
 <p>Nearly all LCONF-Key-Names will be implemented in a corresponding LCONF-Schema-Definition.
 Only few e.g. STRUCTURE_NAMED_BLOCKS-Item (STRUCTURE_SINGLE_BLOCKs) Key-Names will be defined within a LCONF-Section.</p>
 <h2 id="52-structure_pair">5.2. STRUCTURE_PAIR</h2>
 <p>Associates a LCONF-Key-Name with one data value. <br />
 The STRUCTURE_PAIR-Value MUST be a sequence of <strong>zero or more</strong> Unicode characters and includes all till the end of
-the line. The STRUCTURE_PAIR-Value MAY be a TYPE_NOTSET. <br />
-If the Value has more than zero characters than the first character MUST NOT be any whitespace.</p>
+the line. The STRUCTURE_PAIR-Value MAY be a TYPE_NOTSET. (This can be contraint in the LCONF-Schema) <br />
+The first value character MUST NOT be any whitespace.</p>
 <pre><code class="text">LCONF-Key-Name LCONF_KEY_VALUE_SEPARATOR Value
 
 FirstName :: Mary
@@ -254,7 +255,7 @@ if the STRUCTURE_PAIR was not included in a LCONF-Section.</p>
 <p>Associates a LCONF-Key-Name with an ordered sequence (list) of data values. <br />
 The first List-Value character MUST NOT be any whitespace.</p>
 <p>The STRUCTURE_LIST Value MUST be a sequence of <strong>one or more</strong> Unicode characters and includes all till the end of
-the line. The List-Value MAY be a TYPE_NOTSET. <br />
+the line. The List-Value MAY be a TYPE_NOTSET. (This can be contraint in the LCONF-Schema) <br />
 STRUCTURE_LIST-Values use one additional LCONF-Indentation-Per-Level and each List-Value MUST start on a separate line.</p>
 <p>A STRUCTURE_LIST_IDENTIFIER-Line MUST</p>
 <ul>
@@ -321,7 +322,8 @@ Compact_STRUCTURE_LIST MUST NOT be included in a LCONF-Section.</p>
 
 <h2 id="54-structure_table">5.4. STRUCTURE_TABLE</h2>
 <p>Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).  <br />
-A Column-Value MUST be a sequence of <strong>zero or more</strong> Unicode characters and MAY be a TYPE_NOTSET. <br />
+A Column-Value MUST be a sequence of <strong>zero or more</strong> Unicode characters and MAY be a TYPE_NOTSET. (This can be
+contraint in the LCONF-Schema) <br />
 The STRUCTURE_TABLE_IDENTIFIER-Line MUST NOT end with a STRUCTURE_TABLE_VALUE_SEPARATOR.</p>
 <p>LCONF-Column-Names MUST be unique within one STRUCTURE_TABLE.</p>
 <p>A STRUCTURE_TABLE_IDENTIFIER-Line MUST</p>
@@ -407,20 +409,22 @@ Empty-Value implemented as <em>TYPE_NOTSET</em>.</p>
 <p>This will use the default value for the <em>Column2: name</em> (example it could be: <em>Anonymous</em>).</p>
 </li>
 <li>
-<p><strong>Columns With Column-Values</strong>: e.g. Row:1, Column2: <code>name</code> - has a set Column-Value (more than one Unicode character)</p>
+<p><strong>Columns With Column-Values</strong>: e.g. Row:1, Column2: <code>name</code> - has a set Column-Value (more than one Unicode
+    character)</p>
 <p>This will overwrite the default value for the <em>Column: name</em> with <code>Tim</code>.</p>
 </li>
 </ul>
 <h2 id="55-structure_single_block">5.5. STRUCTURE_SINGLE_BLOCK</h2>
 <p>A collection of any of the six LCONF-Structures. All STRUCTURE_SINGLE_BLOCK-Items (Key-Names) MUST be unique. A
-LCONF-Library MUST implement an option to loop over the collection in order.
-STRUCTURE_SINGLE_BLOCK-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
-separate line.</p>
+LCONF-Library MUST implement an option to loop over the collection in order as defined in the corresponding
+LCONF-Schema. STRUCTURE_SINGLE_BLOCK-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST
+start on a separate line.</p>
 <ul>
 <li>
 <p><strong>LCONF-Root</strong></p>
 <p>The LCONF-Root (Structure) is a special STRUCTURE_SINGLE_BLOCK which exists in every valid LCONF-Section.
-It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed STRUCTURE_SINGLE_BLOCK.</p>
+It is special in the sense that there is no STRUCTURE_SINGLE_BLOCK_IDENTIFIER line and that it is an unnamed
+STRUCTURE_SINGLE_BLOCK.</p>
 </li>
 </ul>
 <p>A STRUCTURE_SINGLE_BLOCK-Identifier-Line MUST</p>
@@ -470,7 +474,7 @@ ___END
 
 <h4 id="5511-structure_single_block-with-block-items">5.5.1.1. STRUCTURE_SINGLE_BLOCK With Block-Items</h4>
 <p>In a LCONF-Section STRUCTURE_SINGLE_BLOCK-Items MAY be defined in any order and are NOT REQUIRED to follow the
-implemented order of a corresponding LCONF-Schema-Definition.</p>
+implemented order of a corresponding LCONF-Schema.</p>
 <pre><code class="text">. Color_Block_1
     color :: Blue
     - rgb_list
@@ -501,8 +505,9 @@ implemented order of a corresponding LCONF-Schema-Definition.</p>
 
 <h2 id="56-structure_named_blocks">5.6. STRUCTURE_NAMED_BLOCKS</h2>
 <p>A collection of repeated named STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
-collection in order. BLOCKS-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
-separate line. All Block-Items MUST be STRUCTURE_SINGLE_BLOCKs with unique names.</p>
+collection in order as defined in the corresponding LCONF-Schema. BLOCKS-Items use one additional
+LCONF-Indentation-Per-Level and each Block-Item MUST start on a separate line. All Block-Items MUST be
+STRUCTURE_SINGLE_BLOCKs with unique names.</p>
 <p>A STRUCTURE_NAMED_BLOCKS_IDENTIFIER-Line MUST</p>
 <ul>
 <li>start with a STRUCTURE_NAMED_BLOCKS_IDENTIFIER</li>
@@ -588,8 +593,8 @@ of a previous named STRUCTURE_SINGLE_BLOCK to a new named STRUCTURE_SINGLE_BLOCK
 
 <h2 id="57-structure_unnamed_blocks">5.7. STRUCTURE_UNNAMED_BLOCKS</h2>
 <p>A collection of repeated unnamed STRUCTURE_SINGLE_BLOCKs. A LCONF-Library MUST implement an option to loop over the
-collection in order. BLOCKS-Items use one additional LCONF-Indentation-Per-Level and each Block-Item MUST start on a
-separate line.</p>
+collection in order as defined in the corresponding LCONF-Schema. BLOCKS-Items use one additional
+LCONF-Indentation-Per-Level and each Block-Item MUST start on a separate line.</p>
 <p>A STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER-Line MUST</p>
 <ul>
 <li>start with a STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</li>
