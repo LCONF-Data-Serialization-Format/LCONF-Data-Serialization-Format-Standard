@@ -195,7 +195,7 @@ This will overwrite the default value for the List with `Tim, Tom`.
 
 ## 5.4. STRUCTURE_TABLE
 
-Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).  <br />
+Associates a LCONF-Key-Name with ordered tabular-data (columns and rows). <br />
 A Column-Value MUST be a sequence of **zero or more** Unicode characters and MAY be a TYPE_NOTSET. (This can be
 contraint in the LCONF-Schema) <br />
 The STRUCTURE_TABLE_IDENTIFIER-Line MUST NOT end with a STRUCTURE_TABLE_VALUE_SEPARATOR.
