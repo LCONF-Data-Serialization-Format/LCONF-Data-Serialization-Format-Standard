@@ -513,8 +513,8 @@ Examples:
         number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (>0,<100)
 
     | DEFAULT
-        # food          | sport          | color  | number |
-        # ------------- | -------------- | ------ | ------ |
+        / food          | sport          | color  | number |
+        / ------------- | -------------- | ------ | ------ |
         | Stroganoff    | figure skating | violet | 0.0    |
         | Rice          | ballet         | orange | NOTSET |
         | French fries  |                |        |        |
@@ -584,8 +584,8 @@ Example LCONF-Schema-Definition
         number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (>0,<100)
 
     | DEFAULT
-        # food          | sport          | color  | number |
-        # ------------- | -------------- | ------ | ------ |
+        / food          | sport          | color  | number |
+        / ------------- | -------------- | ------ | ------ |
         | Stroganoff    | figure skating | violet | 0.0    |
         | Rice          | ballet         | orange | NOTSET |
         | French fries  |                |        |        |
