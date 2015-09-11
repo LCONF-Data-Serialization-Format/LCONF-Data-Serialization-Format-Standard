@@ -286,13 +286,13 @@ ___END
 The indentation per Indentation-Level MUST be minimum 2 and maximum 8 spaces and MUST be specified in the
 LCONF-Section-Start-Line.
 
-### 1.2.2. LCONF_SECTION_FORMAT
+### 1.2.2. LCONF Section Formats
 
 LCONF uses LCONF-Schema-Definitions to descripe the structure and default content of a LCONF-Section.
 In the LCONF-Section-Start-Line it MUST be specified if the LCONF-Section is a:
 
-* `LCONF`: a regular LCONF-Section with data.
-* `STRICT`: a special LCONF-Section which contains only LCONF-Schema-Definitions.
+* `LCONF`:    a regular LCONF-Section with data.
+* `STRICT`:   a special LCONF-Section which contains only LCONF-Schema-Definitions.
 * `FLEXIBLE`: a special LCONF-Section which contains only LCONF-Schema-Definitions.
 
 Examples
@@ -323,15 +323,15 @@ ___END
 
 ### 1.2.3. Literal Name Tokens
 
-* LCONF_SECTION_START:  `___SECTION`
-* LCONF_SECTION_END: `___END`
-* LCONF_SECTION_FORMAT:  `LCONF`
-* LCONF_SCHEMA_STRICT_FORMAT: `STRICT`
-* LCONF_SCHEMA_FLEXIBLE_FORMAT: `FLEXIBLE`
-* LCONF_TRUE: `true`
-* LCONF_FALSE: `false`
-* LCONF_NOTSET: `NOTSET`
-* LCONF_FORCE: `FORCE`
+* LCONF_SECTION_START:          `___SECTION`
+* LCONF_SECTION_END:            `___END`
+* LCONF_FORMAT_LCONF:           `LCONF`
+* LCONF_FORMAT_SCHEMA_STRICT:   `STRICT`
+* LCONF_FORMAT_SCHEMA_FLEXIBLE: `FLEXIBLE`
+* LCONF_TRUE:                   `true`
+* LCONF_FALSE:                  `false`
+* LCONF_NOTSET:                 `NOTSET`
+* LCONF_FORCE:                  `FORCE`
 
 ```text
 ___SECTION :: 4 :: LCONF :: Example Literal Name Tokens
@@ -424,8 +424,8 @@ The set of six main value types includes NOTSET, String, Boolean, Number, Date &
 
 * **String**
 
-    * TYPE_STRING: A sequence of zero or more Unicode characters.
-    * TYPE_DIGITS: A TYPE_STRING constraint to only LCONF_DIGITS. `0-9`
+    * TYPE_STRING:         A sequence of zero or more Unicode characters.
+    * TYPE_DIGITS:         A TYPE_STRING constraint to only LCONF_DIGITS. `0-9`
     * TYPE_PATTERN_DIGITS: A TYPE_STRING constraint to a pattern where only the individual LCONF_DIGITS MAY change.
         `@@@-@@-@@@@`  could be used as pattern for `123-55-6678`.
 
@@ -452,23 +452,23 @@ The set of six main value types includes NOTSET, String, Boolean, Number, Date &
 
 * **Date & Time**
 
-    * TYPE_MONTH: `YYYY-MM` e.g.: `1945-03`
+    * TYPE_MONTH:                `YYYY-MM` e.g.: `1945-03`
 
-    * TYPE_DAY: `YYYY-MM-DD` e.g. `2014-11-15`
+    * TYPE_DAY:                  `YYYY-MM-DD` e.g. `2014-11-15`
 
-    * TYPE_MINUTE: `hh:mm` e.g: `12:30`
+    * TYPE_MINUTE:               `hh:mm` e.g: `12:30`
 
-    * TYPE_SECOND: `hh:mm:ss` e.g: `02:30:42`
+    * TYPE_SECOND:               `hh:mm:ss` e.g: `02:30:42`
 
-    * TYPE_SECOND_FRACTION: `hh:mm:ss.fff` e.g: `12:30:59.001`, `04:02:00.000156`, `18:53:16.1`
+    * TYPE_SECOND_FRACTION:      `hh:mm:ss.fff` e.g: `12:30:59.001`, `04:02:00.000156`, `18:53:16.1`
 
-    * TYPE_DAY_MINUTE1: `YYYY-MM-DD hh:mm` e.g: `2013-07-01 12:30`
+    * TYPE_DAY_MINUTE1:          `YYYY-MM-DD hh:mm` e.g: `2013-07-01 12:30`
 
-    * TYPE_DAY_MINUTE2: `YYYY-MM-DDThh:mm` e.g: `2013-07-01T12:30`
+    * TYPE_DAY_MINUTE2:          `YYYY-MM-DDThh:mm` e.g: `2013-07-01T12:30`
 
-    * TYPE_DAY_SECOND1: `YYYY-MM-DD hh:mm:ss` e.g: `2013-07-01 12:30:59`
+    * TYPE_DAY_SECOND1:          `YYYY-MM-DD hh:mm:ss` e.g: `2013-07-01 12:30:59`
 
-    * TYPE_DAY_SECOND2: `YYYY-MM-DDThh:mm:ss` e.g: `2013-07-01T12:30:59`
+    * TYPE_DAY_SECOND2:          `YYYY-MM-DDThh:mm:ss` e.g: `2013-07-01T12:30:59`
 
     * TYPE_DAY_SECOND_FRACTION1: `YYYY-MM-DD hh:mm:ss.fff` e.g: `2013-07-01 04:02:00.000156`
 
@@ -602,7 +602,10 @@ First None White Character Of A Line are reserved:
     `STRUCTURE_TABLE_VALUE_SEPARATOR`.
 * LCONF_MINUS `-` is reserved only for `STRUCTURE_LIST_IDENTIFIER`.
 * LCONF_PERIOD `.` is reserved only for `STRUCTURE_SINGLE_BLOCK_IDENTIFIER`.
-* LCONF_ASTERISK `*` is reserved only for `STRUCTURE_NAMED_BLOCKS_IDENTIFIER` & `STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER`.
+* LCONF_ASTERISK `*` is reserved only for `STRUCTURE_BLOCKS_IDENTIFIER`.
+
+    * STRUCTURE_BLOCKS_IDENTIFIER: LCONF_ASTERISK common indentifier for STRUCTURE_NAMED_BLOCKS_IDENTIFIER and
+        STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER
 
 #### 1.2.6.2. Unique LCONF-Key-Names
 
@@ -620,9 +623,9 @@ First None White Character Of A Line are reserved:
 
 #### 1.2.6.3. LCONF-Key-Names
 
-The default LCONF_SCHEMA_STRICT_FORMAT `STRICT` adds some contraints to LCONF-Key-Names.
+The default LCONF_FORMAT_SCHEMA_STRICT `STRICT` adds some contraints to LCONF-Key-Names.
 
-A LCONF_SCHEMA_STRICT_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+A LCONF_FORMAT_SCHEMA_STRICT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
 LCONF-Key-Names):
 
 MUST be a sequence of one or more (but maximum thirty-one '31') characters of these groups:

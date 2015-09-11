@@ -36,6 +36,9 @@ The structural tokens:
 | LCONF_COMMENT_LINE_IDENTIFIER        | LCONF_NUMBER_SIGN        |             |
 | LCONF_KEY_VALUE_SEPARATOR            | Double LCONF_COLON       | `::`        |
 
+* STRUCTURE_BLOCKS_IDENTIFIER: LCONF_ASTERISK common indentifier for STRUCTURE_NAMED_BLOCKS_IDENTIFIER and
+    STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER
+
 ## 3.1.1 Optional Structural Tokens
 
 LCONF-Schema-Definitions uses optional constrain structural tokens:
@@ -54,9 +57,9 @@ The literal name tokens:
 |:-----------------------------|:--------------------------------------------------------------------------------------------------|:-------------|
 | LCONF_SECTION_START          | U+005F U+005F U+005F U+0053 U+0045 U+0043 U+0054 U+0049 U+004F U+004E                             | `___SECTION` |
 | LCONF_SECTION_END            | U+005F U+005F U+005F U+0045 U+004E U+0044                                                         | `___END`     |
-| LCONF_SECTION_FORMAT         | U+004C U+0043 U+004F U+004E U+0046                                                                | `LCONF`      |
-| LCONF_SCHEMA_FLEXIBLE_FORMAT | U+004C U+0043 U+004F U+004E U+0046 U+0053 U+0044                                                  | `STRICT`     |
-| LCONF_SCHEMA_STRICT_FORMAT   | U+004C U+0043 U+004F U+004E U+0046 U+0053 U+0044 U+005F U+0053 U+0054 U+0052 U+0049 U+0043 U+0054 | `FLEXIBLE`   |
+| LCONF_FORMAT_LCONF           | U+004C U+0043 U+004F U+004E U+0046                                                                | `LCONF`      |
+| LCONF_FORMAT_SCHEMA_FLEXIBLE | U+004C U+0043 U+004F U+004E U+0046 U+0053 U+0044                                                  | `STRICT`     |
+| LCONF_FORMAT_SCHEMA_STRICT   | U+004C U+0043 U+004F U+004E U+0046 U+0053 U+0044 U+005F U+0053 U+0054 U+0052 U+0049 U+0043 U+0054 | `FLEXIBLE`   |
 | LCONF_TRUE                   | U+0074 U+0072 U+0075 U+0065                                                                       | `true`       |
 | LCONF_FALSE                  | U+0066 U+0061 U+006C U+0073 U+0065                                                                | `false`      |
 | LCONF_NOTSET                 | U+004E U+004F U+0054 U+0053 U+0045 U+0054                                                         | `NOTSET`     |

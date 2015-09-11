@@ -61,7 +61,7 @@ ___END
 ## 4.1. Section Start Line
 
 ```text
-___SECTION :: LCONF-Indentation-Per-Level :: LCONF_SECTION_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT or LCONF_SCHEMA_STRICT_FORMAT:: LCONF-Section-Name
+___SECTION :: LCONF-Indentation-Per-Level :: LCONF_FORMAT_LCONF or LCONF_FORMAT_SCHEMA_FLEXIBLE or LCONF_FORMAT_SCHEMA_STRICT:: LCONF-Section-Name
 ```
 
 Each LCONF-Section-Start-Line MUST
@@ -74,7 +74,7 @@ Each LCONF-Section-Start-Line MUST
 * followed by one LCONF_SPACE
 * followed by one LCONF_KEY_VALUE_SEPARATOR
 * followed by one LCONF_SPACE
-* followed be a LCONF_SECTION_FORMAT or LCONF_SCHEMA_STRICT_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT
+* followed be a LCONF_FORMAT_LCONF or LCONF_FORMAT_SCHEMA_STRICT or LCONF_FORMAT_SCHEMA_FLEXIBLE
 * followed by one LCONF_SPACE
 * followed by one LCONF_KEY_VALUE_SEPARATOR
 * followed by one LCONF_SPACE

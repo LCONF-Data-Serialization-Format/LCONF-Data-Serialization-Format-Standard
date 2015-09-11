@@ -53,17 +53,17 @@ A collection of most LCONF terms and base definitions used in the
 |:-----------------------------|:----------------------------------------------------------------------|:-------------|
 | LCONF_SECTION_START          | U+005F U+005F U+005F U+0053 U+0045 U+0043 U+0054 U+0049 U+004F U+004E | `___SECTION` |
 | LCONF_SECTION_END            | U+005F U+005F U+005F U+0045 U+004E U+0044                             | `___END`     |
-| LCONF_SECTION_FORMAT         | U+004C U+0043 U+004F U+004E U+0046                                    | `LCONF`      |
-| LCONF_SCHEMA_STRICT_FORMAT   | U+0053 U+0054 U+0052 U+0049 U+0043 U+0054                             | `STRICT`     |
-| LCONF_SCHEMA_FLEXIBLE_FORMAT | U+0046 U+004C U+0045 U+0058 U+0049 U+0042 U+004C U+0045               | `FLEXIBLE`   |
+| LCONF_FORMAT_LCONF           | U+004C U+0043 U+004F U+004E U+0046                                    | `LCONF`      |
+| LCONF_FORMAT_SCHEMA_STRICT   | U+0053 U+0054 U+0052 U+0049 U+0043 U+0054                             | `STRICT`     |
+| LCONF_FORMAT_SCHEMA_FLEXIBLE | U+0046 U+004C U+0045 U+0058 U+0049 U+0042 U+004C U+0045               | `FLEXIBLE`   |
 | LCONF_TRUE                   | U+0074 U+0072 U+0075 U+0065                                           | `true`       |
 | LCONF_FALSE                  | U+0066 U+0061 U+006C U+0073 U+0065                                    | `false`      |
 | LCONF_NOTSET                 | U+004E U+004F U+0054 U+0053 U+0045 U+0054                             | `NOTSET`     |
 | LCONF_FORCE                  | U+0046 U+004F U+0052 U+0043 U+0045                                    | `FORCE`      |
 
 * `___SECTION` is a reserved LCONF character sequence.
-* `___END` is a reserved LCONF character sequence.
-* `NOTSET` is a reserved LCONF character sequence.
+* `___END`     is a reserved LCONF character sequence.
+* `NOTSET`     is a reserved LCONF character sequence.
 
 ## 2.3. LCONF Structures
 
@@ -92,6 +92,9 @@ A collection of most LCONF terms and base definitions used in the
 | LCONF_SCHEMA_COMMENT_LINE_IDENTIFIER | LCONF_SLASH              |             |
 | LCONF_COMMENT_LINE_IDENTIFIER        | LCONF_NUMBER_SIGN        |             |
 | LCONF_KEY_VALUE_SEPARATOR            | Double LCONF_COLON       | `::`        |
+
+* STRUCTURE_BLOCKS_IDENTIFIER: LCONF_ASTERISK common indentifier for STRUCTURE_NAMED_BLOCKS_IDENTIFIER and
+    STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER
 
 ### 2.4.1. Optional Structural Tokens
 
@@ -161,10 +164,10 @@ TYPE_NOTSET: is used to indicate the lack of a value and is different from an Em
 
 * TYPE_FLOAT: supports four different notations.
 
-    * Fractional: `+3.1415`, `-3.1415`
-    * Exponent: `5e+22`, `-2E-2`
+    * Fractional:                    `+3.1415`,  `-3.1415`
+    * Exponent:                      `5e+22`,    `-2E-2`
     * Fractional And Exponent Mixed: `6.196E63`, `-1.54e-003`
-    * Fraction P/Q Of Two Integers: `+3/4`, `-93/16`, `1/8`, `2789/-598`s
+    * Fraction P/Q Of Two Integers:  `+3/4`,     `-93/16`,    `1/8`,   `2789/-598`s
 
 ### 2.6.5.  Date / Time Separators
 

@@ -18,10 +18,10 @@ LCONF-Schema-Definitions are valid LCONF syntax.
 
 There are two supported LCONF-Schema-Formats:
 
-* LCONF_SCHEMA_STRICT_FORMAT: `STRICT` (uses additional constraints: e.g. naming conventions)
-* LCONF_SCHEMA_FLEXIBLE_FORMAT: `FLEXIBLE` (less constraints)
+* LCONF_FORMAT_SCHEMA_STRICT:   `STRICT`   (uses additional constraints: e.g. naming conventions)
+* LCONF_FORMAT_SCHEMA_FLEXIBLE: `FLEXIBLE` (less constraints)
 
-All LCONF-Libraries MUST support the *LCONF_SCHEMA_STRICT_FORMAT* and MAY implement individual *LCONF_SCHEMA_FLEXIBLE_FORMAT*.
+All LCONF-Libraries MUST support the *LCONF_FORMAT_SCHEMA_STRICT* and MAY implement individual *LCONF_FORMAT_SCHEMA_FLEXIBLE*.
 
 All LCONF-Schema-Definition Sections MUST set the used LCONF-Schema-Format in the: LCONF-Section Start Line:
 
@@ -35,7 +35,7 @@ LCONF-Schema-Definition Section-Start-Line MUST
 * followed by one LCONF_SPACE
 * followed by one LCONF_KEY_VALUE_SEPARATOR
 * followed by one LCONF_SPACE
-* followed be a LCONF_SCHEMA_STRICT_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT
+* followed be a LCONF_FORMAT_SCHEMA_STRICT or LCONF_FORMAT_SCHEMA_FLEXIBLE
 * followed by one LCONF_SPACE
 * followed by one LCONF_KEY_VALUE_SEPARATOR
 * followed by one LCONF_SPACE
@@ -49,13 +49,13 @@ ___SECTION :: 4 :: STRICT :: Menu Configuration Schema Definition`
 ___SECTION :: 4 :: FLEXIBLE :: Menu Configuration Schema Definition`
 ```
 
-### 7.1. 1. LCONF_SCHEMA_STRICT_FORMAT
+### 7.1. 1. LCONF_FORMAT_SCHEMA_STRICT
 
 This is the default LCONF-Schema-Format and MUST be supported by all LCONF-Libraries.
 
 **Naming Convention**
 
-A LCONF_SCHEMA_STRICT_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+A LCONF_FORMAT_SCHEMA_STRICT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
 LCONF-Key-Names):
 
 MUST be a sequence of one or more (but maximum thirty-one '31') characters of these groups:
@@ -71,13 +71,13 @@ Additionally constraints:
 * The name SHOULD NOT be one of LCONF's Literal Name Tokens
 * The name SHOULD NOT be one of common reserved programming words
 
-### 7.1.2. LCONF_SCHEMA_FLEXIBLE_FORMAT
+### 7.1.2. LCONF_FORMAT_SCHEMA_FLEXIBLE
 
 This LCONF-Schema-Format has fewer constraints but MAY NOT be supported by all LCONF-Libraries.
 
 **Naming Convention**
 
-A LCONF_SCHEMA_FLEXIBLE_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+A LCONF_FORMAT_SCHEMA_FLEXIBLE LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
 LCONF-Key-Names) is a sequence of one or more Unicode characters and is case-sensitive. It MUST NOT contain any
 LCONF_VERTICAL_LINE `|`.
 
@@ -621,8 +621,8 @@ Example default output: **The output format is not defined and are here just as 
 
 ## 7.6. LCONF-Libraries Schema Requirements
 
-* All LCONF-Libraries MUST support the *LCONF_SCHEMA_STRICT_FORMAT* and MAY implement individual
-    *LCONF_SCHEMA_FLEXIBLE_FORMAT*.
+* All LCONF-Libraries MUST support the *LCONF_FORMAT_SCHEMA_STRICT* and MAY implement individual
+    *LCONF_FORMAT_SCHEMA_FLEXIBLE*.
 
 * LCONF-Libraries SHOULD implement an option to generate optimized copy/past source code from a parsed LCONF_SCHEMA and
     to emit it which removes the need of parsing each time the LCONF_SCHEMA.

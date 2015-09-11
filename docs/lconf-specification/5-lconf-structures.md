@@ -469,15 +469,15 @@ LCONF-Block-Item-Lines.
 
 ```text
 ___SECTION :: 4 :: LCONF :: SectionName
-* RepeatedBlock_Identifier_name
+* STRUCTURE_NAMED_BLOCKS_IDENTIFIER_name
     # Comment: Named STRUCTURE_SINGLE_BLOCK
     . single_block_item3_key1
         single_block_item1_key :: single_block_item1_value
     . single_block_item3_key2
         single_block_item1_key :: single_block_item1_value
-# Comment: below a permitted empty `Repeated-Block-Identifier` which will use the default value
+# Comment: below a permitted empty `STRUCTURE_NAMED_BLOCKS_IDENTIFIER` which will use the default value
 #          which is always an empty collection.
-* RepeatedBlock_2
+* RepeatedBlocks_2
 ___END
 ```
 
@@ -495,7 +495,7 @@ of a previous named STRUCTURE_SINGLE_BLOCK to a new named STRUCTURE_SINGLE_BLOCK
 Example of a LCONF_SINGLE_BLOCK_REUSE.
 
 ```text
-* RepeatedBlock
+* RepeatedBlocks
     . STRUCTURE_SINGLE_BLOCK_Key_Name_1
         FirstName :: Mary
         LastName :: Jackson
@@ -531,7 +531,7 @@ An STRUCTURE_UNNAMED_BLOCKS MUST use as STRUCTURE_SINGLE_BLOCK-Identifier-Line:
 * **only a STRUCTURE_SINGLE_BLOCK-Identifier**
 
 ```text
-* RepeatedBlock
+* RepeatedBlocks
     .
         FirstName :: Mary
     .
@@ -587,7 +587,7 @@ LCONF-Block-Item-Lines.
 
 ```text
 ___SECTION :: 4 :: LCONF :: SectionName
-* RepeatedBlock_Identifier_name
+* STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER_name
     # Comment: UnNamed STRUCTURE_SINGLE_BLOCK
     .
         single_block_item1_key :: single_block_item1_value
@@ -595,6 +595,6 @@ ___SECTION :: 4 :: LCONF :: SectionName
         single_block_item1_key :: single_block_item1_value
 # Comment: below a permitted empty `STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER-Line` which will use the default value
 #          which is always an empty collection.
-* RepeatedBlock_2
+* RepeatedBlocks_2
 ___END
 ```
