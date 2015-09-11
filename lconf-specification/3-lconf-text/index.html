@@ -248,6 +248,10 @@ defined purpose. Each LCONF_SECTION_START token MUST be closed by a LCONF_SECTIO
 </tr>
 </tbody>
 </table>
+<ul>
+<li>STRUCTURE_BLOCKS_IDENTIFIER: LCONF_ASTERISK common indentifier for STRUCTURE_NAMED_BLOCKS_IDENTIFIER and
+    STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</li>
+</ul>
 <h2 id="311-optional-structural-tokens">3.1.1 Optional Structural Tokens</h2>
 <p>LCONF-Schema-Definitions uses optional constrain structural tokens:</p>
 <table>
@@ -298,17 +302,17 @@ defined purpose. Each LCONF_SECTION_START token MUST be closed by a LCONF_SECTIO
 <td align="left"><code>___END</code></td>
 </tr>
 <tr>
-<td align="left">LCONF_SECTION_FORMAT</td>
+<td align="left">LCONF_FORMAT_LCONF</td>
 <td align="left">U+004C U+0043 U+004F U+004E U+0046</td>
 <td align="left"><code>LCONF</code></td>
 </tr>
 <tr>
-<td align="left">LCONF_SCHEMA_FLEXIBLE_FORMAT</td>
+<td align="left">LCONF_FORMAT_SCHEMA_FLEXIBLE</td>
 <td align="left">U+004C U+0043 U+004F U+004E U+0046 U+0053 U+0044</td>
 <td align="left"><code>STRICT</code></td>
 </tr>
 <tr>
-<td align="left">LCONF_SCHEMA_STRICT_FORMAT</td>
+<td align="left">LCONF_FORMAT_SCHEMA_STRICT</td>
 <td align="left">U+004C U+0043 U+004F U+004E U+0046 U+0053 U+0044 U+005F U+0053 U+0054 U+0052 U+0049 U+0043 U+0054</td>
 <td align="left"><code>FLEXIBLE</code></td>
 </tr>

@@ -88,7 +88,7 @@ A short summary of the most important changes (see *History* below for the early
 9. Build metadata MAY be denoted by appending a plus sign and a series of dot separated identifiers immediately
     following the patch version. Identifiers MUST comprise only ASCII alphanumerics [0-9A-Za-z] and MUST NOT contain
     hyphen. Identifiers MUST NOT be empty. Build metadata SHOULD be ignored when determining version precedence. Thus
-    two versions that differ only in the build metadata, have the same precedence.  <br />
+    two versions that differ only in the build metadata, have the same precedence. <br />
     Examples: 1.0.0+001, 1.0.0+20130313144700, 1.0.0+exp.sha.5114f85, 1.0.7+r128.g4560914.
 
 * What do I do if I accidentally release a backwards incompatible change as a minor version?

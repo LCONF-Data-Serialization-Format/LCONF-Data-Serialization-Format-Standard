@@ -183,10 +183,10 @@ LCONF-Schema-Definitions are valid LCONF syntax.</p>
 <h2 id="71-lconf-schema-formats">7.1. LCONF-Schema-Formats</h2>
 <p>There are two supported LCONF-Schema-Formats:</p>
 <ul>
-<li>LCONF_SCHEMA_STRICT_FORMAT: <code>STRICT</code> (uses additional constraints: e.g. naming conventions)</li>
-<li>LCONF_SCHEMA_FLEXIBLE_FORMAT: <code>FLEXIBLE</code> (less constraints)</li>
+<li>LCONF_FORMAT_SCHEMA_STRICT:   <code>STRICT</code>   (uses additional constraints: e.g. naming conventions)</li>
+<li>LCONF_FORMAT_SCHEMA_FLEXIBLE: <code>FLEXIBLE</code> (less constraints)</li>
 </ul>
-<p>All LCONF-Libraries MUST support the <em>LCONF_SCHEMA_STRICT_FORMAT</em> and MAY implement individual <em>LCONF_SCHEMA_FLEXIBLE_FORMAT</em>.</p>
+<p>All LCONF-Libraries MUST support the <em>LCONF_FORMAT_SCHEMA_STRICT</em> and MAY implement individual <em>LCONF_FORMAT_SCHEMA_FLEXIBLE</em>.</p>
 <p>All LCONF-Schema-Definition Sections MUST set the used LCONF-Schema-Format in the: LCONF-Section Start Line:</p>
 <p>LCONF-Schema-Definition Section-Start-Line MUST</p>
 <ul>
@@ -198,7 +198,7 @@ LCONF-Schema-Definitions are valid LCONF syntax.</p>
 <li>followed by one LCONF_SPACE</li>
 <li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
 <li>followed by one LCONF_SPACE</li>
-<li>followed be a LCONF_SCHEMA_STRICT_FORMAT or LCONF_SCHEMA_FLEXIBLE_FORMAT</li>
+<li>followed be a LCONF_FORMAT_SCHEMA_STRICT or LCONF_FORMAT_SCHEMA_FLEXIBLE</li>
 <li>followed by one LCONF_SPACE</li>
 <li>followed by one LCONF_KEY_VALUE_SEPARATOR</li>
 <li>followed by one LCONF_SPACE</li>
@@ -210,10 +210,10 @@ LCONF-Schema-Definitions are valid LCONF syntax.</p>
 <pre><code class="text">___SECTION :: 4 :: FLEXIBLE :: Menu Configuration Schema Definition`
 </code></pre>
 
-<h3 id="71-1-lconf_schema_strict_format">7.1. 1. LCONF_SCHEMA_STRICT_FORMAT</h3>
+<h3 id="71-1-lconf_format_schema_strict">7.1. 1. LCONF_FORMAT_SCHEMA_STRICT</h3>
 <p>This is the default LCONF-Schema-Format and MUST be supported by all LCONF-Libraries.</p>
 <p><strong>Naming Convention</strong></p>
-<p>A LCONF_SCHEMA_STRICT_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+<p>A LCONF_FORMAT_SCHEMA_STRICT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
 LCONF-Key-Names):</p>
 <p>MUST be a sequence of one or more (but maximum thirty-one '31') characters of these groups:</p>
 <ul>
@@ -228,10 +228,10 @@ LCONF-Key-Names):</p>
 <li>The name SHOULD NOT be one of LCONF's Literal Name Tokens</li>
 <li>The name SHOULD NOT be one of common reserved programming words</li>
 </ul>
-<h3 id="712-lconf_schema_flexible_format">7.1.2. LCONF_SCHEMA_FLEXIBLE_FORMAT</h3>
+<h3 id="712-lconf_format_schema_flexible">7.1.2. LCONF_FORMAT_SCHEMA_FLEXIBLE</h3>
 <p>This LCONF-Schema-Format has fewer constraints but MAY NOT be supported by all LCONF-Libraries.</p>
 <p><strong>Naming Convention</strong></p>
-<p>A LCONF_SCHEMA_FLEXIBLE_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+<p>A LCONF_FORMAT_SCHEMA_FLEXIBLE LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
 LCONF-Key-Names) is a sequence of one or more Unicode characters and is case-sensitive. It MUST NOT contain any
 LCONF_VERTICAL_LINE <code>|</code>.</p>
 <h2 id="72-schema-identifier-line">7.2. Schema: <em>IDENTIFIER</em> Line</h2>
@@ -726,8 +726,8 @@ interest_rate :: NOTSET
 <h2 id="76-lconf-libraries-schema-requirements">7.6. LCONF-Libraries Schema Requirements</h2>
 <ul>
 <li>
-<p>All LCONF-Libraries MUST support the <em>LCONF_SCHEMA_STRICT_FORMAT</em> and MAY implement individual
-    <em>LCONF_SCHEMA_FLEXIBLE_FORMAT</em>.</p>
+<p>All LCONF-Libraries MUST support the <em>LCONF_FORMAT_SCHEMA_STRICT</em> and MAY implement individual
+    <em>LCONF_FORMAT_SCHEMA_FLEXIBLE</em>.</p>
 </li>
 <li>
 <p>LCONF-Libraries SHOULD implement an option to generate optimized copy/past source code from a parsed LCONF_SCHEMA and

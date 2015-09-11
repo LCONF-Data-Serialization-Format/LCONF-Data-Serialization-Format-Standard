@@ -410,12 +410,12 @@ ___END
 <h3 id="121-indentation">1.2.1. Indentation</h3>
 <p>The indentation per Indentation-Level MUST be minimum 2 and maximum 8 spaces and MUST be specified in the
 LCONF-Section-Start-Line.</p>
-<h3 id="122-lconf_section_format">1.2.2. LCONF_SECTION_FORMAT</h3>
+<h3 id="122-lconf-section-formats">1.2.2. LCONF Section Formats</h3>
 <p>LCONF uses LCONF-Schema-Definitions to descripe the structure and default content of a LCONF-Section.
 In the LCONF-Section-Start-Line it MUST be specified if the LCONF-Section is a:</p>
 <ul>
-<li><code>LCONF</code>: a regular LCONF-Section with data.</li>
-<li><code>STRICT</code>: a special LCONF-Section which contains only LCONF-Schema-Definitions.</li>
+<li><code>LCONF</code>:    a regular LCONF-Section with data.</li>
+<li><code>STRICT</code>:   a special LCONF-Section which contains only LCONF-Schema-Definitions.</li>
 <li><code>FLEXIBLE</code>: a special LCONF-Section which contains only LCONF-Schema-Definitions.</li>
 </ul>
 <p>Examples</p>
@@ -442,15 +442,15 @@ ___END
 
 <h3 id="123-literal-name-tokens">1.2.3. Literal Name Tokens</h3>
 <ul>
-<li>LCONF_SECTION_START:  <code>___SECTION</code></li>
-<li>LCONF_SECTION_END: <code>___END</code></li>
-<li>LCONF_SECTION_FORMAT:  <code>LCONF</code></li>
-<li>LCONF_SCHEMA_STRICT_FORMAT: <code>STRICT</code></li>
-<li>LCONF_SCHEMA_FLEXIBLE_FORMAT: <code>FLEXIBLE</code></li>
-<li>LCONF_TRUE: <code>true</code></li>
-<li>LCONF_FALSE: <code>false</code></li>
-<li>LCONF_NOTSET: <code>NOTSET</code></li>
-<li>LCONF_FORCE: <code>FORCE</code></li>
+<li>LCONF_SECTION_START:          <code>___SECTION</code></li>
+<li>LCONF_SECTION_END:            <code>___END</code></li>
+<li>LCONF_FORMAT_LCONF:           <code>LCONF</code></li>
+<li>LCONF_FORMAT_SCHEMA_STRICT:   <code>STRICT</code></li>
+<li>LCONF_FORMAT_SCHEMA_FLEXIBLE: <code>FLEXIBLE</code></li>
+<li>LCONF_TRUE:                   <code>true</code></li>
+<li>LCONF_FALSE:                  <code>false</code></li>
+<li>LCONF_NOTSET:                 <code>NOTSET</code></li>
+<li>LCONF_FORCE:                  <code>FORCE</code></li>
 </ul>
 <pre><code class="text">___SECTION :: 4 :: LCONF :: Example Literal Name Tokens
 registered :: true
@@ -540,8 +540,8 @@ ___END
 <li>
 <p><strong>String</strong></p>
 <ul>
-<li>TYPE_STRING: A sequence of zero or more Unicode characters.</li>
-<li>TYPE_DIGITS: A TYPE_STRING constraint to only LCONF_DIGITS. <code>0-9</code></li>
+<li>TYPE_STRING:         A sequence of zero or more Unicode characters.</li>
+<li>TYPE_DIGITS:         A TYPE_STRING constraint to only LCONF_DIGITS. <code>0-9</code></li>
 <li>TYPE_PATTERN_DIGITS: A TYPE_STRING constraint to a pattern where only the individual LCONF_DIGITS MAY change.
     <code>@@@-@@-@@@@</code>  could be used as pattern for <code>123-55-6678</code>.</li>
 </ul>
@@ -581,31 +581,31 @@ ___END
 <p><strong>Date &amp; Time</strong></p>
 <ul>
 <li>
-<p>TYPE_MONTH: <code>YYYY-MM</code> e.g.: <code>1945-03</code></p>
+<p>TYPE_MONTH:                <code>YYYY-MM</code> e.g.: <code>1945-03</code></p>
 </li>
 <li>
-<p>TYPE_DAY: <code>YYYY-MM-DD</code> e.g. <code>2014-11-15</code></p>
+<p>TYPE_DAY:                  <code>YYYY-MM-DD</code> e.g. <code>2014-11-15</code></p>
 </li>
 <li>
-<p>TYPE_MINUTE: <code>hh:mm</code> e.g: <code>12:30</code></p>
+<p>TYPE_MINUTE:               <code>hh:mm</code> e.g: <code>12:30</code></p>
 </li>
 <li>
-<p>TYPE_SECOND: <code>hh:mm:ss</code> e.g: <code>02:30:42</code></p>
+<p>TYPE_SECOND:               <code>hh:mm:ss</code> e.g: <code>02:30:42</code></p>
 </li>
 <li>
-<p>TYPE_SECOND_FRACTION: <code>hh:mm:ss.fff</code> e.g: <code>12:30:59.001</code>, <code>04:02:00.000156</code>, <code>18:53:16.1</code></p>
+<p>TYPE_SECOND_FRACTION:      <code>hh:mm:ss.fff</code> e.g: <code>12:30:59.001</code>, <code>04:02:00.000156</code>, <code>18:53:16.1</code></p>
 </li>
 <li>
-<p>TYPE_DAY_MINUTE1: <code>YYYY-MM-DD hh:mm</code> e.g: <code>2013-07-01 12:30</code></p>
+<p>TYPE_DAY_MINUTE1:          <code>YYYY-MM-DD hh:mm</code> e.g: <code>2013-07-01 12:30</code></p>
 </li>
 <li>
-<p>TYPE_DAY_MINUTE2: <code>YYYY-MM-DDThh:mm</code> e.g: <code>2013-07-01T12:30</code></p>
+<p>TYPE_DAY_MINUTE2:          <code>YYYY-MM-DDThh:mm</code> e.g: <code>2013-07-01T12:30</code></p>
 </li>
 <li>
-<p>TYPE_DAY_SECOND1: <code>YYYY-MM-DD hh:mm:ss</code> e.g: <code>2013-07-01 12:30:59</code></p>
+<p>TYPE_DAY_SECOND1:          <code>YYYY-MM-DD hh:mm:ss</code> e.g: <code>2013-07-01 12:30:59</code></p>
 </li>
 <li>
-<p>TYPE_DAY_SECOND2: <code>YYYY-MM-DDThh:mm:ss</code> e.g: <code>2013-07-01T12:30:59</code></p>
+<p>TYPE_DAY_SECOND2:          <code>YYYY-MM-DDThh:mm:ss</code> e.g: <code>2013-07-01T12:30:59</code></p>
 </li>
 <li>
 <p>TYPE_DAY_SECOND_FRACTION1: <code>YYYY-MM-DD hh:mm:ss.fff</code> e.g: <code>2013-07-01 04:02:00.000156</code></p>
@@ -746,7 +746,13 @@ in values.</p>
     <code>STRUCTURE_TABLE_VALUE_SEPARATOR</code>.</li>
 <li>LCONF_MINUS <code>-</code> is reserved only for <code>STRUCTURE_LIST_IDENTIFIER</code>.</li>
 <li>LCONF_PERIOD <code>.</code> is reserved only for <code>STRUCTURE_SINGLE_BLOCK_IDENTIFIER</code>.</li>
-<li>LCONF_ASTERISK <code>*</code> is reserved only for <code>STRUCTURE_NAMED_BLOCKS_IDENTIFIER</code> &amp; <code>STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</code>.</li>
+<li>
+<p>LCONF_ASTERISK <code>*</code> is reserved only for <code>STRUCTURE_BLOCKS_IDENTIFIER</code>.</p>
+<ul>
+<li>STRUCTURE_BLOCKS_IDENTIFIER: LCONF_ASTERISK common indentifier for STRUCTURE_NAMED_BLOCKS_IDENTIFIER and
+    STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</li>
+</ul>
+</li>
 </ul>
 <h4 id="1262-unique-lconf-key-names">1.2.6.2. Unique LCONF-Key-Names</h4>
 <ul>
@@ -768,8 +774,8 @@ in values.</p>
 </li>
 </ul>
 <h4 id="1263-lconf-key-names">1.2.6.3. LCONF-Key-Names</h4>
-<p>The default LCONF_SCHEMA_STRICT_FORMAT <code>STRICT</code> adds some contraints to LCONF-Key-Names.</p>
-<p>A LCONF_SCHEMA_STRICT_FORMAT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
+<p>The default LCONF_FORMAT_SCHEMA_STRICT <code>STRICT</code> adds some contraints to LCONF-Key-Names.</p>
+<p>A LCONF_FORMAT_SCHEMA_STRICT LCONF-Key-Name (STRUCTURE_TABLE's LCONF-Column-Name are also considered to be
 LCONF-Key-Names):</p>
 <p>MUST be a sequence of one or more (but maximum thirty-one '31') characters of these groups:</p>
 <ul>

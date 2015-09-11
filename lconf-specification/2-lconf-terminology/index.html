@@ -359,17 +359,17 @@
 <td align="left"><code>___END</code></td>
 </tr>
 <tr>
-<td align="left">LCONF_SECTION_FORMAT</td>
+<td align="left">LCONF_FORMAT_LCONF</td>
 <td align="left">U+004C U+0043 U+004F U+004E U+0046</td>
 <td align="left"><code>LCONF</code></td>
 </tr>
 <tr>
-<td align="left">LCONF_SCHEMA_STRICT_FORMAT</td>
+<td align="left">LCONF_FORMAT_SCHEMA_STRICT</td>
 <td align="left">U+0053 U+0054 U+0052 U+0049 U+0043 U+0054</td>
 <td align="left"><code>STRICT</code></td>
 </tr>
 <tr>
-<td align="left">LCONF_SCHEMA_FLEXIBLE_FORMAT</td>
+<td align="left">LCONF_FORMAT_SCHEMA_FLEXIBLE</td>
 <td align="left">U+0046 U+004C U+0045 U+0058 U+0049 U+0042 U+004C U+0045</td>
 <td align="left"><code>FLEXIBLE</code></td>
 </tr>
@@ -397,8 +397,8 @@
 </table>
 <ul>
 <li><code>___SECTION</code> is a reserved LCONF character sequence.</li>
-<li><code>___END</code> is a reserved LCONF character sequence.</li>
-<li><code>NOTSET</code> is a reserved LCONF character sequence.</li>
+<li><code>___END</code>     is a reserved LCONF character sequence.</li>
+<li><code>NOTSET</code>     is a reserved LCONF character sequence.</li>
 </ul>
 <h2 id="23-lconf-structures">2.3. LCONF Structures</h2>
 <table>
@@ -507,6 +507,10 @@
 </tr>
 </tbody>
 </table>
+<ul>
+<li>STRUCTURE_BLOCKS_IDENTIFIER: LCONF_ASTERISK common indentifier for STRUCTURE_NAMED_BLOCKS_IDENTIFIER and
+    STRUCTURE_UNNAMED_BLOCKS_IDENTIFIER</li>
+</ul>
 <h3 id="241-optional-structural-tokens">2.4.1. Optional Structural Tokens</h3>
 <p>LCONF-Schema-Definitions uses optional constrain structural tokens:</p>
 <table>
@@ -672,10 +676,10 @@
 <li>
 <p>TYPE_FLOAT: supports four different notations.</p>
 <ul>
-<li>Fractional: <code>+3.1415</code>, <code>-3.1415</code></li>
-<li>Exponent: <code>5e+22</code>, <code>-2E-2</code></li>
+<li>Fractional:                    <code>+3.1415</code>,  <code>-3.1415</code></li>
+<li>Exponent:                      <code>5e+22</code>,    <code>-2E-2</code></li>
 <li>Fractional And Exponent Mixed: <code>6.196E63</code>, <code>-1.54e-003</code></li>
-<li>Fraction P/Q Of Two Integers: <code>+3/4</code>, <code>-93/16</code>, <code>1/8</code>, <code>2789/-598</code>s</li>
+<li>Fraction P/Q Of Two Integers:  <code>+3/4</code>,     <code>-93/16</code>,    <code>1/8</code>,   <code>2789/-598</code>s</li>
 </ul>
 </li>
 </ul>
