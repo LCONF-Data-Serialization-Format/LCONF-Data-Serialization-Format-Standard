@@ -179,7 +179,8 @@
 <h1 id="7-lconf-schema-definitions">7. LCONF-Schema-Definitions</h1>
 <p>LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
 structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
-LCONF-Schema-Definitions are valid LCONF syntax.</p>
+<em>LCONF-Schema-Definitions are valid LCONF syntax</em> with the exception that LCONF-Schema-Identifier-Lines (which are
+STRUCTURE_SINGLE_BLOCKs) consists of additional info split by a LCONF_SCHEMA_SEPARATOR (LCONF_VERTICAL_LINE).</p>
 <h2 id="71-lconf-schema-formats">7.1. LCONF-Schema-Formats</h2>
 <p>There are two supported LCONF-Schema-Formats:</p>
 <ul>
@@ -617,8 +618,8 @@ format of:</p>
         number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (&gt;0,&lt;100)
 
     | DEFAULT
-        # food          | sport          | color  | number |
-        # ------------- | -------------- | ------ | ------ |
+        / food          | sport          | color  | number |
+        / ------------- | -------------- | ------ | ------ |
         | Stroganoff    | figure skating | violet | 0.0    |
         | Rice          | ballet         | orange | NOTSET |
         | French fries  |                |        |        |
@@ -675,8 +676,8 @@ interest_rate :: NOTSET
         number   | NOTSET  | 0                 | OPTIONAL           | TYPE_INTEGER (&gt;0,&lt;100)
 
     | DEFAULT
-        # food          | sport          | color  | number |
-        # ------------- | -------------- | ------ | ------ |
+        / food          | sport          | color  | number |
+        / ------------- | -------------- | ------ | ------ |
         | Stroganoff    | figure skating | violet | 0.0    |
         | Rice          | ballet         | orange | NOTSET |
         | French fries  |                |        |        |

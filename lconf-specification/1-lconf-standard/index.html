@@ -219,7 +219,8 @@ writeable format.</p>
 well as for other common use cases such as data exchange and lightweight structural data storage.</p>
 <p>LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
 structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
-LCONF-Schema-Definitions are valid LCONF syntax.</p>
+<em>LCONF-Schema-Definitions are valid LCONF syntax</em> with the exception that LCONF-Schema-Identifier-Lines (which are
+STRUCTURE_SINGLE_BLOCKs) consists of additional info split by a LCONF_SCHEMA_SEPARATOR (LCONF_VERTICAL_LINE).</p>
 <h2 id="11-lconf-preview">1.1. LCONF Preview</h2>
 <p>This section provides a quick preview into LCONF. It is not expected that the first-time reader understand all
 of the examples but should be seen as motivation for the remainder of the specification.</p>
@@ -793,7 +794,8 @@ LCONF-Key-Names):</p>
 <h3 id="127-lconf-schema-definitions">1.2.7. LCONF-Schema-Definitions</h3>
 <p>LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
 structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
-LCONF-Schema-Definitions are valid LCONF syntax.</p>
+<em>LCONF-Schema-Definitions are valid LCONF syntax</em> with the exception that LCONF-Schema-Identifier-Lines (which are
+STRUCTURE_SINGLE_BLOCKs) consists of additional info split by a LCONF_SCHEMA_SEPARATOR (LCONF_VERTICAL_LINE).</p>
 <h3 id="1271-full-length-example-invoice">1.2.7.1. Full Length Example (Invoice)</h3>
 <p>A example LCONF-Schema for the: Full Length Example (Invoice)</p>
 <pre><code class="text">___SECTION :: 4 :: STRICT :: Schema: Full Length Example (Invoice)
