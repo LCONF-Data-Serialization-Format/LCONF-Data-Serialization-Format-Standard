@@ -70,8 +70,8 @@ A collection of most LCONF terms and base definitions used in the
 | **Name**                 | **Definition**                                                              |
 |:-------------------------|:----------------------------------------------------------------------------|
 | STRUCTURE_PAIR           | Associates a LCONF-Key-Name with one data value.                            |
-| STRUCTURE_TABLE          | Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).   |
 | STRUCTURE_LIST           | Associates a LCONF-Key-Name with an ordered sequence (list) of data values. |
+| STRUCTURE_TABLE          | Associates a LCONF-Key-Name with ordered tabular-data (columns and rows).   |
 | STRUCTURE_SINGLE_BLOCK   | A collection of any of the six LCONF-Structures.                            |
 | STRUCTURE_NAMED_BLOCKS   | A collection of repeated named STRUCTURE_SINGLE_BLOCKs.                     |
 | STRUCTURE_UNNAMED_BLOCKS | A collection of repeated unnamed STRUCTURE_SINGLE_BLOCKs.                   |
