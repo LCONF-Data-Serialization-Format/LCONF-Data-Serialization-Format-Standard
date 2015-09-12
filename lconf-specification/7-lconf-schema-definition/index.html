@@ -291,7 +291,8 @@ LCONF_VERTICAL_LINE <code>|</code>.</p>
 <li>start with a LCONF_LEFT_PARENTHESIS</li>
 <li>followed by a <em>LCONF-Constrain-Min</em>: TYPE_INTEGER greater than zero (0)</li>
 <li>followed by a LCONF_COMMA</li>
-<li>followed by a <em>LCONF-Constrain-Max</em>: TYPE_INTEGER greater than zero (0)</li>
+<li>followed by a <em>LCONF-Constrain-Max</em>: TYPE_INTEGER greater than zero (0)
+    and MUST NOT be less than LCONF-Constrain-Min</li>
 <li>followed by a LCONF_RIGHT_PARENTHESIS</li>
 </ul>
 <p>IMPORTANT: To not define one of the two constraints set it to TYPE_NOTSET (LCONF_NOTSET).</p>
