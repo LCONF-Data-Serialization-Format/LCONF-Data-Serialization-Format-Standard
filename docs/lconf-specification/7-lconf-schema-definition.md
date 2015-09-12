@@ -147,6 +147,7 @@ A LCONF-Constrain-Min-Max MUST:
 * followed by a *LCONF-Constrain-Min*: TYPE_INTEGER greater than zero (0)
 * followed by a LCONF_COMMA
 * followed by a *LCONF-Constrain-Max*: TYPE_INTEGER greater than zero (0)
+    and MUST NOT be less than LCONF-Constrain-Min
 * followed by a LCONF_RIGHT_PARENTHESIS
 
 IMPORTANT: To not define one of the two constraints set it to TYPE_NOTSET (LCONF_NOTSET).
