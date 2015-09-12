@@ -115,6 +115,9 @@ LCONF-Schema-Definitions uses optional constrain structural tokens:
 
 **NOTE:** LCONF-Schema-Definitions MAY add additional constraints to LCONF-Key-Names.
 
+**EXCEPTION:** LCONF-Schema-Identifier-Lines (which are STRUCTURE_SINGLE_BLOCKs) consists of additional info split by a
+LCONF_SCHEMA_SEPARATOR (LCONF_VERTICAL_LINE).
+
 ## 2.6. LCONF Value Types
 
 ### 2.6.1. NOTSET

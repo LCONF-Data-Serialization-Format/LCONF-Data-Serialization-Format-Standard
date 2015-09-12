@@ -12,7 +12,8 @@
 
 LCONF uses LCONF-Schema-Definitions to descripe the structure and default content as well as any constraints on the
 structure and content of a LCONF-Section, above and beyond the basic syntactical constraints imposed by LCONF itself.
-LCONF-Schema-Definitions are valid LCONF syntax.
+*LCONF-Schema-Definitions are valid LCONF syntax* with the exception that LCONF-Schema-Identifier-Lines (which are
+STRUCTURE_SINGLE_BLOCKs) consists of additional info split by a LCONF_SCHEMA_SEPARATOR (LCONF_VERTICAL_LINE).
 
 ## 7.1. LCONF-Schema-Formats
 
