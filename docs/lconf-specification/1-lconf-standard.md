@@ -651,7 +651,7 @@ STRUCTURE_SINGLE_BLOCKs) consists of additional info split by a LCONF_SCHEMA_SEP
 
 ### 1.2.7.1. Full Length Example (Invoice)
 
-A example LCONF-Schema for the: Full Length Example (Invoice)
+An example LCONF-Schema for the: Full Length Example (Invoice)
 
 ```text
 ___SECTION :: 4 :: STRICT :: Schema: Full Length Example (Invoice)
